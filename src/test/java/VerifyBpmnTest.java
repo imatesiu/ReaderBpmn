@@ -24,8 +24,27 @@ try {
 			Bpmn bpmn = new Bpmn(file);
 			
 			Collection<BPMNDiagram> BPMNdiagrams = 	bpmn.BpmnextractDiagram();
+			System.out.println("Number of Process: "+BPMNdiagrams.size());
 			for(BPMNDiagram bpmnd : BPMNdiagrams){
-			System.out.println(bpmnd);
+				int numActivities =bpmnd.getActivities().size();
+				System.out.println("Number of Activities: "+numActivities);
+				int numEvents = bpmnd.getEvents().size();
+				System.out.println("Number of Events: "+numEvents);
+				int numGateways =bpmnd.getGateways().size();
+				System.out.println("Number of Gateways: "+numGateways);
+				int numSubProcesses =bpmnd.getSubProcesses().size();
+				System.out.println("Number of SubProcesses: "+numSubProcesses);
+				int numPools =bpmnd.getPools().size();
+				
+				System.out.println("Number of Pools: "+numPools);
+				int numDataObjects = bpmnd.getDataObjects().size();
+				System.out.println("Number of DataObjects: "+numDataObjects);
+				
+				
+				int sum = numActivities + numEvents +numGateways;
+				sum +=numPools +numSubProcesses +numDataObjects ;
+				assertTrue("Test PASS!", sum>0);
+				System.out.println();
 			}
 			
 		} catch (Exception e) {
