@@ -8,7 +8,7 @@ import java.util.Set;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
+
 
 //import framework.util.ui.scalableview.VerticalLabelUI;
 import models.graphbased.AttributeMap;
@@ -91,7 +91,7 @@ public class Swimlane extends BPMNNode implements Decorated, ContainingDirectedG
 		label.setForeground(Color.BLACK);
 		label.setSize(new Dimension(labelW, labelH));
 		label.setPreferredSize(new Dimension(labelW, labelH));
-		label.setBorder(new LineBorder(Color.BLACK, 2));
+		label.setBorder(new javax.swing.border.LineBorder(Color.BLACK, 2));
 		label.setVerticalAlignment(SwingConstants.CENTER);
 	//	label.setUI(new VerticalLabelUI(false));
 		label.paint(g2d.create(labelX, labelY, labelW, labelH));
