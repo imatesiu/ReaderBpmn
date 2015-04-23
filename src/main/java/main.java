@@ -1,4 +1,4 @@
-package test;
+
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,7 +9,7 @@ import java.util.Collection;
 import models.graphbased.directed.bpmn.BPMNDiagram;
 import plugins.bpmn.Bpmn;
 
-public class test {
+public class main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
