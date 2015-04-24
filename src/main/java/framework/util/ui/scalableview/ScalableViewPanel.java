@@ -33,8 +33,8 @@ import  models.utils.Pair;
 import framework.util.ui.scalableview.ScalableComponent.UpdateListener;
 import framework.util.ui.scalableview.interaction.ViewInteractionPanel;
 
-import com.fluxicon.slickerbox.factory.SlickerDecorator;
-import com.fluxicon.slickerbox.factory.SlickerFactory;
+//import com.fluxicon.slickerbox.factory.SlickerDecorator;
+//import com.fluxicon.slickerbox.factory.SlickerFactory;
 
 /**
  * Panel for visualizing components.
@@ -83,9 +83,9 @@ public class ScalableViewPanel extends JLayeredPane implements Cleanable, Change
 	 */
 	private Rectangle normalBounds;
 
-	protected SlickerFactory factory;
+//	protected SlickerFactory factory;
 
-	protected SlickerDecorator decorator;
+	//protected SlickerDecorator decorator;
 
 	/**
 	 * Create a panel for visualizing the given view.
@@ -108,8 +108,8 @@ public class ScalableViewPanel extends JLayeredPane implements Cleanable, Change
 		/*
 		 * Get some Slickerbox stuff, required by the Look+Feel of some objects.
 		 */
-		factory = SlickerFactory.instance();
-		decorator = SlickerDecorator.instance();
+	//	factory = SlickerFactory.instance();
+	//	decorator = SlickerDecorator.instance();
 
 		/*
 		 * Create the scroll panel containing the primary view, and register the
@@ -119,7 +119,7 @@ public class ScalableViewPanel extends JLayeredPane implements Cleanable, Change
 		/*
 		 * Adjust Look+Feel of scrollbar to Slicker.
 		 */
-		decorator.decorate(scroll, Color.WHITE, Color.GRAY, Color.DARK_GRAY);
+//		decorator.decorate(scroll, Color.WHITE, Color.GRAY, Color.DARK_GRAY);
 		/*
 		 * Create a dashed border for the primary view.
 		 */
@@ -203,8 +203,8 @@ public class ScalableViewPanel extends JLayeredPane implements Cleanable, Change
 		panel.setScalableComponent(scalable);
 		panel.setParent(this);
 
-		JPanel panelOn = factory.createRoundedPanel(15, Color.LIGHT_GRAY);
-		JPanel panelOff = factory.createRoundedPanel(15, Color.DARK_GRAY);
+		JPanel panelOn = new JPanel();//factory.createRoundedPanel(15, Color.LIGHT_GRAY);
+		JPanel panelOff =  new JPanel();//factory.createRoundedPanel(15, Color.DARK_GRAY);
 		panelOn.setLayout(null);
 		panelOff.setLayout(null);
 
@@ -213,7 +213,7 @@ public class ScalableViewPanel extends JLayeredPane implements Cleanable, Change
 		panelOn.setEnabled(false);
 		panelOff.setVisible(true);
 		panelOff.setEnabled(true);
-		JLabel panelTitle = factory.createLabel(panel.getPanelName());
+		JLabel panelTitle = new JLabel(panel.getPanelName());// factory.createLabel(panel.getPanelName());
 		panelTitle.setHorizontalTextPosition(SwingConstants.CENTER);
 		panelTitle.setVerticalTextPosition(SwingConstants.CENTER);
 		panelTitle.setForeground(Color.WHITE);
@@ -416,7 +416,7 @@ public class ScalableViewPanel extends JLayeredPane implements Cleanable, Change
 	 * @param location
 	 */
 	public void addButton(JLabel label, ActionListener listener, int location) {
-		JButton button = factory.createButton("");
+		JButton button =  new JButton("");//   factory.createButton("");
 		label.setHorizontalTextPosition(SwingConstants.CENTER);
 		label.setVerticalTextPosition(SwingConstants.CENTER);
 		label.setHorizontalAlignment(SwingConstants.CENTER);

@@ -55,8 +55,6 @@
 						</manifest>
 						<manifestEntries>
 							<Class-Path>.</Class-Path>
-							<Class-Path>lib/slickerbox1.0rc1.jar</Class-Path>
-
 						</manifestEntries>
 					</archive>
 				</configuration>
@@ -82,12 +80,26 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>info.clearthought</groupId>
+			<artifactId>table-layout</artifactId>
+			<version>4.2</version>
+		</dependency>
+
+		
+		<dependency>
+			<groupId>org.freehep</groupId>
+			<artifactId>vectorgraphics</artifactId>
+			<version>2.1.1</version>
+			<type>pom</type>
+		</dependency>
 		<dependency>
 			<groupId>org.freehep</groupId>
 			<artifactId>freehep-export</artifactId>
 			<version>2.1.1</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.freehep</groupId>
 			<artifactId>freehep-graphicsio</artifactId>
@@ -129,21 +141,6 @@
 			<artifactId>freehep-graphicsio-tests</artifactId>
 			<version>2.1.1</version>
 		</dependency>
-		<dependency>
-			<groupId>info.clearthought</groupId>
-			<artifactId>table-layout</artifactId>
-			<version>4.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.fluxicon</groupId>
-			<artifactId>slickerbox1.0rc1</artifactId>
-			<version>0rc1</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/slickerbox1.0rc1.jar</systemPath>
-		</dependency>
-
-
 	</dependencies>
 	<repositories>
 		<repository>

@@ -6,14 +6,16 @@ import info.clearthought.layout.TableLayoutConstants;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 import org.freehep.util.export.ExportDialog;
+
 import framework.util.ui.scalableview.ScalableComponent;
 import framework.util.ui.scalableview.ScalableViewPanel;
 
-import com.fluxicon.slickerbox.components.SlickerButton;
+
 
 public class ExportInteractionPanel extends JPanel implements ViewInteractionPanel {
 
@@ -23,13 +25,13 @@ public class ExportInteractionPanel extends JPanel implements ViewInteractionPan
 	private static final long serialVersionUID = 1036741994786060955L;
 	protected final ScalableViewPanel panel;
 	private ScalableComponent scalable;
-	private SlickerButton exportButton;
+	private JButton exportButton;
 
 	public ExportInteractionPanel(ScalableViewPanel panel) {
 		this.panel = panel;
 		double size[][] = { { 10, TableLayoutConstants.FILL, 10 }, { 10, TableLayoutConstants.FILL, 10 } };
 		setLayout(new TableLayout(size));
-		exportButton = new SlickerButton("Export view...");
+		exportButton = new JButton("Export view...");
 		exportButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				export();
