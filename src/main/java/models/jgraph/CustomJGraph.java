@@ -503,17 +503,17 @@ public class CustomJGraph extends JGraph implements GraphModelListener, GraphLay
 	// returns the original origin
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void repositionToOrigin() {
-
-		//		facade.translateCells(facade.getVertices(), 100.0, 100.0);
-		//		facade.translateCells(facade.getEdges(), 100.0, 100.0);
-		//		getGraphLayoutCache().edit(facade.createNestedMap(true, false));
+JGraphFacade facade = new JGraphFacade(this);
+				facade.translateCells(facade.getVertices(), 100.0, 100.0);
+				facade.translateCells(facade.getEdges(), 100.0, 100.0);
+				getGraphLayoutCache().edit(facade.createNestedMap(true, false));
 		/*
 		 * Second, pull everything back to (2,2). Works like a charm, even when
 		 * a hack...
 		 */
 		//TODO Doesn't correctly handle collapsed nodes.
 
-		JGraphFacade facade = new JGraphFacade(this);
+		
 		facade.setIgnoresHiddenCells(true);
 		facade.setIgnoresCellsInGroups(false);
 		facade.setIgnoresUnconnectedCells(false);
