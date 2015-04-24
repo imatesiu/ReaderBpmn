@@ -90,7 +90,7 @@ public class main {
 			 JFrame f = new JFrame();
 			    f.setLayout(new BorderLayout());
 			    f.add(panel, BorderLayout.CENTER);
-			    f.pack();
+			  //  f.pack();
 			    f.setVisible(true);
 			BufferedImage bi = jgraph.getImage(null, 0);
 			ImageIO.write(bi, "JPG", new File("test.jpg"));
