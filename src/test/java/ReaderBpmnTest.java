@@ -10,7 +10,7 @@ import org.junit.Test;
 import plugins.bpmn.Bpmn;
 
 
-public class VerifyBpmnTest {
+public class ReaderBpmnTest {
 
 	@Test
 	public void test() {

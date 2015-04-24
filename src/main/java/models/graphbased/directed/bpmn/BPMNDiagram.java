@@ -5,6 +5,8 @@ import java.util.Set;
 
 import models.graphbased.directed.DirectedGraph;
 import models.graphbased.directed.bpmn.elements.Activity;
+import models.graphbased.directed.bpmn.elements.Artifacts;
+import models.graphbased.directed.bpmn.elements.Artifacts.ArtifactType;
 import models.graphbased.directed.bpmn.elements.Association;
 import models.graphbased.directed.bpmn.elements.CallActivity;
 import models.graphbased.directed.bpmn.elements.DataAssociation;
@@ -14,6 +16,7 @@ import models.graphbased.directed.bpmn.elements.Event.EventTrigger;
 import models.graphbased.directed.bpmn.elements.Event.EventType;
 import models.graphbased.directed.bpmn.elements.Event.EventUse;
 import models.graphbased.directed.bpmn.elements.Flow;
+import models.graphbased.directed.bpmn.elements.FlowAssociation;
 import models.graphbased.directed.bpmn.elements.Gateway;
 import models.graphbased.directed.bpmn.elements.Gateway.GatewayType;
 import models.graphbased.directed.bpmn.elements.MessageFlow;
@@ -21,7 +24,6 @@ import models.graphbased.directed.bpmn.elements.SubProcess;
 import models.graphbased.directed.bpmn.elements.Swimlane;
 import models.graphbased.directed.bpmn.elements.SwimlaneType;
 import models.graphbased.directed.bpmn.elements.TextAnnotation;
-
 import plugins.bpmn.BpmnAssociation.AssociationDirection;
 
 public interface BPMNDiagram extends DirectedGraph<BPMNNode, BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> {
@@ -197,4 +199,24 @@ public interface BPMNDiagram extends DirectedGraph<BPMNNode, BPMNEdge<? extends 
 	Collection<Swimlane> getPools();
 	
 	Collection<Swimlane> getLanes(Swimlane pool);
+	
+	//Artifacts
+		Artifacts addArtifacts(String label, ArtifactType artifactType);
+		
+		Artifacts addArtifacts(String label, ArtifactType artifactType, SubProcess parent);
+		
+		Artifacts addArtifacts(String label, ArtifactType artifactType, Swimlane parentSwimlane);
+
+		Artifacts removeArtifact(Artifacts artifacts);
+
+		Collection<Artifacts> getArtifacts();
+		
+		//FlowAssociation
+		FlowAssociation addFlowAssociation(BPMNNode source, BPMNNode target);
+		
+		FlowAssociation addFlowAssociation(BPMNNode source, BPMNNode target, SubProcess parent);
+		
+		FlowAssociation addFlowAssociation(BPMNNode source, BPMNNode target, Swimlane parentSwimlane);
+
+		Set<FlowAssociation> getFlowAssociation();
 }
