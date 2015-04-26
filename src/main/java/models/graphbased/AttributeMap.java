@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class AttributeMap {
-	private final static String PREFIX = "ProM_Vis_attr_";
+	private final static String PREFIX = "ReaderBPMN_Vis_attr_";
 
 	public enum ArrowType {
 		ARROWTYPE_CLASSIC(PREFIX + "arrow_classic"), ARROWTYPE_TECHNICAL(PREFIX + "arrow_tech"), ARROWTYPE_SIMPLE(

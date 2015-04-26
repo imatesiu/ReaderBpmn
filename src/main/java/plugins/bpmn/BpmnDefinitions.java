@@ -1,6 +1,5 @@
 package plugins.bpmn;
 
-import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.util.Collection;
 import java.util.HashSet;
@@ -10,7 +9,6 @@ import org.jgraph.graph.AbstractCellView;
 import org.jgraph.graph.DefaultGraphCell;
 import models.graphbased.directed.DirectedGraphNode;
 import models.graphbased.directed.bpmn.BPMNDiagram;
-import models.graphbased.directed.bpmn.BPMNEdge;
 import models.graphbased.directed.bpmn.BPMNNode;
 import models.graphbased.directed.bpmn.elements.Association;
 import models.graphbased.directed.bpmn.elements.MessageFlow;
@@ -21,10 +19,8 @@ import models.graphbased.directed.bpmn.elements.TextAnnotation;
 import org.xmlpull.v1.XmlPullParser;
 
 import plugins.bpmn.diagram.BpmnDcBounds;
-import plugins.bpmn.diagram.BpmnDiEdge;
 import plugins.bpmn.diagram.BpmnDiPlane;
 import plugins.bpmn.diagram.BpmnDiShape;
-import plugins.bpmn.diagram.BpmnDiWaypoint;
 import plugins.bpmn.diagram.BpmnDiagram;
 
 public class BpmnDefinitions extends BpmnElement {

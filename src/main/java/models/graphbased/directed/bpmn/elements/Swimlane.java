@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 
-//import framework.util.ui.scalableview.VerticalLabelUI;
+import framework.util.ui.scalableview.VerticalLabelUI;
 import models.graphbased.AttributeMap;
 import models.graphbased.directed.AbstractDirectedGraph;
 import models.graphbased.directed.ContainableDirectedGraphElement;
@@ -21,8 +21,7 @@ import models.shapes.Decorated;
 import models.shapes.Rectangle;
 
 public class Swimlane extends BPMNNode implements Decorated, ContainingDirectedGraphNode {
-	//com.jgraph.layout.hierarchical.JGraphHierarchicalLayout, interHierarchySpacing is decreased from 60 to 5. Thus the space between swimlanes decreawsed.
-	//models.jgraph.renderers.ProMGroupShapeRenderer, Rectangle handle dimensions changed from 0,0,20,20 to 0,0,10,10.
+	
 	protected final static int COLLAPSED_WIDTH = 80;
 	protected final static int COLLAPSED_HEIGHT = 40;
 
@@ -93,7 +92,7 @@ public class Swimlane extends BPMNNode implements Decorated, ContainingDirectedG
 		label.setPreferredSize(new Dimension(labelW, labelH));
 		label.setBorder(new javax.swing.border.LineBorder(Color.BLACK, 2));
 		label.setVerticalAlignment(SwingConstants.CENTER);
-	//	label.setUI(new VerticalLabelUI(false));
+		label.setUI(new VerticalLabelUI(false));
 		label.paint(g2d.create(labelX, labelY, labelW, labelH));
 
 	}
