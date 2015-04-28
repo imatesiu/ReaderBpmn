@@ -35,7 +35,7 @@ public class main {
 
 	public static void main(String[] args) {
 		
-		if(args.length<0){
+		if(args.length<0 || args[0]==null){
 			System.out.println("Non del file non trovato");
 		}else{
 			try {

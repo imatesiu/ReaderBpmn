@@ -10,7 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import org.freehep.util.export.ExportDialog;
+//import org.freehep.util.export.ExportDialog;
+import org.freehep.graphicsbase.util.export.ExportDialog;
 
 import framework.util.ui.scalableview.ScalableComponent;
 import framework.util.ui.scalableview.ScalableViewPanel;
