@@ -4,7 +4,7 @@ Repo for package Reader XML BPMN 2.0
 
 Status project [![Build Status](https://travis-ci.org/imatesiu/ReaderBpmn.svg?branch=master)](https://travis-ci.org/imatesiu/ReaderBpmn)
 
-
+Maven repo [![Maven Release](https://img.shields.io/github/tag/imatesiu/ReaderBpmn.svg?label=maven)](https://jitpack.io/#imatesiu/ReaderBpmn/v0.1)
 
 
 
