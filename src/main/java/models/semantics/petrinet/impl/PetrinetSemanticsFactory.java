@@ -3,7 +3,6 @@ package models.semantics.petrinet.impl;
 
 import models.graphbased.directed.petrinet.Petrinet;
 
-import models.graphbased.directed.petrinet.ResetNet;
 
 import models.semantics.petrinet.PetrinetSemantics;
 

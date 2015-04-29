@@ -4,7 +4,6 @@ package models.graphbased.directed.bpmn.elements;
 
 import java.awt.Graphics2D;
 
-import org.jgraph.graph.GraphConstants;
 import models.graphbased.AttributeMap;
 import models.graphbased.AttributeMap.ArrowType;
 import models.graphbased.directed.bpmn.BPMNEdge;

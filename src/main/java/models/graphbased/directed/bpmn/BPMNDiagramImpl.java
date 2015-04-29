@@ -12,7 +12,7 @@ import java.util.Set;
 
 import javax.swing.SwingConstants;
 
-import models.utils.SubstitutionType;
+
 import models.graphbased.AttributeMap;
 import models.graphbased.directed.AbstractDirectedGraph;
 import models.graphbased.directed.DirectedGraph;
@@ -27,7 +27,7 @@ import plugins.bpmn.BpmnAssociation.AssociationDirection;
 
 // objects of this type should be represented in the framework by the
 // BPMNDiagram interface.
-@SubstitutionType(substitutedType = BPMNDiagram.class)
+
 public class BPMNDiagramImpl extends AbstractDirectedGraph<BPMNNode, BPMNEdge<? extends BPMNNode, ? extends BPMNNode>>
 implements BPMNDiagram {
 

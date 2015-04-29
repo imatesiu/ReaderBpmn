@@ -38,7 +38,7 @@ import framework.util.collection.MultiSet;
 public abstract class AbstractConnection implements Connection {
 
 	private final Map<String, WeakReference<?>> mapping;
-	private static final long serialVersionUID = -9049359040527952685L;
+	//private static final long serialVersionUID = -9049359040527952685L;
 
 	private String label;
 

@@ -3,13 +3,13 @@
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
+
 import java.io.File;
 
 import java.util.Collection;
 import java.util.Map;
 
-import javax.imageio.ImageIO;
+
 import javax.swing.JFrame;
 import javax.swing.SwingConstants;
 
@@ -103,13 +103,13 @@ public class main {
 					f.setSize(640, 480);
 					f.pack();
 					f.setVisible(true);
-					BufferedImage bi = jgraph.getImage(null, 0);
-					ImageIO.write(bi, "JPG", new File("test.jpg"));
+					//BufferedImage bi = jgraph.getImage(null, 0);
+					//ImageIO.write(bi, "JPG", new File("test.jpg"));
 
 				}
 
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 		}

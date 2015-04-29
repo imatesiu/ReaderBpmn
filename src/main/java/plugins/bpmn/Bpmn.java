@@ -3,7 +3,6 @@ package plugins.bpmn;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 
 
@@ -20,7 +19,6 @@ import models.graphbased.directed.bpmn.elements.Swimlane;
 import plugins.bpmn.diagram.BpmnDiagram;
 
 import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 

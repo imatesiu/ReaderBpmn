@@ -69,9 +69,9 @@ public class CustomJGraph extends JGraph implements GraphModelListener, GraphLay
 
 	public static final String PIPVIEWATTRIBUTE = "signalPIPView";
 
-	private static final String Point2D = null;
+//private static final String Point2D = null;
 
-	private static final String POSITION = null;
+	//private static final String POSITION = null;
 
 	private final CustomGraphModel model;
 	private final Map<DirectedGraphNode, CustomGraphCell> nodeMap = new HashMap<DirectedGraphNode, CustomGraphCell>();

@@ -1,5 +1,5 @@
 
-import java.awt.Color;
+
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -16,7 +16,6 @@ import javax.swing.SwingConstants;
 
 import org.apache.batik.dom.*;
 import org.apache.batik.svggen.SVGGraphics2D;
-import org.jgraph.JGraph;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 
@@ -53,7 +52,7 @@ public class maintest {
 				System.out.print(graph.getLabel());
 				
 				File out = new File("test.jpg"); // Replace with your output stream
-				Color bg = null; // Use this to make the background transparent
+				
 				 // Use this to use the graph background
 				CustomJGraph jgraph = newjgraph(graph);
 				
@@ -89,7 +88,7 @@ public class maintest {
 			}
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}

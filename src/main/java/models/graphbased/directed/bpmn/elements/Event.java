@@ -327,12 +327,12 @@ public class Event extends BPMNNode implements Decorated, BoundaryDirectedGraphN
 		this.decorator = decorator;
 	}
 	
-	@Deprecated
+	//@Deprecated
 	public String isInterrupting() {
 		return new Boolean(isInterrupting).toString();
 	}
 	
-	@Deprecated
+	//@Deprecated
 	public void setInterrupting(String isInterrupting) {
 		this.isInterrupting = isInterrupting.equals("false")? false : true;
 	}

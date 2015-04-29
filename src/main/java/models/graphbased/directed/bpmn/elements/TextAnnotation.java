@@ -20,8 +20,8 @@ public class TextAnnotation extends BPMNNode implements Decorated {
 	
 	private final static int stdWidth = 60;
 	private final static int stdHeight = 40;
-	private final static int stdLabelHight = 15;
-	private final static int corner = 10;
+	//private final static int stdLabelHight = 15;
+	//private final static int corner = 10;
 	
 
 	public TextAnnotation(AbstractDirectedGraph<BPMNNode, BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> bpmndiagram,
