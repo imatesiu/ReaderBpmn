@@ -46,7 +46,7 @@ public class main {
 
 				Collection<BPMNDiagram> BPMNdiagrams = 	bpmn.BpmnextractDiagram();
 				for(BPMNDiagram graph : BPMNdiagrams){
-
+					
 					//BPMNDiagram graph = BPMNdiagrams.iterator().next();
 					CustomGraphModel model = new CustomGraphModel(graph);
 					ViewSpecificAttributeMap map =new ViewSpecificAttributeMap();
@@ -105,7 +105,7 @@ public class main {
 					f.setVisible(true);
 					//BufferedImage bi = jgraph.getImage(null, 0);
 					//ImageIO.write(bi, "JPG", new File("test.jpg"));
-
+					
 				}
 
 			} catch (Exception e) {

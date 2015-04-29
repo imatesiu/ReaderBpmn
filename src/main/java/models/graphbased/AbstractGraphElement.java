@@ -17,6 +17,9 @@ public abstract class AbstractGraphElement implements AttributeMapOwner {
 	}
 
 	public String toString() {
+		if(getLabel()==null){
+			return map.get("Original id", "no id");
+		}
 		return getLabel();
 	}
 
