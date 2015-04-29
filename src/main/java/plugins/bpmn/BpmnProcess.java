@@ -59,6 +59,7 @@ public class BpmnProcess extends BpmnIdName {
 		dataObjectsRefs = new HashSet<BpmnDataObjectReference>();
 		textAnnotations = new HashSet<BpmnTextAnnotation>();
 		associations = new HashSet<BpmnAssociation>();
+		laneSets = new ArrayList<BpmnLaneSet>();
 	}
 
 	protected boolean importElements(XmlPullParser xpp, Bpmn bpmn) {
