@@ -1,0 +1,1736 @@
+<?xml version="1.0" encoding="WINDOWS-1252" standalone="yes"?>
+<tns:definitions xmlns:tns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:ns2="http://www.omg.org/spec/DD/20100524/DI" xmlns:ns3="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:ns4="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:yaoqiang="http://bpmn.sourceforge.net" exporter="Yaoqiang BPMN Editor" exporterVersion="4.0" expressionLanguage="http://www.w3.org/1999/XPath" id="eee_1045467100313_135436_1" name="Data" targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://bpmn.sourceforge.net/schemas/BPMN20.xsd">
+  <tns:collaboration id="_17_0_2_a4502ac_1317130758437_897481_12891" isClosed="false" name="ButtafuoriNew">
+    <tns:extensionElements>
+      <yaoqiang:pageFormat height="841.8897637795276" imageableHeight="831.8897637795276" imageableWidth="588.1102362204724" imageableX="5.0" imageableY="5.0" orientation="0" width="598.1102362204724"/>
+      <yaoqiang:page background="#FFFFFF" horizontalCount="2" verticalCount="2"/>
+    </tns:extensionElements>
+    <tns:messageFlow id="_17_0_2_a4502ac_1317132947249_690286_8792" sourceRef="_17_0_2_a4502ac_1317132660440_348820_8162" targetRef="_17_0_2_a4502ac_1317131208895_386922_13389"/>
+    <tns:messageFlow id="_17_0_2_a4502ac_1317132958091_204259_8798" sourceRef="_17_0_2_a4502ac_1317132389943_235396_7917" targetRef="_17_0_2_a4502ac_1317132750986_879558_8222"/>
+    <tns:messageFlow id="_17_0_2_a4502ac_1317132975860_673542_8804" sourceRef="_17_0_2_a4502ac_1317130817155_350363_12949" targetRef="_17_0_2_a4502ac_1317130889742_19830_13000"/>
+    <tns:messageFlow id="_17_0_2_a4502ac_1317132987388_92215_8810" sourceRef="_17_0_2_a4502ac_1317130817155_350363_12949" targetRef="_17_0_2_a4502ac_1317132865381_529007_8627"/>
+    <tns:messageFlow id="_17_0_2_a4502ac_1317133018308_820406_8819" sourceRef="_17_0_2_a4502ac_1317130915935_547562_13026" targetRef="_17_0_2_a4502ac_1317130931145_832584_13048"/>
+    <tns:messageFlow id="_17_0_2_a4502ac_1317133042581_909069_8824" sourceRef="_17_0_2_a4502ac_1317131050594_739661_13165" targetRef="_17_0_2_a4502ac_1317132876301_449180_8642"/>
+    <tns:messageFlow id="_17_0_2_a4502ac_1317915907735_854983_10062" sourceRef="_17_0_2_a4502ac_1317132145351_532317_7806" targetRef="_17_0_2_a4502ac_1317131146355_363503_13339"/>
+    <tns:messageFlow id="_17_0_2_a4502ac_1317916577296_666683_11337" sourceRef="_17_0_2_a4502ac_1317131125880_790612_13307" targetRef="_17_0_2_a4502ac_1317132559165_533071_8052"/>
+    <tns:messageFlow id="_17_0_2_a4502ac_1317916594675_185427_11348" sourceRef="_17_0_2_a4502ac_1317131080593_722933_13210" targetRef="_17_0_2_a4502ac_1317131255415_451213_13422"/>
+    <tns:messageFlow id="_17_0_2_a4502ac_1317916612084_204599_11354" sourceRef="_17_0_2_a4502ac_1317131091451_992608_13240" targetRef="_17_0_2_a4502ac_1317131225322_682856_13404"/>
+    <tns:messageFlow id="_17_0_2_a4502ac_1317916692440_756032_11360" sourceRef="_17_0_2_a4502ac_1317132911978_30870_8715" targetRef="_17_0_2_a4502ac_1317131020985_78891_13127"/>
+    <tns:messageFlow id="_17_0_2_b2102dc_1317978933531_647895_8789" sourceRef="_17_0_2_b2102dc_1317978291890_911278_8682" targetRef="_17_0_2_b2102dc_1317978927281_833660_8778"/>
+    <tns:messageFlow id="_17_0_2_b2102dc_1317978992078_275967_8895" sourceRef="_17_0_2_b2102dc_1317978959406_349006_8834" targetRef="_17_0_2_b2102dc_1317978743390_664133_8719"/>
+    <tns:messageFlow id="_17_0_2_b2102dc_1318332399046_753524_8629" sourceRef="_17_0_2_a4502ac_1317131080593_722933_13210" targetRef="_17_0_2_b2102dc_1318332335359_323107_8575"/>
+    <tns:messageFlow id="_17_0_2_b2102dc_1318332427156_710099_8638" sourceRef="_17_0_2_a4502ac_1317131125880_790612_13307" targetRef="_17_0_2_b2102dc_1318332337531_99314_8587"/>
+    <tns:messageFlow id="_17_0_2_a4502ac_1318774451698_600341_8503" sourceRef="_17_0_2_a4502ac_1317131125880_790612_13307" targetRef="_17_0_2_b2102dc_1317979222906_581771_8937"/>
+    <tns:messageFlow id="_17_0_2_a4502ac_1322164168805_942122_10350" sourceRef="_17_0_2_b2102dc_1317978291890_911278_8682" targetRef="_17_0_2_a4502ac_1322163943774_596517_9742"/>
+    <tns:messageFlow id="_17_0_2_a4502ac_1322164191659_250726_10359" sourceRef="_17_0_2_a4502ac_1322163971745_433995_9791" targetRef="_17_0_2_a4502ac_1322164140101_122250_10317"/>
+  </tns:collaboration>
+  <tns:process xmlns:ns6="http://www.omg.org/spec/BPMN/20100524/MODEL" definitionalCollaborationRef="_17_0_2_a4502ac_1317130758437_897481_12891" id="_17_0_2_a4502ac_1317130758437_897481_12891_collab_companion" isClosed="false" name="ButtafuoriNew_collab_companion" processType="None">
+    <ns6:laneSet id="_17_0_2_b2102dc_1318332322234_215862_8556_Ref-1_laneSet">
+      <ns6:lane id="_17_0_2_b2102dc_1318332322234_215862_8556" name="Buttafuori">
+        <tns:flowNodeRef>_17_0_2_b2102dc_1318332335359_323107_8575</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_b2102dc_1318332337531_99314_8587</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_b2102dc_1318332354421_924650_8597</tns:flowNodeRef>
+      </ns6:lane>
+    </ns6:laneSet>
+    <ns6:laneSet id="_17_0_2_a4502ac_1322163926848_482920_9723_Ref-1_laneSet">
+      <ns6:lane id="_17_0_2_a4502ac_1322163926848_482920_9723" name="DIGOS">
+        <tns:flowNodeRef>_17_0_2_a4502ac_1322163943774_596517_9742</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1322163955007_940851_9760</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1322163971745_433995_9791</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1322163990497_100445_9816</tns:flowNodeRef>
+      </ns6:lane>
+    </ns6:laneSet>
+    <ns6:laneSet id="_17_0_2_b2102dc_1317978800140_975829_8759_Ref-1_laneSet">
+      <ns6:lane id="_17_0_2_b2102dc_1317978800140_975829_8759" name="polizia anticrimine">
+        <tns:flowNodeRef>_17_0_2_b2102dc_1317978927281_833660_8778</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_b2102dc_1317978948000_99035_8803</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_b2102dc_1317978959406_349006_8834</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_b2102dc_1317978974265_480340_8859</tns:flowNodeRef>
+      </ns6:lane>
+    </ns6:laneSet>
+    <ns6:laneSet id="_17_0_2_a4502ac_1317131366775_350131_13615_Ref-1_laneSet">
+      <ns6:lane id="_17_0_2_a4502ac_1317131366775_350131_13615" name="Questura">
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132865381_529007_8627</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132876301_449180_8642</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132885910_345093_8655</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132900683_763803_8684</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132911978_30870_8715</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132921806_218973_8738</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_b2102dc_1317978291890_911278_8682</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_b2102dc_1317978743390_664133_8719</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_b2102dc_1317979173562_657128_8913</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_b2102dc_1317979222906_581771_8937</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_b2102dc_1317979240640_460264_8961</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1322164140101_122250_10317</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1322164046781_594964_9875</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1322164042975_799361_9864</tns:flowNodeRef>
+      </ns6:lane>
+    </ns6:laneSet>
+    <ns6:laneSet id="_17_0_2_a4502ac_1317130776798_970168_12915_Ref-1_laneSet">
+      <ns6:lane id="_17_0_2_a4502ac_1317130776798_970168_12915" name="Gestore Locale/Titolare agenzia">
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317130810541_709181_12932</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317130817155_350363_12949</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317130854673_907290_12976</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317130931145_832584_13048</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317131208895_386922_13389</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317131225322_682856_13404</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317131255415_451213_13422</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132126256_324155_7787</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132145351_532317_7806</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132389943_235396_7917</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132430207_721262_7945</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132559165_533071_8052</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132567378_882407_8070</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132613843_707738_8107</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317915392451_306202_9981</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317915626233_233099_10010</tns:flowNodeRef>
+      </ns6:lane>
+    </ns6:laneSet>
+    <ns6:laneSet id="_17_0_2_a4502ac_1317130865391_997746_12983_Ref-1_laneSet">
+      <ns6:lane id="_17_0_2_a4502ac_1317130865391_997746_12983" name="Prefettura UTG">
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317130889742_19830_13000</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317130915935_547562_13026</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317130969568_623646_13067</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317131020985_78891_13127</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317131027428_886931_13142</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317131050594_739661_13165</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317131071857_865370_13191</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317131080593_722933_13210</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317131091451_992608_13240</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317131116769_686431_13284</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317131125880_790612_13307</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317131137322_709968_13330</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317131146355_363503_13339</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132247188_110813_7853</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132660440_348820_8162</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132727617_426712_8200</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317132750986_879558_8222</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317916121113_338157_11157</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317916421694_498721_11227</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317916457090_692971_11263</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317916502822_167024_11301</tns:flowNodeRef>
+        <tns:flowNodeRef>_17_0_2_a4502ac_1317130982157_646435_13084</tns:flowNodeRef>
+      </ns6:lane>
+    </ns6:laneSet>
+    <tns:startEvent id="_17_0_2_a4502ac_1317130810541_709181_12932" isInterrupting="true" parallelMultiple="false">
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317131173593_658093_13359</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317131173593_658093_13359</tns:outgoing>
+    </tns:startEvent>
+    <tns:userTask completionQuantity="1" id="_17_0_2_a4502ac_1317130817155_350363_12949" implementation="Other" isForCompensation="false" name="presenta istanza" startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317131173593_658093_13359</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317131173593_658093_13359</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317131175667_36010_13368</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317131175667_36010_13368</tns:outgoing>
+    </tns:userTask>
+    <tns:exclusiveGateway gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1317130854673_907290_12976">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317131182173_872089_13379</tns:incoming>
+      <tns:incoming>ns6:_17_0_2_a4502ac_1321694485844_656649_8697</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317131182173_872089_13379</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1321694485844_656649_8697</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317131269361_409890_13440</tns:outgoing>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317915396320_933985_9988</tns:outgoing>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317915633971_991277_10018</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317131269361_409890_13440</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317915396320_933985_9988</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317915633971_991277_10018</tns:outgoing>
+    </tns:exclusiveGateway>
+    <tns:intermediateCatchEvent id="_17_0_2_a4502ac_1317130889742_19830_13000" name="riceve istanza" parallelMultiple="false">
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317131287878_239385_13467</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317131287878_239385_13467</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_a4502ac_1317130889742_19830_13000_Ref-1"/>
+    </tns:intermediateCatchEvent>
+    <tns:userTask completionQuantity="1" id="_17_0_2_a4502ac_1317130915935_547562_13026" implementation="Other" isForCompensation="false" name="L.241" startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317131287878_239385_13467</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317131287878_239385_13467</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132730565_186327_8207</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132730565_186327_8207</tns:outgoing>
+    </tns:userTask>
+    <tns:intermediateCatchEvent id="_17_0_2_a4502ac_1317130931145_832584_13048" name="L.241" parallelMultiple="false">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317131175667_36010_13368</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317131175667_36010_13368</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317131182173_872089_13379</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317131182173_872089_13379</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_a4502ac_1317130931145_832584_13048_Ref-1"/>
+    </tns:intermediateCatchEvent>
+    <tns:exclusiveGateway gatewayDirection="Diverging" id="_17_0_2_a4502ac_1317130969568_623646_13067">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132317559_862339_7892</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132317559_862339_7892</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132340133_269145_7902</tns:outgoing>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132690223_65521_8185</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132340133_269145_7902</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132690223_65521_8185</tns:outgoing>
+    </tns:exclusiveGateway>
+    <tns:eventBasedGateway eventGatewayType="Exclusive" gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1317131012483_369799_13112" instantiate="false">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317131296365_791555_13494</tns:incoming>
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317131308954_316039_13530</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317131296365_791555_13494</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317131308954_316039_13530</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317131300748_118579_13503</tns:outgoing>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317131304165_235206_13512</tns:outgoing>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1318774120634_411698_8485</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317131300748_118579_13503</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317131304165_235206_13512</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1318774120634_411698_8485</tns:outgoing>
+    </tns:eventBasedGateway>
+    <tns:intermediateCatchEvent id="_17_0_2_a4502ac_1317131020985_78891_13127" name="parere Questura" parallelMultiple="false">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317131300748_118579_13503</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317131300748_118579_13503</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317131311419_126509_13539</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317131311419_126509_13539</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_a4502ac_1317131020985_78891_13127_Ref-1"/>
+    </tns:intermediateCatchEvent>
+    <tns:intermediateCatchEvent id="_17_0_2_a4502ac_1317131027428_886931_13142" name="20 giorni" parallelMultiple="false">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317131304165_235206_13512</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317131304165_235206_13512</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317131306552_101453_13521</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317131306552_101453_13521</tns:outgoing>
+      <tns:timerEventDefinition id="_17_0_2_a4502ac_1317131027428_886931_13142_Ref-1"/>
+    </tns:intermediateCatchEvent>
+    <tns:userTask completionQuantity="1" id="_17_0_2_a4502ac_1317131050594_739661_13165" implementation="Other" isForCompensation="false" name="sollecito" startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317131306552_101453_13521</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317131306552_101453_13521</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317131308954_316039_13530</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317131308954_316039_13530</tns:outgoing>
+    </tns:userTask>
+    <tns:exclusiveGateway gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1317131071857_865370_13191">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317131311419_126509_13539</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317131311419_126509_13539</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317916172047_521719_11188</tns:outgoing>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317916460616_343424_11270</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317916172047_521719_11188</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317916460616_343424_11270</tns:outgoing>
+    </tns:exclusiveGateway>
+    <tns:userTask completionQuantity="1" id="_17_0_2_a4502ac_1317131080593_722933_13210" implementation="Other" isForCompensation="false" name="iscrizione" startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317916490350_353939_11292</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317916490350_353939_11292</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317131333165_136233_13566</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317131333165_136233_13566</tns:outgoing>
+    </tns:userTask>
+    <tns:userTask completionQuantity="1" id="_17_0_2_a4502ac_1317131091451_992608_13240" implementation="Other" isForCompensation="false" name="L.241/10bis" startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317916169754_384228_11180</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317916169754_384228_11180</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317131336207_8567_13575</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317131336207_8567_13575</tns:outgoing>
+    </tns:userTask>
+    <tns:eventBasedGateway eventGatewayType="Exclusive" gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1317131108096_923204_13269" instantiate="false">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317131336207_8567_13575</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317131336207_8567_13575</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317131339468_119219_13584</tns:outgoing>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317131344506_210774_13593</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317131339468_119219_13584</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317131344506_210774_13593</tns:outgoing>
+    </tns:eventBasedGateway>
+    <tns:intermediateCatchEvent id="_17_0_2_a4502ac_1317131116769_686431_13284" name="20 giorni" parallelMultiple="false">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317131344506_210774_13593</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317131344506_210774_13593</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317916506753_157061_11310</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317916506753_157061_11310</tns:outgoing>
+      <tns:timerEventDefinition id="_17_0_2_a4502ac_1317131116769_686431_13284_Ref-1"/>
+    </tns:intermediateCatchEvent>
+    <tns:userTask completionQuantity="1" id="_17_0_2_a4502ac_1317131125880_790612_13307" implementation="Other" isForCompensation="false" name="diniego" startQuantity="1">
+      <tns:documentation id="_17_0_2_a4502ac_1317131125880_790612_13307_D_1" textFormat="text/plain"><![CDATA[ciao ciao]]></tns:documentation>
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317916513056_503978_11327</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317916513056_503978_11327</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317131353461_567019_13611</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317131353461_567019_13611</tns:outgoing>
+    </tns:userTask>
+    <tns:endEvent id="_17_0_2_a4502ac_1317131137322_709968_13330">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317131333165_136233_13566</tns:incoming>
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317131353461_567019_13611</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317131333165_136233_13566</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317131353461_567019_13611</tns:incoming>
+    </tns:endEvent>
+    <tns:intermediateCatchEvent id="_17_0_2_a4502ac_1317131146355_363503_13339" name="documentazione" parallelMultiple="false">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317131339468_119219_13584</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317131339468_119219_13584</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317916445468_460213_11254</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317916445468_460213_11254</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_a4502ac_1317131146355_363503_13339_Ref-1"/>
+    </tns:intermediateCatchEvent>
+    <tns:intermediateCatchEvent id="_17_0_2_a4502ac_1317131208895_386922_13389" name="rich.doc." parallelMultiple="false">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317131269361_409890_13440</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317131269361_409890_13440</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132437789_700024_7959</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132437789_700024_7959</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_a4502ac_1317131208895_386922_13389_Ref-1"/>
+    </tns:intermediateCatchEvent>
+    <tns:intermediateCatchEvent id="_17_0_2_a4502ac_1317131225322_682856_13404" name="L.241 10bis" parallelMultiple="false">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317915417224_867825_10000</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317915417224_867825_10000</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132511000_181643_8011</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132511000_181643_8011</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_a4502ac_1317131225322_682856_13404_Ref-1"/>
+    </tns:intermediateCatchEvent>
+    <tns:intermediateCatchEvent id="_17_0_2_a4502ac_1317131255415_451213_13422" name="iscrizione" parallelMultiple="false">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317915637871_99502_10026</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317915637871_99502_10026</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132626463_626331_8145</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132626463_626331_8145</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_a4502ac_1317131255415_451213_13422_Ref-1"/>
+    </tns:intermediateCatchEvent>
+    <tns:exclusiveGateway gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1317132126256_324155_7787">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132511000_181643_8011</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132511000_181643_8011</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132513714_138622_8020</tns:outgoing>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132582229_843755_8082</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132513714_138622_8020</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132582229_843755_8082</tns:outgoing>
+    </tns:exclusiveGateway>
+    <tns:userTask completionQuantity="1" id="_17_0_2_a4502ac_1317132145351_532317_7806" implementation="Other" isForCompensation="false" name="doc" startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132513714_138622_8020</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132513714_138622_8020</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317915678602_51394_10035</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317915678602_51394_10035</tns:outgoing>
+    </tns:userTask>
+    <tns:manualTask completionQuantity="1" id="_17_0_2_a4502ac_1317132247188_110813_7853" isForCompensation="false" name="verifica doc" startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132733716_542975_8215</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132733716_542975_8215</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132317559_862339_7892</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132317559_862339_7892</tns:outgoing>
+    </tns:manualTask>
+    <tns:userTask completionQuantity="1" id="_17_0_2_a4502ac_1317132389943_235396_7917" implementation="Other" isForCompensation="false" name="doc" startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132441361_281596_7968</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132441361_281596_7968</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1321694485844_656649_8697</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1321694485844_656649_8697</tns:outgoing>
+    </tns:userTask>
+    <tns:exclusiveGateway gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1317132430207_721262_7945">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132437789_700024_7959</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132437789_700024_7959</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132441361_281596_7968</tns:outgoing>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317915408659_513943_9991</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132441361_281596_7968</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317915408659_513943_9991</tns:outgoing>
+    </tns:exclusiveGateway>
+    <tns:intermediateCatchEvent id="_17_0_2_a4502ac_1317132559165_533071_8052" name="diniego" parallelMultiple="false">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132593337_374757_8100</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132593337_374757_8100</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132616495_726679_8118</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132616495_726679_8118</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_a4502ac_1317132559165_533071_8052_Ref-1"/>
+    </tns:intermediateCatchEvent>
+    <tns:exclusiveGateway gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1317132567378_882407_8070">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132582229_843755_8082</tns:incoming>
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317915849501_638947_10054</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132582229_843755_8082</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317915849501_638947_10054</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132593337_374757_8100</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132593337_374757_8100</tns:outgoing>
+    </tns:exclusiveGateway>
+    <tns:endEvent id="_17_0_2_a4502ac_1317132613843_707738_8107">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132616495_726679_8118</tns:incoming>
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132626463_626331_8145</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132616495_726679_8118</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132626463_626331_8145</tns:incoming>
+    </tns:endEvent>
+    <tns:userTask completionQuantity="1" id="_17_0_2_a4502ac_1317132660440_348820_8162" implementation="Other" isForCompensation="false" name="rich.doc." startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132690223_65521_8185</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132690223_65521_8185</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317916096449_930162_11139</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317916096449_930162_11139</tns:outgoing>
+    </tns:userTask>
+    <tns:exclusiveGateway gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1317132727617_426712_8200">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132730565_186327_8207</tns:incoming>
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132782591_432802_8248</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132730565_186327_8207</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132782591_432802_8248</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132733716_542975_8215</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132733716_542975_8215</tns:outgoing>
+    </tns:exclusiveGateway>
+    <tns:intermediateCatchEvent id="_17_0_2_a4502ac_1317132750986_879558_8222" name="doc." parallelMultiple="false">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317916100723_520759_11148</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317916100723_520759_11148</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132782591_432802_8248</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132782591_432802_8248</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_a4502ac_1317132750986_879558_8222_Ref-1"/>
+    </tns:intermediateCatchEvent>
+    <tns:startEvent id="_17_0_2_a4502ac_1317132865381_529007_8627" isInterrupting="true" name="riceve istanza" parallelMultiple="false">
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132924910_430708_8748</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132924910_430708_8748</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_a4502ac_1317132865381_529007_8627_Ref-1"/>
+    </tns:startEvent>
+    <tns:startEvent id="_17_0_2_a4502ac_1317132876301_449180_8642" isInterrupting="true" name="sollecito" parallelMultiple="false">
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132927422_152646_8757</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132927422_152646_8757</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_a4502ac_1317132876301_449180_8642_Ref-1"/>
+    </tns:startEvent>
+    <tns:exclusiveGateway gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1317132885910_345093_8655">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132924910_430708_8748</tns:incoming>
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132927422_152646_8757</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132924910_430708_8748</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132927422_152646_8757</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_b2102dc_1317978728671_607342_8704</tns:outgoing>
+      <tns:outgoing>_17_0_2_b2102dc_1317978728671_607342_8704</tns:outgoing>
+    </tns:exclusiveGateway>
+    <tns:userTask completionQuantity="1" id="_17_0_2_a4502ac_1317132900683_763803_8684" implementation="Other" isForCompensation="false" name="controllo motivi ost." startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_b2102dc_1317979187359_743420_8929</tns:incoming>
+      <tns:incoming>_17_0_2_b2102dc_1317979187359_743420_8929</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1322164048950_830374_9881</tns:outgoing>
+    </tns:userTask>
+    <tns:userTask completionQuantity="1" id="_17_0_2_a4502ac_1317132911978_30870_8715" implementation="Other" isForCompensation="false" name="esprime parere" startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1322164052897_188039_9884</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317132936454_537545_8784</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317132936454_537545_8784</tns:outgoing>
+    </tns:userTask>
+    <tns:endEvent id="_17_0_2_a4502ac_1317132921806_218973_8738">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132936454_537545_8784</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132936454_537545_8784</tns:incoming>
+    </tns:endEvent>
+    <tns:exclusiveGateway gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1317915383364_442705_9969"/>
+    <tns:exclusiveGateway gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1317915392451_306202_9981">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317915396320_933985_9988</tns:incoming>
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317915408659_513943_9991</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317915396320_933985_9988</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317915408659_513943_9991</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317915417224_867825_10000</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317915417224_867825_10000</tns:outgoing>
+    </tns:exclusiveGateway>
+    <tns:exclusiveGateway gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1317915626233_233099_10010">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317915633971_991277_10018</tns:incoming>
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317915678602_51394_10035</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317915633971_991277_10018</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317915678602_51394_10035</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317915637871_99502_10026</tns:outgoing>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317915849501_638947_10054</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317915637871_99502_10026</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317915849501_638947_10054</tns:outgoing>
+    </tns:exclusiveGateway>
+    <tns:eventBasedGateway eventGatewayType="Exclusive" gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1317916085155_747630_11121" instantiate="false">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317916096449_930162_11139</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317916096449_930162_11139</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317916100723_520759_11148</tns:outgoing>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317916261279_892127_11204</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317916100723_520759_11148</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317916261279_892127_11204</tns:outgoing>
+    </tns:eventBasedGateway>
+    <tns:exclusiveGateway gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1317916121113_338157_11157">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317916172047_521719_11188</tns:incoming>
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317916261279_892127_11204</tns:incoming>
+      <tns:incoming>ns6:_17_0_2_a4502ac_1318774120634_411698_8485</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317916172047_521719_11188</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317916261279_892127_11204</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1318774120634_411698_8485</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317916169754_384228_11180</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317916169754_384228_11180</tns:outgoing>
+    </tns:exclusiveGateway>
+    <tns:manualTask completionQuantity="1" id="_17_0_2_a4502ac_1317916421694_498721_11227" isForCompensation="false" name="verifica req." startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317916445468_460213_11254</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317916445468_460213_11254</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317916472113_371953_11282</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317916472113_371953_11282</tns:outgoing>
+    </tns:manualTask>
+    <tns:exclusiveGateway gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1317916457090_692971_11263">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317916460616_343424_11270</tns:incoming>
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317916472113_371953_11282</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317916460616_343424_11270</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317916472113_371953_11282</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317916490350_353939_11292</tns:outgoing>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317916510107_340138_11318</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317916490350_353939_11292</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317916510107_340138_11318</tns:outgoing>
+    </tns:exclusiveGateway>
+    <tns:exclusiveGateway gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1317916502822_167024_11301">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317916506753_157061_11310</tns:incoming>
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317916510107_340138_11318</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317916506753_157061_11310</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317916510107_340138_11318</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317916513056_503978_11327</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317916513056_503978_11327</tns:outgoing>
+    </tns:exclusiveGateway>
+    <tns:userTask completionQuantity="1" id="_17_0_2_b2102dc_1317978291890_911278_8682" implementation="Other" isForCompensation="false" name="richiesta pareri" startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_b2102dc_1317978728671_607342_8704</tns:incoming>
+      <tns:incoming>_17_0_2_b2102dc_1317978728671_607342_8704</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_b2102dc_1317979177484_663022_8921</tns:outgoing>
+      <tns:outgoing>_17_0_2_b2102dc_1317979177484_663022_8921</tns:outgoing>
+    </tns:userTask>
+    <tns:intermediateCatchEvent id="_17_0_2_b2102dc_1317978743390_664133_8719" name="parere" parallelMultiple="false">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1322164109946_36526_10283</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1322164123908_891526_10310</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_b2102dc_1317978743390_664133_8719_Ref-1"/>
+    </tns:intermediateCatchEvent>
+    <tns:startEvent id="_17_0_2_b2102dc_1317978927281_833660_8778" isInterrupting="true" parallelMultiple="false">
+      <tns:outgoing>ns6:_17_0_2_b2102dc_1317978976890_648952_8870</tns:outgoing>
+      <tns:outgoing>_17_0_2_b2102dc_1317978976890_648952_8870</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_b2102dc_1317978927281_833660_8778_Ref-1"/>
+    </tns:startEvent>
+    <tns:userTask completionQuantity="1" id="_17_0_2_b2102dc_1317978948000_99035_8803" implementation="Other" isForCompensation="false" name="check" startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_b2102dc_1317978976890_648952_8870</tns:incoming>
+      <tns:incoming>_17_0_2_b2102dc_1317978976890_648952_8870</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_b2102dc_1317978978687_309538_8879</tns:outgoing>
+      <tns:outgoing>_17_0_2_b2102dc_1317978978687_309538_8879</tns:outgoing>
+    </tns:userTask>
+    <tns:userTask completionQuantity="1" id="_17_0_2_b2102dc_1317978959406_349006_8834" implementation="Other" isForCompensation="false" name="esprime parere" startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_b2102dc_1317978978687_309538_8879</tns:incoming>
+      <tns:incoming>_17_0_2_b2102dc_1317978978687_309538_8879</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_b2102dc_1317978981390_266087_8888</tns:outgoing>
+      <tns:outgoing>_17_0_2_b2102dc_1317978981390_266087_8888</tns:outgoing>
+    </tns:userTask>
+    <tns:endEvent id="_17_0_2_b2102dc_1317978974265_480340_8859">
+      <tns:incoming>ns6:_17_0_2_b2102dc_1317978981390_266087_8888</tns:incoming>
+      <tns:incoming>_17_0_2_b2102dc_1317978981390_266087_8888</tns:incoming>
+    </tns:endEvent>
+    <tns:exclusiveGateway gatewayDirection="Unspecified" id="_17_0_2_b2102dc_1317979173562_657128_8913">
+      <tns:incoming>ns6:_17_0_2_b2102dc_1317979177484_663022_8921</tns:incoming>
+      <tns:incoming>_17_0_2_b2102dc_1317979177484_663022_8921</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_b2102dc_1317979187359_743420_8929</tns:outgoing>
+      <tns:outgoing>ns6:_17_0_2_b2102dc_1317979226765_590148_8954</tns:outgoing>
+      <tns:outgoing>_17_0_2_b2102dc_1317979187359_743420_8929</tns:outgoing>
+      <tns:outgoing>_17_0_2_b2102dc_1317979226765_590148_8954</tns:outgoing>
+    </tns:exclusiveGateway>
+    <tns:intermediateCatchEvent id="_17_0_2_b2102dc_1317979222906_581771_8937" name="avviso diniego" parallelMultiple="false">
+      <tns:incoming>ns6:_17_0_2_b2102dc_1317979226765_590148_8954</tns:incoming>
+      <tns:incoming>_17_0_2_b2102dc_1317979226765_590148_8954</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_b2102dc_1317979243328_356303_8971</tns:outgoing>
+      <tns:outgoing>_17_0_2_b2102dc_1317979243328_356303_8971</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_b2102dc_1317979222906_581771_8937_Ref-1"/>
+    </tns:intermediateCatchEvent>
+    <tns:endEvent id="_17_0_2_b2102dc_1317979240640_460264_8961">
+      <tns:incoming>ns6:_17_0_2_b2102dc_1317979243328_356303_8971</tns:incoming>
+      <tns:incoming>_17_0_2_b2102dc_1317979243328_356303_8971</tns:incoming>
+    </tns:endEvent>
+    <tns:startEvent id="_17_0_2_b2102dc_1318332335359_323107_8575" isInterrupting="true" name="Iscrizione" parallelMultiple="false">
+      <tns:outgoing>ns6:_17_0_2_b2102dc_1318332358296_645612_8609</tns:outgoing>
+      <tns:outgoing>_17_0_2_b2102dc_1318332358296_645612_8609</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_b2102dc_1318332335359_323107_8575_Ref-1"/>
+    </tns:startEvent>
+    <tns:startEvent id="_17_0_2_b2102dc_1318332337531_99314_8587" isInterrupting="true" name="Diniego" parallelMultiple="false">
+      <tns:outgoing>ns6:_17_0_2_b2102dc_1318332360578_359499_8618</tns:outgoing>
+      <tns:outgoing>_17_0_2_b2102dc_1318332360578_359499_8618</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_b2102dc_1318332337531_99314_8587_Ref-1"/>
+    </tns:startEvent>
+    <tns:endEvent id="_17_0_2_b2102dc_1318332354421_924650_8597">
+      <tns:incoming>ns6:_17_0_2_b2102dc_1318332358296_645612_8609</tns:incoming>
+      <tns:incoming>ns6:_17_0_2_b2102dc_1318332360578_359499_8618</tns:incoming>
+      <tns:incoming>_17_0_2_b2102dc_1318332358296_645612_8609</tns:incoming>
+      <tns:incoming>_17_0_2_b2102dc_1318332360578_359499_8618</tns:incoming>
+    </tns:endEvent>
+    <tns:startEvent id="_17_0_2_a4502ac_1322163943774_596517_9742" isInterrupting="true" parallelMultiple="false">
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1322163995676_127662_9827</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1322163995676_127662_9827</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_a4502ac_1322163943774_596517_9742_Ref-1"/>
+    </tns:startEvent>
+    <tns:userTask completionQuantity="1" id="_17_0_2_a4502ac_1322163955007_940851_9760" implementation="Other" isForCompensation="false" name="check" startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1322163995676_127662_9827</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1322163995676_127662_9827</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1322163997938_533817_9836</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1322163997938_533817_9836</tns:outgoing>
+    </tns:userTask>
+    <tns:userTask completionQuantity="1" id="_17_0_2_a4502ac_1322163971745_433995_9791" implementation="Other" isForCompensation="false" name="esprime parere" startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1322163997938_533817_9836</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1322163997938_533817_9836</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1322164000122_915445_9845</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1322164000122_915445_9845</tns:outgoing>
+    </tns:userTask>
+    <tns:endEvent id="_17_0_2_a4502ac_1322163990497_100445_9816">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1322164000122_915445_9845</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1322164000122_915445_9845</tns:incoming>
+    </tns:endEvent>
+    <tns:intermediateCatchEvent id="_17_0_2_a4502ac_1322164140101_122250_10317" name="parere" parallelMultiple="false">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1322164144578_693321_10334</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1322164154141_384646_10343</tns:outgoing>
+      <tns:messageEventDefinition id="_17_0_2_a4502ac_1322164140101_122250_10317_Ref-1"/>
+    </tns:intermediateCatchEvent>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317131173593_658093_13359" sourceRef="_17_0_2_a4502ac_1317130810541_709181_12932" targetRef="_17_0_2_a4502ac_1317130817155_350363_12949"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317131175667_36010_13368" sourceRef="_17_0_2_a4502ac_1317130817155_350363_12949" targetRef="_17_0_2_a4502ac_1317130931145_832584_13048"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317131182173_872089_13379" sourceRef="_17_0_2_a4502ac_1317130931145_832584_13048" targetRef="_17_0_2_a4502ac_1317130854673_907290_12976"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317131269361_409890_13440" sourceRef="_17_0_2_a4502ac_1317130854673_907290_12976" targetRef="_17_0_2_a4502ac_1317131208895_386922_13389"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317131287878_239385_13467" sourceRef="_17_0_2_a4502ac_1317130889742_19830_13000" targetRef="_17_0_2_a4502ac_1317130915935_547562_13026"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317131296365_791555_13494" sourceRef="_17_0_2_a4502ac_1317130982157_646435_13084" targetRef="_17_0_2_a4502ac_1317131012483_369799_13112"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317131300748_118579_13503" name="req.OK" sourceRef="_17_0_2_a4502ac_1317131012483_369799_13112" targetRef="_17_0_2_a4502ac_1317131020985_78891_13127"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317131304165_235206_13512" sourceRef="_17_0_2_a4502ac_1317131012483_369799_13112" targetRef="_17_0_2_a4502ac_1317131027428_886931_13142"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317131306552_101453_13521" sourceRef="_17_0_2_a4502ac_1317131027428_886931_13142" targetRef="_17_0_2_a4502ac_1317131050594_739661_13165"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317131308954_316039_13530" sourceRef="_17_0_2_a4502ac_1317131050594_739661_13165" targetRef="_17_0_2_a4502ac_1317131012483_369799_13112"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317131311419_126509_13539" sourceRef="_17_0_2_a4502ac_1317131020985_78891_13127" targetRef="_17_0_2_a4502ac_1317131071857_865370_13191"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317131333165_136233_13566" sourceRef="_17_0_2_a4502ac_1317131080593_722933_13210" targetRef="_17_0_2_a4502ac_1317131137322_709968_13330"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317131336207_8567_13575" sourceRef="_17_0_2_a4502ac_1317131091451_992608_13240" targetRef="_17_0_2_a4502ac_1317131108096_923204_13269"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317131339468_119219_13584" sourceRef="_17_0_2_a4502ac_1317131108096_923204_13269" targetRef="_17_0_2_a4502ac_1317131146355_363503_13339"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317131344506_210774_13593" sourceRef="_17_0_2_a4502ac_1317131108096_923204_13269" targetRef="_17_0_2_a4502ac_1317131116769_686431_13284"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317131353461_567019_13611" sourceRef="_17_0_2_a4502ac_1317131125880_790612_13307" targetRef="_17_0_2_a4502ac_1317131137322_709968_13330"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132317559_862339_7892" sourceRef="_17_0_2_a4502ac_1317132247188_110813_7853" targetRef="_17_0_2_a4502ac_1317130969568_623646_13067"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132340133_269145_7902" sourceRef="_17_0_2_a4502ac_1317130969568_623646_13067" targetRef="_17_0_2_a4502ac_1317130982157_646435_13084"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132437789_700024_7959" sourceRef="_17_0_2_a4502ac_1317131208895_386922_13389" targetRef="_17_0_2_a4502ac_1317132430207_721262_7945"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132441361_281596_7968" sourceRef="_17_0_2_a4502ac_1317132430207_721262_7945" targetRef="_17_0_2_a4502ac_1317132389943_235396_7917"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132511000_181643_8011" sourceRef="_17_0_2_a4502ac_1317131225322_682856_13404" targetRef="_17_0_2_a4502ac_1317132126256_324155_7787"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132513714_138622_8020" sourceRef="_17_0_2_a4502ac_1317132126256_324155_7787" targetRef="_17_0_2_a4502ac_1317132145351_532317_7806"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132582229_843755_8082" sourceRef="_17_0_2_a4502ac_1317132126256_324155_7787" targetRef="_17_0_2_a4502ac_1317132567378_882407_8070"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132593337_374757_8100" sourceRef="_17_0_2_a4502ac_1317132567378_882407_8070" targetRef="_17_0_2_a4502ac_1317132559165_533071_8052"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132616495_726679_8118" sourceRef="_17_0_2_a4502ac_1317132559165_533071_8052" targetRef="_17_0_2_a4502ac_1317132613843_707738_8107"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132626463_626331_8145" sourceRef="_17_0_2_a4502ac_1317131255415_451213_13422" targetRef="_17_0_2_a4502ac_1317132613843_707738_8107"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132690223_65521_8185" name="rich. doc." sourceRef="_17_0_2_a4502ac_1317130969568_623646_13067" targetRef="_17_0_2_a4502ac_1317132660440_348820_8162"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132730565_186327_8207" sourceRef="_17_0_2_a4502ac_1317130915935_547562_13026" targetRef="_17_0_2_a4502ac_1317132727617_426712_8200"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132733716_542975_8215" sourceRef="_17_0_2_a4502ac_1317132727617_426712_8200" targetRef="_17_0_2_a4502ac_1317132247188_110813_7853"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132782591_432802_8248" sourceRef="_17_0_2_a4502ac_1317132750986_879558_8222" targetRef="_17_0_2_a4502ac_1317132727617_426712_8200"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132924910_430708_8748" sourceRef="_17_0_2_a4502ac_1317132865381_529007_8627" targetRef="_17_0_2_a4502ac_1317132885910_345093_8655"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132927422_152646_8757" sourceRef="_17_0_2_a4502ac_1317132876301_449180_8642" targetRef="_17_0_2_a4502ac_1317132885910_345093_8655"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317132936454_537545_8784" sourceRef="_17_0_2_a4502ac_1317132911978_30870_8715" targetRef="_17_0_2_a4502ac_1317132921806_218973_8738"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317915396320_933985_9988" sourceRef="_17_0_2_a4502ac_1317130854673_907290_12976" targetRef="_17_0_2_a4502ac_1317915392451_306202_9981"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317915408659_513943_9991" sourceRef="_17_0_2_a4502ac_1317132430207_721262_7945" targetRef="_17_0_2_a4502ac_1317915392451_306202_9981"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317915417224_867825_10000" sourceRef="_17_0_2_a4502ac_1317915392451_306202_9981" targetRef="_17_0_2_a4502ac_1317131225322_682856_13404"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317915633971_991277_10018" sourceRef="_17_0_2_a4502ac_1317130854673_907290_12976" targetRef="_17_0_2_a4502ac_1317915626233_233099_10010"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317915637871_99502_10026" sourceRef="_17_0_2_a4502ac_1317915626233_233099_10010" targetRef="_17_0_2_a4502ac_1317131255415_451213_13422"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317915678602_51394_10035" sourceRef="_17_0_2_a4502ac_1317132145351_532317_7806" targetRef="_17_0_2_a4502ac_1317915626233_233099_10010"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317915849501_638947_10054" sourceRef="_17_0_2_a4502ac_1317915626233_233099_10010" targetRef="_17_0_2_a4502ac_1317132567378_882407_8070"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317916096449_930162_11139" sourceRef="_17_0_2_a4502ac_1317132660440_348820_8162" targetRef="_17_0_2_a4502ac_1317916085155_747630_11121"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317916100723_520759_11148" sourceRef="_17_0_2_a4502ac_1317916085155_747630_11121" targetRef="_17_0_2_a4502ac_1317132750986_879558_8222"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317916169754_384228_11180" sourceRef="_17_0_2_a4502ac_1317916121113_338157_11157" targetRef="_17_0_2_a4502ac_1317131091451_992608_13240"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317916172047_521719_11188" name="avviso diniego" sourceRef="_17_0_2_a4502ac_1317131071857_865370_13191" targetRef="_17_0_2_a4502ac_1317916121113_338157_11157"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317916261279_892127_11204" sourceRef="_17_0_2_a4502ac_1317916085155_747630_11121" targetRef="_17_0_2_a4502ac_1317916121113_338157_11157"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317916445468_460213_11254" sourceRef="_17_0_2_a4502ac_1317131146355_363503_13339" targetRef="_17_0_2_a4502ac_1317916421694_498721_11227"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317916460616_343424_11270" sourceRef="_17_0_2_a4502ac_1317131071857_865370_13191" targetRef="_17_0_2_a4502ac_1317916457090_692971_11263"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317916472113_371953_11282" sourceRef="_17_0_2_a4502ac_1317916421694_498721_11227" targetRef="_17_0_2_a4502ac_1317916457090_692971_11263"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317916490350_353939_11292" name="OK" sourceRef="_17_0_2_a4502ac_1317916457090_692971_11263" targetRef="_17_0_2_a4502ac_1317131080593_722933_13210"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317916506753_157061_11310" sourceRef="_17_0_2_a4502ac_1317131116769_686431_13284" targetRef="_17_0_2_a4502ac_1317916502822_167024_11301"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317916510107_340138_11318" name="KO" sourceRef="_17_0_2_a4502ac_1317916457090_692971_11263" targetRef="_17_0_2_a4502ac_1317916502822_167024_11301"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1317916513056_503978_11327" sourceRef="_17_0_2_a4502ac_1317916502822_167024_11301" targetRef="_17_0_2_a4502ac_1317131125880_790612_13307"/>
+    <tns:sequenceFlow id="_17_0_2_b2102dc_1317978728671_607342_8704" sourceRef="_17_0_2_a4502ac_1317132885910_345093_8655" targetRef="_17_0_2_b2102dc_1317978291890_911278_8682"/>
+    <tns:sequenceFlow id="_17_0_2_b2102dc_1317978976890_648952_8870" sourceRef="_17_0_2_b2102dc_1317978927281_833660_8778" targetRef="_17_0_2_b2102dc_1317978948000_99035_8803"/>
+    <tns:sequenceFlow id="_17_0_2_b2102dc_1317978978687_309538_8879" sourceRef="_17_0_2_b2102dc_1317978948000_99035_8803" targetRef="_17_0_2_b2102dc_1317978959406_349006_8834"/>
+    <tns:sequenceFlow id="_17_0_2_b2102dc_1317978981390_266087_8888" sourceRef="_17_0_2_b2102dc_1317978959406_349006_8834" targetRef="_17_0_2_b2102dc_1317978974265_480340_8859"/>
+    <tns:sequenceFlow id="_17_0_2_b2102dc_1317979177484_663022_8921" sourceRef="_17_0_2_b2102dc_1317978291890_911278_8682" targetRef="_17_0_2_b2102dc_1317979173562_657128_8913"/>
+    <tns:sequenceFlow id="_17_0_2_b2102dc_1317979187359_743420_8929" sourceRef="_17_0_2_b2102dc_1317979173562_657128_8913" targetRef="_17_0_2_a4502ac_1317132900683_763803_8684"/>
+    <tns:sequenceFlow id="_17_0_2_b2102dc_1317979226765_590148_8954" sourceRef="_17_0_2_b2102dc_1317979173562_657128_8913" targetRef="_17_0_2_b2102dc_1317979222906_581771_8937"/>
+    <tns:sequenceFlow id="_17_0_2_b2102dc_1317979243328_356303_8971" sourceRef="_17_0_2_b2102dc_1317979222906_581771_8937" targetRef="_17_0_2_b2102dc_1317979240640_460264_8961"/>
+    <tns:sequenceFlow id="_17_0_2_b2102dc_1318332358296_645612_8609" sourceRef="_17_0_2_b2102dc_1318332335359_323107_8575" targetRef="_17_0_2_b2102dc_1318332354421_924650_8597"/>
+    <tns:sequenceFlow id="_17_0_2_b2102dc_1318332360578_359499_8618" sourceRef="_17_0_2_b2102dc_1318332337531_99314_8587" targetRef="_17_0_2_b2102dc_1318332354421_924650_8597"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1318774120634_411698_8485" name="requisiti KO" sourceRef="_17_0_2_a4502ac_1317131012483_369799_13112" targetRef="_17_0_2_a4502ac_1317916121113_338157_11157"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1321694485844_656649_8697" sourceRef="_17_0_2_a4502ac_1317132389943_235396_7917" targetRef="_17_0_2_a4502ac_1317130854673_907290_12976"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1322163995676_127662_9827" sourceRef="_17_0_2_a4502ac_1322163943774_596517_9742" targetRef="_17_0_2_a4502ac_1322163955007_940851_9760"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1322163997938_533817_9836" sourceRef="_17_0_2_a4502ac_1322163955007_940851_9760" targetRef="_17_0_2_a4502ac_1322163971745_433995_9791"/>
+    <tns:sequenceFlow id="_17_0_2_a4502ac_1322164000122_915445_9845" sourceRef="_17_0_2_a4502ac_1322163971745_433995_9791" targetRef="_17_0_2_a4502ac_1322163990497_100445_9816"/>
+    <tns:manualTask completionQuantity="1" id="_17_0_2_a4502ac_1317130982157_646435_13084" isForCompensation="false" name="verifica requisiti" startQuantity="1">
+      <tns:incoming>ns6:_17_0_2_a4502ac_1317132340133_269145_7902</tns:incoming>
+      <tns:incoming>_17_0_2_a4502ac_1317132340133_269145_7902</tns:incoming>
+      <tns:outgoing>ns6:_17_0_2_a4502ac_1317131296365_791555_13494</tns:outgoing>
+      <tns:outgoing>_17_0_2_a4502ac_1317131296365_791555_13494</tns:outgoing>
+    </tns:manualTask>
+    <tns:parallelGateway gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1322164046781_594964_9875"/>
+    <tns:parallelGateway gatewayDirection="Unspecified" id="_17_0_2_a4502ac_1322164042975_799361_9864"/>
+  </tns:process>
+  <ns3:BPMNDiagram id="Yaoqiang_Diagram-_1" name="ButtafuoriNew" resolution="96.0">
+    <ns3:BPMNPlane bpmnElement="_17_0_2_a4502ac_1317130758437_897481_12891">
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317130776798_970168_12915" id="Yaoqiang-_17_0_2_a4502ac_1317130776798_970168_12915" isExpanded="true" isHorizontal="true">
+        <ns4:Bounds height="200.0" width="2257.0" x="50.0" y="52.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="228.0" width="23.609375" x="55.6953125" y="38.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317130865391_997746_12983" id="Yaoqiang-_17_0_2_a4502ac_1317130865391_997746_12983" isExpanded="true" isHorizontal="true">
+        <ns4:Bounds height="227.0" width="2257.0" x="50.0" y="287.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="110.0" width="23.609375" x="55.6953125" y="345.5"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317131012483_369799_13112" id="Yaoqiang-_17_0_2_a4502ac_1317131012483_369799_13112">
+        <ns4:Bounds height="42.0" width="42.0" x="590.0" y="388.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="608.0" y="432.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317131108096_923204_13269" id="Yaoqiang-_17_0_2_a4502ac_1317131108096_923204_13269">
+        <ns4:Bounds height="42.0" width="42.0" x="896.0" y="315.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="914.0" y="359.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317916085155_747630_11121" id="Yaoqiang-_17_0_2_a4502ac_1317916085155_747630_11121">
+        <ns4:Bounds height="42.0" width="42.0" x="567.0" y="315.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="585.0" y="359.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317131366775_350131_13615" id="Yaoqiang-_17_0_2_a4502ac_1317131366775_350131_13615" isExpanded="true" isHorizontal="true">
+        <ns4:Bounds height="150.0" width="2257.0" x="50.0" y="1009.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="71.0" width="23.609375" x="55.6953125" y="1048.5"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_b2102dc_1317978800140_975829_8759" id="Yaoqiang-_17_0_2_b2102dc_1317978800140_975829_8759" isExpanded="true" isHorizontal="true">
+        <ns4:Bounds height="113.0" width="2257.0" x="50.0" y="1505.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="133.0" width="23.609375" x="55.6953125" y="1495.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_b2102dc_1318332322234_215862_8556" id="Yaoqiang-_17_0_2_b2102dc_1318332322234_215862_8556" isExpanded="true" isHorizontal="true">
+        <ns4:Bounds height="122.0" width="276.0" x="854.0" y="539.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="76.0" width="23.609375" x="859.6953125" y="562.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1322163926848_482920_9723" id="Yaoqiang-_17_0_2_a4502ac_1322163926848_482920_9723" isExpanded="true" isHorizontal="true">
+        <ns4:Bounds height="122.0" width="2257.0" x="50.0" y="1280.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="51.0" width="23.609375" x="55.6953125" y="1315.5"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317130810541_709181_12932" id="Yaoqiang-_17_0_2_a4502ac_1317130810541_709181_12932">
+        <ns4:Bounds height="32.0" width="32.0" x="99.0" y="140.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="112.0" y="180.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317130817155_350363_12949" id="Yaoqiang-_17_0_2_a4502ac_1317130817155_350363_12949">
+        <ns4:Bounds height="55.0" width="98.0" x="148.0" y="136.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="87.0" x="153.5" y="155.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317130854673_907290_12976" id="Yaoqiang-_17_0_2_a4502ac_1317130854673_907290_12976" isMarkerVisible="false">
+        <ns4:Bounds height="42.0" width="42.0" x="331.0" y="132.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="349.0" y="176.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317130931145_832584_13048" id="Yaoqiang-_17_0_2_a4502ac_1317130931145_832584_13048">
+        <ns4:Bounds height="32.0" width="32.0" x="273.0" y="147.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="33.0" x="272.5" y="187.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317131208895_386922_13389" id="Yaoqiang-_17_0_2_a4502ac_1317131208895_386922_13389">
+        <ns4:Bounds height="32.0" width="32.0" x="384.0" y="80.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="48.0" x="376.0" y="120.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317131225322_682856_13404" id="Yaoqiang-_17_0_2_a4502ac_1317131225322_682856_13404">
+        <ns4:Bounds height="32.0" width="32.0" x="503.0" y="140.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="62.0" x="488.0" y="180.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317131255415_451213_13422" id="Yaoqiang-_17_0_2_a4502ac_1317131255415_451213_13422">
+        <ns4:Bounds height="32.0" width="32.0" x="638.0" y="206.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="52.0" x="628.0" y="246.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132126256_324155_7787" id="Yaoqiang-_17_0_2_a4502ac_1317132126256_324155_7787" isMarkerVisible="false">
+        <ns4:Bounds height="42.0" width="42.0" x="559.0" y="132.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="577.0" y="176.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132145351_532317_7806" id="Yaoqiang-_17_0_2_a4502ac_1317132145351_532317_7806">
+        <ns4:Bounds height="55.0" width="85.0" x="591.0" y="108.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="24.0" x="621.5" y="127.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132389943_235396_7917" id="Yaoqiang-_17_0_2_a4502ac_1317132389943_235396_7917">
+        <ns4:Bounds height="55.0" width="85.0" x="493.0" y="63.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="24.0" x="523.5" y="82.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132430207_721262_7945" id="Yaoqiang-_17_0_2_a4502ac_1317132430207_721262_7945" isMarkerVisible="false">
+        <ns4:Bounds height="42.0" width="42.0" x="436.0" y="72.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="454.0" y="116.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132559165_533071_8052" id="Yaoqiang-_17_0_2_a4502ac_1317132559165_533071_8052">
+        <ns4:Bounds height="32.0" width="32.0" x="702.0" y="147.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="40.0" x="698.0" y="187.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132567378_882407_8070" id="Yaoqiang-_17_0_2_a4502ac_1317132567378_882407_8070" isMarkerVisible="false">
+        <ns4:Bounds height="42.0" width="42.0" x="630.0" y="139.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="648.0" y="183.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132613843_707738_8107" id="Yaoqiang-_17_0_2_a4502ac_1317132613843_707738_8107">
+        <ns4:Bounds height="32.0" width="32.0" x="745.0" y="205.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="758.0" y="245.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317915392451_306202_9981" id="Yaoqiang-_17_0_2_a4502ac_1317915392451_306202_9981" isMarkerVisible="false">
+        <ns4:Bounds height="42.0" width="42.0" x="436.0" y="132.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="454.0" y="176.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317915626233_233099_10010" id="Yaoqiang-_17_0_2_a4502ac_1317915626233_233099_10010" isMarkerVisible="false">
+        <ns4:Bounds height="42.0" width="42.0" x="552.0" y="198.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="570.0" y="242.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317130889742_19830_13000" id="Yaoqiang-_17_0_2_a4502ac_1317130889742_19830_13000">
+        <ns4:Bounds height="32.0" width="32.0" x="103.0" y="396.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="74.0" x="82.0" y="436.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317130915935_547562_13026" id="Yaoqiang-_17_0_2_a4502ac_1317130915935_547562_13026">
+        <ns4:Bounds height="55.0" width="85.0" x="158.0" y="393.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="33.0" x="184.0" y="412.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317130969568_623646_13067" id="Yaoqiang-_17_0_2_a4502ac_1317130969568_623646_13067" isMarkerVisible="false">
+        <ns4:Bounds height="42.0" width="42.0" x="422.0" y="391.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="440.0" y="435.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317130982157_646435_13084" id="Yaoqiang-_17_0_2_a4502ac_1317130982157_646435_13084">
+        <ns4:Bounds height="55.0" width="91.0" x="479.0" y="395.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="82.0" x="483.5" y="414.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317131020985_78891_13127" id="Yaoqiang-_17_0_2_a4502ac_1317131020985_78891_13127">
+        <ns4:Bounds height="32.0" width="32.0" x="703.0" y="399.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="86.0" x="676.0" y="439.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317131027428_886931_13142" id="Yaoqiang-_17_0_2_a4502ac_1317131027428_886931_13142">
+        <ns4:Bounds height="32.0" width="32.0" x="654.0" y="438.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="47.0" x="646.5" y="478.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317131050594_739661_13165" id="Yaoqiang-_17_0_2_a4502ac_1317131050594_739661_13165">
+        <ns4:Bounds height="55.0" width="85.0" x="549.0" y="445.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="45.0" x="569.0" y="464.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317131071857_865370_13191" id="Yaoqiang-_17_0_2_a4502ac_1317131071857_865370_13191" isMarkerVisible="false">
+        <ns4:Bounds height="42.0" width="42.0" x="751.0" y="391.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="769.0" y="435.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317131080593_722933_13210" id="Yaoqiang-_17_0_2_a4502ac_1317131080593_722933_13210">
+        <ns4:Bounds height="55.0" width="86.0" x="911.0" y="455.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="52.0" x="928.0" y="474.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317131091451_992608_13240" id="Yaoqiang-_17_0_2_a4502ac_1317131091451_992608_13240">
+        <ns4:Bounds height="55.0" width="92.0" x="806.0" y="320.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="62.0" x="821.0" y="339.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317131116769_686431_13284" id="Yaoqiang-_17_0_2_a4502ac_1317131116769_686431_13284">
+        <ns4:Bounds height="32.0" width="32.0" x="1104.0" y="308.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="47.0" x="1096.5" y="348.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317131125880_790612_13307" id="Yaoqiang-_17_0_2_a4502ac_1317131125880_790612_13307">
+        <ns4:Bounds height="55.0" width="85.0" x="1198.0" y="412.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="40.0" x="1220.5" y="431.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317131137322_709968_13330" id="Yaoqiang-_17_0_2_a4502ac_1317131137322_709968_13330">
+        <ns4:Bounds height="32.0" width="32.0" x="1284.0" y="457.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="1297.0" y="497.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317131146355_363503_13339" id="Yaoqiang-_17_0_2_a4502ac_1317131146355_363503_13339">
+        <ns4:Bounds height="32.0" width="32.0" x="983.0" y="357.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="85.0" x="956.5" y="397.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132247188_110813_7853" id="Yaoqiang-_17_0_2_a4502ac_1317132247188_110813_7853">
+        <ns4:Bounds height="55.0" width="85.0" x="316.0" y="393.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="63.0" x="327.0" y="412.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132660440_348820_8162" id="Yaoqiang-_17_0_2_a4502ac_1317132660440_348820_8162">
+        <ns4:Bounds height="55.0" width="85.0" x="484.0" y="320.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="48.0" x="502.5" y="339.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132727617_426712_8200" id="Yaoqiang-_17_0_2_a4502ac_1317132727617_426712_8200" isMarkerVisible="false">
+        <ns4:Bounds height="42.0" width="42.0" x="265.0" y="388.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="283.0" y="432.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132750986_879558_8222" id="Yaoqiang-_17_0_2_a4502ac_1317132750986_879558_8222">
+        <ns4:Bounds height="32.0" width="32.0" x="362.0" y="308.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="27.0" x="364.5" y="348.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317916121113_338157_11157" id="Yaoqiang-_17_0_2_a4502ac_1317916121113_338157_11157" isMarkerVisible="false">
+        <ns4:Bounds height="42.0" width="42.0" x="751.0" y="315.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="769.0" y="359.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317916421694_498721_11227" id="Yaoqiang-_17_0_2_a4502ac_1317916421694_498721_11227">
+        <ns4:Bounds height="55.0" width="85.0" x="1037.0" y="354.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="64.0" x="1047.5" y="373.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317916457090_692971_11263" id="Yaoqiang-_17_0_2_a4502ac_1317916457090_692971_11263" isMarkerVisible="false">
+        <ns4:Bounds height="42.0" width="42.0" x="863.0" y="422.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="881.0" y="466.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317916502822_167024_11301" id="Yaoqiang-_17_0_2_a4502ac_1317916502822_167024_11301" isMarkerVisible="false">
+        <ns4:Bounds height="42.0" width="42.0" x="1136.0" y="407.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="1154.0" y="451.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132865381_529007_8627" id="Yaoqiang-_17_0_2_a4502ac_1317132865381_529007_8627">
+        <ns4:Bounds height="32.0" width="32.0" x="99.0" y="1030.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="74.0" x="78.0" y="1070.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132876301_449180_8642" id="Yaoqiang-_17_0_2_a4502ac_1317132876301_449180_8642">
+        <ns4:Bounds height="32.0" width="32.0" x="99.0" y="1107.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="45.0" x="92.5" y="1147.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132885910_345093_8655" id="Yaoqiang-_17_0_2_a4502ac_1317132885910_345093_8655" isMarkerVisible="false">
+        <ns4:Bounds height="42.0" width="42.0" x="170.0" y="1059.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="188.0" y="1103.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132900683_763803_8684" id="Yaoqiang-_17_0_2_a4502ac_1317132900683_763803_8684">
+        <ns4:Bounds height="55.0" width="91.0" x="383.0" y="1071.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="34.8359375" width="77.0" x="390.0" y="1083.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132911978_30870_8715" id="Yaoqiang-_17_0_2_a4502ac_1317132911978_30870_8715">
+        <ns4:Bounds height="55.0" width="91.0" x="663.0" y="1067.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="79.0" x="669.0" y="1086.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1317132921806_218973_8738" id="Yaoqiang-_17_0_2_a4502ac_1317132921806_218973_8738">
+        <ns4:Bounds height="32.0" width="32.0" x="772.0" y="1075.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="785.0" y="1115.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_b2102dc_1317978291890_911278_8682" id="Yaoqiang-_17_0_2_b2102dc_1317978291890_911278_8682">
+        <ns4:Bounds height="55.0" width="85.0" x="236.0" y="1067.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="34.8359375" width="47.0" x="255.0" y="1079.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_b2102dc_1317978743390_664133_8719" id="Yaoqiang-_17_0_2_b2102dc_1317978743390_664133_8719">
+        <ns4:Bounds height="32.0" width="32.0" x="544.0" y="1023.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="38.0" x="541.0" y="1063.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_b2102dc_1317979173562_657128_8913" id="Yaoqiang-_17_0_2_b2102dc_1317979173562_657128_8913" isMarkerVisible="false">
+        <ns4:Bounds height="42.0" width="42.0" x="331.0" y="1067.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="349.0" y="1111.0"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_b2102dc_1317979222906_581771_8937" id="Yaoqiang-_17_0_2_b2102dc_1317979222906_581771_8937">
+        <ns4:Bounds height="32.0" width="32.0" x="397.0" y="1023.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="75.0" x="375.5" y="1063.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_b2102dc_1317979240640_460264_8961" id="Yaoqiang-_17_0_2_b2102dc_1317979240640_460264_8961">
+        <ns4:Bounds height="32.0" width="32.0" x="435.0" y="1023.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="448.0" y="1063.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1322164140101_122250_10317" id="Yaoqiang-_17_0_2_a4502ac_1322164140101_122250_10317">
+        <ns4:Bounds height="32.0" width="32.0" x="552.0" y="1107.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="38.0" x="549.0" y="1147.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1322164046781_594964_9875" id="Yaoqiang-_17_0_2_a4502ac_1322164046781_594964_9875">
+        <ns4:Bounds height="42.0" width="42.0" x="580.0" y="1067.5"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="598.0" y="1111.5"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1322164042975_799361_9864" id="Yaoqiang-_17_0_2_a4502ac_1322164042975_799361_9864">
+        <ns4:Bounds height="42.0" width="42.0" x="486.0" y="1075.5"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="504.0" y="1119.5"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_b2102dc_1317978927281_833660_8778" id="Yaoqiang-_17_0_2_b2102dc_1317978927281_833660_8778">
+        <ns4:Bounds height="32.0" width="32.0" x="99.0" y="1542.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="112.0" y="1582.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_b2102dc_1317978948000_99035_8803" id="Yaoqiang-_17_0_2_b2102dc_1317978948000_99035_8803">
+        <ns4:Bounds height="55.0" width="85.0" x="150.0" y="1539.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="35.0" x="175.0" y="1558.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_b2102dc_1317978959406_349006_8834" id="Yaoqiang-_17_0_2_b2102dc_1317978959406_349006_8834">
+        <ns4:Bounds height="55.0" width="98.0" x="253.0" y="1539.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="79.0" x="262.5" y="1558.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_b2102dc_1317978974265_480340_8859" id="Yaoqiang-_17_0_2_b2102dc_1317978974265_480340_8859">
+        <ns4:Bounds height="32.0" width="32.0" x="377.0" y="1542.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="390.0" y="1582.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_b2102dc_1318332335359_323107_8575" id="Yaoqiang-_17_0_2_b2102dc_1318332335359_323107_8575">
+        <ns4:Bounds height="32.0" width="32.0" x="902.0" y="553.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="52.0" x="892.0" y="593.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_b2102dc_1318332337531_99314_8587" id="Yaoqiang-_17_0_2_b2102dc_1318332337531_99314_8587">
+        <ns4:Bounds height="32.0" width="32.0" x="902.0" y="597.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="41.0" x="897.5" y="637.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_b2102dc_1318332354421_924650_8597" id="Yaoqiang-_17_0_2_b2102dc_1318332354421_924650_8597">
+        <ns4:Bounds height="32.0" width="32.0" x="968.0" y="573.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="981.0" y="613.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1322163943774_596517_9742" id="Yaoqiang-_17_0_2_a4502ac_1322163943774_596517_9742">
+        <ns4:Bounds height="32.0" width="32.0" x="94.0" y="1324.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="107.0" y="1364.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1322163955007_940851_9760" id="Yaoqiang-_17_0_2_a4502ac_1322163955007_940851_9760">
+        <ns4:Bounds height="55.0" width="85.0" x="142.0" y="1322.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="35.0" x="167.0" y="1341.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1322163971745_433995_9791" id="Yaoqiang-_17_0_2_a4502ac_1322163971745_433995_9791">
+        <ns4:Bounds height="55.0" width="105.0" x="256.0" y="1324.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="79.0" x="269.0" y="1343.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNShape bpmnElement="_17_0_2_a4502ac_1322163990497_100445_9816" id="Yaoqiang-_17_0_2_a4502ac_1322163990497_100445_9816">
+        <ns4:Bounds height="32.0" width="32.0" x="381.0" y="1327.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="394.0" y="1367.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNShape>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_b2102dc_1317979226765_590148_8954" id="Yaoqiang-_17_0_2_b2102dc_1317979226765_590148_8954">
+        <ns2:waypoint x="351.0" y="1068.0"/>
+        <ns2:waypoint x="351.0" y="1037.0"/>
+        <ns2:waypoint x="397.12549213361245" y="1037.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="355.5627460668062" y="1027.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317916460616_343424_11270" id="Yaoqiang-_17_0_2_a4502ac_1317916460616_343424_11270">
+        <ns2:waypoint x="771.0" y="432.0"/>
+        <ns2:waypoint x="771.0" y="442.0"/>
+        <ns2:waypoint x="864.0" y="442.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="809.5" y="432.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_b2102dc_1317978992078_275967_8895" id="Yaoqiang-_17_0_2_b2102dc_1317978992078_275967_8895">
+        <ns2:waypoint x="302.0" y="1539.0"/>
+        <ns2:waypoint x="431.0" y="1477.5"/>
+        <ns2:waypoint x="511.0" y="697.0"/>
+        <ns2:waypoint x="511.0" y="557.0"/>
+        <ns2:waypoint x="560.0" y="1055.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="557.0" y="1416.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132782591_432802_8248" id="Yaoqiang-_17_0_2_a4502ac_1317132782591_432802_8248">
+        <ns2:waypoint x="378.0" y="308.0"/>
+        <ns2:waypoint x="285.0" y="308.0"/>
+        <ns2:waypoint x="285.0" y="389.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="288.0" y="298.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_b2102dc_1317978933531_647895_8789" id="Yaoqiang-_17_0_2_b2102dc_1317978933531_647895_8789">
+        <ns2:waypoint x="303.5" y="1122.0"/>
+        <ns2:waypoint x="303.5" y="1475.0"/>
+        <ns2:waypoint x="96.0" y="704.0"/>
+        <ns2:waypoint x="115.0" y="1542.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="300.5" y="1416.33203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132582229_843755_8082" id="Yaoqiang-_17_0_2_a4502ac_1317132582229_843755_8082">
+        <ns2:waypoint x="601.0" y="153.0"/>
+        <ns2:waypoint x="630.0" y="160.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="612.5" y="146.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317131175667_36010_13368" id="Yaoqiang-_17_0_2_a4502ac_1317131175667_36010_13368">
+        <ns2:waypoint x="246.0" y="143.0"/>
+        <ns2:waypoint x="250.0" y="143.0"/>
+        <ns2:waypoint x="250.0" y="167.0"/>
+        <ns2:waypoint x="273.0" y="163.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="247.0" y="152.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132626463_626331_8145" id="Yaoqiang-_17_0_2_a4502ac_1317132626463_626331_8145">
+        <ns2:waypoint x="670.0" y="222.0"/>
+        <ns2:waypoint x="745.0" y="221.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="704.5" y="211.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317915417224_867825_10000" id="Yaoqiang-_17_0_2_a4502ac_1317915417224_867825_10000">
+        <ns2:waypoint x="477.0" y="152.0"/>
+        <ns2:waypoint x="480.0" y="152.0"/>
+        <ns2:waypoint x="480.0" y="160.0"/>
+        <ns2:waypoint x="503.5080666151703" y="152.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="487.25403330758513" y="142.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_b2102dc_1317978978687_309538_8879" id="Yaoqiang-_17_0_2_b2102dc_1317978978687_309538_8879">
+        <ns2:waypoint x="235.0" y="1566.5"/>
+        <ns2:waypoint x="253.0" y="1566.5"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="241.0" y="1556.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_b2102dc_1318332360578_359499_8618" id="Yaoqiang-_17_0_2_b2102dc_1318332360578_359499_8618">
+        <ns2:waypoint x="933.4919333848296" y="609.0"/>
+        <ns2:waypoint x="980.0" y="609.0"/>
+        <ns2:waypoint x="980.0" y="604.4919333848296"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="956.0" y="599.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_b2102dc_1317979187359_743420_8929" id="Yaoqiang-_17_0_2_b2102dc_1317979187359_743420_8929">
+        <ns2:waypoint x="372.0" y="1087.0"/>
+        <ns2:waypoint x="380.0" y="1087.0"/>
+        <ns2:waypoint x="380.0" y="1088.0"/>
+        <ns2:waypoint x="383.0" y="1087.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="374.5" y="1077.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317131336207_8567_13575" id="Yaoqiang-_17_0_2_a4502ac_1317131336207_8567_13575">
+        <ns2:waypoint x="897.0" y="338.3"/>
+        <ns2:waypoint x="897.0" y="337.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="894.0" y="327.93203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132936454_537545_8784" id="Yaoqiang-_17_0_2_a4502ac_1317132936454_537545_8784">
+        <ns2:waypoint x="754.0" y="1094.5"/>
+        <ns2:waypoint x="772.0" y="1091.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="760.0" y="1082.83203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132924910_430708_8748" id="Yaoqiang-_17_0_2_a4502ac_1317132924910_430708_8748">
+        <ns2:waypoint x="130.87450786638755" y="1048.0"/>
+        <ns2:waypoint x="190.0" y="1048.0"/>
+        <ns2:waypoint x="190.0" y="1060.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="163.43725393319377" y="1038.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317916169754_384228_11180" id="Yaoqiang-_17_0_2_a4502ac_1317916169754_384228_11180">
+        <ns2:waypoint x="793.0" y="336.0"/>
+        <ns2:waypoint x="806.0" y="347.5"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="796.5" y="331.83203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317916612084_204599_11354" id="Yaoqiang-_17_0_2_a4502ac_1317916612084_204599_11354">
+        <ns2:waypoint x="852.0" y="320.0"/>
+        <ns2:waypoint x="784.0" y="277.0"/>
+        <ns2:waypoint x="494.0" y="277.0"/>
+        <ns2:waypoint x="519.0" y="172.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="651.5" y="267.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317131173593_658093_13359" id="Yaoqiang-_17_0_2_a4502ac_1317131173593_658093_13359">
+        <ns2:waypoint x="131.0" y="156.0"/>
+        <ns2:waypoint x="148.0" y="163.5"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="136.5" y="149.83203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317131333165_136233_13566" id="Yaoqiang-_17_0_2_a4502ac_1317131333165_136233_13566">
+        <ns2:waypoint x="997.0" y="482.5"/>
+        <ns2:waypoint x="1284.0" y="473.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="1137.5" y="467.83203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317131296365_791555_13494" id="Yaoqiang-_17_0_2_a4502ac_1317131296365_791555_13494">
+        <ns2:waypoint x="570.0" y="407.0"/>
+        <ns2:waypoint x="577.0" y="407.0"/>
+        <ns2:waypoint x="577.0" y="408.0"/>
+        <ns2:waypoint x="592.0" y="407.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="578.0" y="397.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_b2102dc_1317978976890_648952_8870" id="Yaoqiang-_17_0_2_b2102dc_1317978976890_648952_8870">
+        <ns2:waypoint x="131.0" y="1558.0"/>
+        <ns2:waypoint x="150.0" y="1566.5"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="137.5" y="1552.33203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1322163997938_533817_9836" id="Yaoqiang-_17_0_2_a4502ac_1322163997938_533817_9836">
+        <ns2:waypoint x="227.0" y="1337.0"/>
+        <ns2:waypoint x="239.0" y="1337.0"/>
+        <ns2:waypoint x="239.0" y="1341.0"/>
+        <ns2:waypoint x="256.0" y="1337.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="238.5" y="1327.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1318774451698_600341_8503" id="Yaoqiang-_17_0_2_a4502ac_1318774451698_600341_8503">
+        <ns2:waypoint x="1215.0" y="467.0"/>
+        <ns2:waypoint x="1215.0" y="494.0"/>
+        <ns2:waypoint x="392.0" y="494.0"/>
+        <ns2:waypoint x="413.0" y="1023.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="560.0" y="484.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132441361_281596_7968" id="Yaoqiang-_17_0_2_a4502ac_1317132441361_281596_7968">
+        <ns2:waypoint x="477.0" y="92.0"/>
+        <ns2:waypoint x="484.0" y="92.0"/>
+        <ns2:waypoint x="484.0" y="78.0"/>
+        <ns2:waypoint x="493.0" y="92.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="482.0" y="82.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132733716_542975_8215" id="Yaoqiang-_17_0_2_a4502ac_1317132733716_542975_8215">
+        <ns2:waypoint x="306.0" y="408.0"/>
+        <ns2:waypoint x="310.0" y="408.0"/>
+        <ns2:waypoint x="310.0" y="410.0"/>
+        <ns2:waypoint x="316.0" y="408.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="308.0" y="398.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317916577296_666683_11337" id="Yaoqiang-_17_0_2_a4502ac_1317916577296_666683_11337">
+        <ns2:waypoint x="1211.0" y="412.0"/>
+        <ns2:waypoint x="1211.0" y="151.0"/>
+        <ns2:waypoint x="728.5830052442584" y="151.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="1097.2915026221292" y="141.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1322164000122_915445_9845" id="Yaoqiang-_17_0_2_a4502ac_1322164000122_915445_9845">
+        <ns2:waypoint x="361.0" y="1351.5"/>
+        <ns2:waypoint x="381.0" y="1343.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="368.0" y="1337.33203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_b2102dc_1317978981390_266087_8888" id="Yaoqiang-_17_0_2_b2102dc_1317978981390_266087_8888">
+        <ns2:waypoint x="351.0" y="1555.0"/>
+        <ns2:waypoint x="364.0" y="1555.0"/>
+        <ns2:waypoint x="364.0" y="1554.0"/>
+        <ns2:waypoint x="377.2837663544983" y="1555.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="361.14188317724916" y="1545.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317915907735_854983_10062" id="Yaoqiang-_17_0_2_a4502ac_1317915907735_854983_10062">
+        <ns2:waypoint x="676.0" y="112.0"/>
+        <ns2:waypoint x="972.0" y="112.0"/>
+        <ns2:waypoint x="999.0" y="357.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="957.0" y="102.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317916445468_460213_11254" id="Yaoqiang-_17_0_2_a4502ac_1317916445468_460213_11254">
+        <ns2:waypoint x="1015.0" y="373.0"/>
+        <ns2:waypoint x="1037.0" y="381.5"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="1023.0" y="367.33203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317131353461_567019_13611" id="Yaoqiang-_17_0_2_a4502ac_1317131353461_567019_13611">
+        <ns2:waypoint x="1283.0" y="429.0"/>
+        <ns2:waypoint x="1296.0" y="429.0"/>
+        <ns2:waypoint x="1296.0" y="457.5080666151703"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="1293.0" y="426.8360645575852"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_b2102dc_1317979177484_663022_8921" id="Yaoqiang-_17_0_2_b2102dc_1317979177484_663022_8921">
+        <ns2:waypoint x="321.0" y="1094.5"/>
+        <ns2:waypoint x="331.0" y="1088.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="323.0" y="1081.33203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317916100723_520759_11148" id="Yaoqiang-_17_0_2_a4502ac_1317916100723_520759_11148">
+        <ns2:waypoint x="588.0" y="315.0"/>
+        <ns2:waypoint x="588.0" y="305.0"/>
+        <ns2:waypoint x="420.0" y="305.0"/>
+        <ns2:waypoint x="420.0" y="333.0"/>
+        <ns2:waypoint x="378.0" y="308.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="483.5" y="295.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317131182173_872089_13379" id="Yaoqiang-_17_0_2_a4502ac_1317131182173_872089_13379">
+        <ns2:waypoint x="304.87450786638755" y="161.0"/>
+        <ns2:waypoint x="326.0" y="161.0"/>
+        <ns2:waypoint x="326.0" y="152.0"/>
+        <ns2:waypoint x="339.0" y="161.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="318.9372539331938" y="151.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_b2102dc_1318332358296_645612_8609" id="Yaoqiang-_17_0_2_b2102dc_1318332358296_645612_8609">
+        <ns2:waypoint x="933.4919333848296" y="565.0"/>
+        <ns2:waypoint x="980.0" y="565.0"/>
+        <ns2:waypoint x="980.0" y="573.5080666151704"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="958.0" y="555.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132730565_186327_8207" id="Yaoqiang-_17_0_2_a4502ac_1317132730565_186327_8207">
+        <ns2:waypoint x="243.0" y="420.5"/>
+        <ns2:waypoint x="265.0" y="409.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="251.0" y="404.83203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132690223_65521_8185" id="Yaoqiang-_17_0_2_a4502ac_1317132690223_65521_8185">
+        <ns2:waypoint x="442.0" y="392.0"/>
+        <ns2:waypoint x="442.0" y="336.0"/>
+        <ns2:waypoint x="484.0" y="336.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="51.0" x="416.5" y="333.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1322163995676_127662_9827" id="Yaoqiang-_17_0_2_a4502ac_1322163995676_127662_9827">
+        <ns2:waypoint x="126.0" y="1340.0"/>
+        <ns2:waypoint x="142.0" y="1349.5"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="131.0" y="1334.83203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317915849501_638947_10054" id="Yaoqiang-_17_0_2_a4502ac_1317915849501_638947_10054">
+        <ns2:waypoint x="572.0" y="199.0"/>
+        <ns2:waypoint x="572.0" y="189.0"/>
+        <ns2:waypoint x="650.0" y="189.0"/>
+        <ns2:waypoint x="630.0" y="160.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="578.5" y="150.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132958091_204259_8798" id="Yaoqiang-_17_0_2_a4502ac_1317132958091_204259_8798">
+        <ns2:waypoint x="493.0" y="90.5"/>
+        <ns2:waypoint x="347.0" y="60.0"/>
+        <ns2:waypoint x="362.0" y="324.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="344.0" y="131.83203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317916506753_157061_11310" id="Yaoqiang-_17_0_2_a4502ac_1317916506753_157061_11310">
+        <ns2:waypoint x="1135.4919333848297" y="320.0"/>
+        <ns2:waypoint x="1156.0" y="320.0"/>
+        <ns2:waypoint x="1156.0" y="408.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="1153.0" y="343.82799794241487"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132927422_152646_8757" id="Yaoqiang-_17_0_2_a4502ac_1317132927422_152646_8757">
+        <ns2:waypoint x="130.49193338482968" y="1119.0"/>
+        <ns2:waypoint x="190.0" y="1119.0"/>
+        <ns2:waypoint x="190.0" y="1100.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="166.74596669241484" y="1109.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317131269361_409890_13440" id="Yaoqiang-_17_0_2_a4502ac_1317131269361_409890_13440">
+        <ns2:waypoint x="351.0" y="133.0"/>
+        <ns2:waypoint x="351.0" y="98.0"/>
+        <ns2:waypoint x="384.12549213361245" y="98.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="348.0" y="89.01928518319377"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132511000_181643_8011" id="Yaoqiang-_17_0_2_a4502ac_1317132511000_181643_8011">
+        <ns2:waypoint x="535.0" y="156.0"/>
+        <ns2:waypoint x="559.0" y="153.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="544.0" y="144.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317131306552_101453_13521" id="Yaoqiang-_17_0_2_a4502ac_1317131306552_101453_13521">
+        <ns2:waypoint x="654.0" y="454.0"/>
+        <ns2:waypoint x="634.0" y="472.5"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="641.0" y="453.33203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317915408659_513943_9991" id="Yaoqiang-_17_0_2_a4502ac_1317915408659_513943_9991">
+        <ns2:waypoint x="457.0" y="114.0"/>
+        <ns2:waypoint x="457.0" y="132.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="454.0" y="113.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317131339468_119219_13584" id="Yaoqiang-_17_0_2_a4502ac_1317131339468_119219_13584">
+        <ns2:waypoint x="921.0" y="353.0"/>
+        <ns2:waypoint x="921.0" y="364.0"/>
+        <ns2:waypoint x="985.771243444677" y="364.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="944.8856217223386" y="354.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317916490350_353939_11292" id="Yaoqiang-_17_0_2_a4502ac_1317916490350_353939_11292">
+        <ns2:waypoint x="883.0" y="463.0"/>
+        <ns2:waypoint x="883.0" y="473.0"/>
+        <ns2:waypoint x="911.0" y="473.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="21.0" x="881.5" y="463.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317133018308_820406_8819" id="Yaoqiang-_17_0_2_a4502ac_1317133018308_820406_8819">
+        <ns2:waypoint x="189.0" y="393.0"/>
+        <ns2:waypoint x="189.0" y="200.0"/>
+        <ns2:waypoint x="256.0" y="200.0"/>
+        <ns2:waypoint x="289.0" y="179.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="186.0" y="226.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_b2102dc_1318332399046_753524_8629" id="Yaoqiang-_17_0_2_b2102dc_1318332399046_753524_8629">
+        <ns2:waypoint x="954.0" y="510.0"/>
+        <ns2:waypoint x="910.0" y="525.0"/>
+        <ns2:waypoint x="914.0" y="525.0"/>
+        <ns2:waypoint x="910.0" y="555.143593539449"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="921.4282032302756" y="515.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1318774120634_411698_8485" id="Yaoqiang-_17_0_2_a4502ac_1318774120634_411698_8485">
+        <ns2:waypoint x="613.0" y="390.0"/>
+        <ns2:waypoint x="613.0" y="368.0"/>
+        <ns2:waypoint x="749.0" y="368.0"/>
+        <ns2:waypoint x="751.0" y="336.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="61.0" x="624.5" y="326.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1322164168805_942122_10350" id="Yaoqiang-_17_0_2_a4502ac_1322164168805_942122_10350">
+        <ns2:waypoint x="277.0" y="1067.0"/>
+        <ns2:waypoint x="277.0" y="683.0"/>
+        <ns2:waypoint x="567.0" y="683.0"/>
+        <ns2:waypoint x="110.0" y="1324.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="107.0" y="718.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317916172047_521719_11188" id="Yaoqiang-_17_0_2_a4502ac_1317916172047_521719_11188">
+        <ns2:waypoint x="772.0" y="391.0"/>
+        <ns2:waypoint x="772.0" y="357.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="75.0" x="734.5" y="364.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317915678602_51394_10035" id="Yaoqiang-_17_0_2_a4502ac_1317915678602_51394_10035">
+        <ns2:waypoint x="676.0" y="119.0"/>
+        <ns2:waypoint x="684.0" y="119.0"/>
+        <ns2:waypoint x="684.0" y="101.0"/>
+        <ns2:waypoint x="533.0" y="101.0"/>
+        <ns2:waypoint x="533.0" y="218.0"/>
+        <ns2:waypoint x="594.0" y="219.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="681.0" y="200.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1321694485844_656649_8697" id="Yaoqiang-_17_0_2_a4502ac_1321694485844_656649_8697">
+        <ns2:waypoint x="530.0" y="63.0"/>
+        <ns2:waypoint x="530.0" y="59.0"/>
+        <ns2:waypoint x="341.0" y="59.0"/>
+        <ns2:waypoint x="352.0" y="132.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="403.5" y="49.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1322164191659_250726_10359" id="Yaoqiang-_17_0_2_a4502ac_1322164191659_250726_10359">
+        <ns2:waypoint x="361.0" y="1351.5"/>
+        <ns2:waypoint x="603.0" y="673.0"/>
+        <ns2:waypoint x="584.0" y="1123.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="600.0" y="1338.83203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317916472113_371953_11282" id="Yaoqiang-_17_0_2_a4502ac_1317916472113_371953_11282">
+        <ns2:waypoint x="1083.0" y="409.0"/>
+        <ns2:waypoint x="1083.0" y="399.0"/>
+        <ns2:waypoint x="883.0" y="399.0"/>
+        <ns2:waypoint x="905.0" y="443.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="1008.0" y="433.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132437789_700024_7959" id="Yaoqiang-_17_0_2_a4502ac_1317132437789_700024_7959">
+        <ns2:waypoint x="416.0" y="96.0"/>
+        <ns2:waypoint x="436.0" y="93.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="423.0" y="84.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132593337_374757_8100" id="Yaoqiang-_17_0_2_a4502ac_1317132593337_374757_8100">
+        <ns2:waypoint x="671.0" y="159.0"/>
+        <ns2:waypoint x="680.0" y="159.0"/>
+        <ns2:waypoint x="680.0" y="167.0"/>
+        <ns2:waypoint x="702.5080666151704" y="159.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="683.7540333075851" y="149.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317916096449_930162_11139" id="Yaoqiang-_17_0_2_a4502ac_1317916096449_930162_11139">
+        <ns2:waypoint x="568.0" y="338.2831325301205"/>
+        <ns2:waypoint x="568.0" y="337.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="565.0" y="327.94046498493975"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317916510107_340138_11318" id="Yaoqiang-_17_0_2_a4502ac_1317916510107_340138_11318">
+        <ns2:waypoint x="905.0" y="443.0"/>
+        <ns2:waypoint x="1136.0" y="428.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="21.0" x="1010.0" y="425.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132317559_862339_7892" id="Yaoqiang-_17_0_2_a4502ac_1317132317559_862339_7892">
+        <ns2:waypoint x="401.0" y="420.5"/>
+        <ns2:waypoint x="422.0" y="412.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="408.5" y="406.33203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_b2102dc_1317979243328_356303_8971" id="Yaoqiang-_17_0_2_b2102dc_1317979243328_356303_8971">
+        <ns2:waypoint x="429.0" y="1039.0"/>
+        <ns2:waypoint x="435.0" y="1039.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="429.0" y="1029.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317915637871_99502_10026" id="Yaoqiang-_17_0_2_a4502ac_1317915637871_99502_10026">
+        <ns2:waypoint x="593.0" y="218.0"/>
+        <ns2:waypoint x="595.0" y="218.0"/>
+        <ns2:waypoint x="595.0" y="226.0"/>
+        <ns2:waypoint x="638.5080666151704" y="218.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="612.7540333075851" y="208.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317131300748_118579_13503" id="Yaoqiang-_17_0_2_a4502ac_1317131300748_118579_13503">
+        <ns2:waypoint x="632.0" y="409.0"/>
+        <ns2:waypoint x="703.0" y="415.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="40.0" x="647.5" y="402.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132513714_138622_8020" id="Yaoqiang-_17_0_2_a4502ac_1317132513714_138622_8020">
+        <ns2:waypoint x="579.0" y="133.0"/>
+        <ns2:waypoint x="579.0" y="119.0"/>
+        <ns2:waypoint x="591.0" y="119.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="576.0" y="110.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317916594675_185427_11348" id="Yaoqiang-_17_0_2_a4502ac_1317916594675_185427_11348">
+        <ns2:waypoint x="954.0" y="455.0"/>
+        <ns2:waypoint x="900.0" y="259.0"/>
+        <ns2:waypoint x="637.0" y="259.0"/>
+        <ns2:waypoint x="654.0" y="238.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="888.5" y="249.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317916513056_503978_11327" id="Yaoqiang-_17_0_2_a4502ac_1317916513056_503978_11327">
+        <ns2:waypoint x="1178.0" y="428.0"/>
+        <ns2:waypoint x="1198.0" y="439.5"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="1185.0" y="423.83203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132947249_690286_8792" id="Yaoqiang-_17_0_2_a4502ac_1317132947249_690286_8792">
+        <ns2:waypoint x="504.0" y="320.0"/>
+        <ns2:waypoint x="504.0" y="273.0"/>
+        <ns2:waypoint x="413.0" y="273.0"/>
+        <ns2:waypoint x="413.0" y="91.0"/>
+        <ns2:waypoint x="400.0" y="112.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="397.0" y="258.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317131311419_126509_13539" id="Yaoqiang-_17_0_2_a4502ac_1317131311419_126509_13539">
+        <ns2:waypoint x="735.0" y="415.0"/>
+        <ns2:waypoint x="751.0" y="412.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="740.0" y="403.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132975860_673542_8804" id="Yaoqiang-_17_0_2_a4502ac_1317132975860_673542_8804">
+        <ns2:waypoint x="148.0" y="179.0"/>
+        <ns2:waypoint x="144.0" y="179.0"/>
+        <ns2:waypoint x="95.0" y="179.0"/>
+        <ns2:waypoint x="119.0" y="396.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="116.0" y="263.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317131308954_316039_13530" id="Yaoqiang-_17_0_2_a4502ac_1317131308954_316039_13530">
+        <ns2:waypoint x="584.0" y="445.0"/>
+        <ns2:waypoint x="584.0" y="428.0"/>
+        <ns2:waypoint x="609.0" y="428.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="585.0" y="418.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317915396320_933985_9988" id="Yaoqiang-_17_0_2_a4502ac_1317915396320_933985_9988">
+        <ns2:waypoint x="373.0" y="153.0"/>
+        <ns2:waypoint x="436.0" y="153.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="401.5" y="143.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317131304165_235206_13512" id="Yaoqiang-_17_0_2_a4502ac_1317131304165_235206_13512">
+        <ns2:waypoint x="628.0" y="413.0"/>
+        <ns2:waypoint x="643.0" y="413.0"/>
+        <ns2:waypoint x="654.0" y="454.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="640.0" y="421.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317131344506_210774_13593" id="Yaoqiang-_17_0_2_a4502ac_1317131344506_210774_13593">
+        <ns2:waypoint x="917.0" y="315.0"/>
+        <ns2:waypoint x="1003.0" y="315.0"/>
+        <ns2:waypoint x="1003.0" y="328.0"/>
+        <ns2:waypoint x="1106.771243444677" y="315.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="1008.8856217223386" y="305.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317916261279_892127_11204" id="Yaoqiang-_17_0_2_a4502ac_1317916261279_892127_11204">
+        <ns2:waypoint x="609.0" y="336.0"/>
+        <ns2:waypoint x="751.0" y="336.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="677.0" y="326.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_b2102dc_1317978728671_607342_8704" id="Yaoqiang-_17_0_2_b2102dc_1317978728671_607342_8704">
+        <ns2:waypoint x="211.0" y="1079.0"/>
+        <ns2:waypoint x="228.0" y="1079.0"/>
+        <ns2:waypoint x="228.0" y="1080.0"/>
+        <ns2:waypoint x="236.0" y="1079.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="220.5" y="1069.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132340133_269145_7902" id="Yaoqiang-_17_0_2_a4502ac_1317132340133_269145_7902">
+        <ns2:waypoint x="464.0" y="412.0"/>
+        <ns2:waypoint x="479.0" y="422.5"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="468.5" y="407.33203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317916692440_756032_11360" id="Yaoqiang-_17_0_2_a4502ac_1317916692440_756032_11360">
+        <ns2:waypoint x="739.0" y="1067.0"/>
+        <ns2:waypoint x="739.0" y="436.0"/>
+        <ns2:waypoint x="719.0" y="431.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="736.0" y="729.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_b2102dc_1318332427156_710099_8638" id="Yaoqiang-_17_0_2_b2102dc_1318332427156_710099_8638">
+        <ns2:waypoint x="1240.5" y="467.0"/>
+        <ns2:waypoint x="1194.0" y="592.0"/>
+        <ns2:waypoint x="914.0" y="592.0"/>
+        <ns2:waypoint x="918.0" y="597.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="1136.25" y="582.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317133042581_909069_8824" id="Yaoqiang-_17_0_2_a4502ac_1317133042581_909069_8824">
+        <ns2:waypoint x="571.0" y="500.0"/>
+        <ns2:waypoint x="571.0" y="525.0"/>
+        <ns2:waypoint x="49.0" y="525.0"/>
+        <ns2:waypoint x="49.0" y="649.0"/>
+        <ns2:waypoint x="115.0" y="1107.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="112.0" y="565.58203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132987388_92215_8810" id="Yaoqiang-_17_0_2_a4502ac_1317132987388_92215_8810">
+        <ns2:waypoint x="168.0" y="191.0"/>
+        <ns2:waypoint x="168.0" y="210.0"/>
+        <ns2:waypoint x="116.0" y="210.0"/>
+        <ns2:waypoint x="116.0" y="532.0"/>
+        <ns2:waypoint x="96.0" y="532.0"/>
+        <ns2:waypoint x="115.0" y="1030.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="112.0" y="574.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317915633971_991277_10018" id="Yaoqiang-_17_0_2_a4502ac_1317915633971_991277_10018">
+        <ns2:waypoint x="351.0" y="173.0"/>
+        <ns2:waypoint x="351.0" y="245.0"/>
+        <ns2:waypoint x="572.0" y="245.0"/>
+        <ns2:waypoint x="573.0" y="240.0"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="425.5" y="235.08203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317131287878_239385_13467" id="Yaoqiang-_17_0_2_a4502ac_1317131287878_239385_13467">
+        <ns2:waypoint x="135.0" y="412.0"/>
+        <ns2:waypoint x="158.0" y="420.5"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="143.5" y="406.33203125"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+      <ns3:BPMNEdge bpmnElement="_17_0_2_a4502ac_1317132616495_726679_8118" id="Yaoqiang-_17_0_2_a4502ac_1317132616495_726679_8118">
+        <ns2:waypoint x="733.1986841535706" y="158.0"/>
+        <ns2:waypoint x="757.0" y="158.0"/>
+        <ns2:waypoint x="757.0" y="205.50806661517032"/>
+        <ns3:BPMNLabel>
+          <ns4:Bounds height="19.8359375" width="6.0" x="754.0" y="159.93540663437048"/>
+        </ns3:BPMNLabel>
+      </ns3:BPMNEdge>
+    </ns3:BPMNPlane>
+  </ns3:BPMNDiagram>
+</tns:definitions>

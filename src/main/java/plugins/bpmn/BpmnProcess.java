@@ -165,6 +165,11 @@ public class BpmnProcess extends BpmnIdName {
             task.importElement(xpp, bpmn);
             tasks.add(task);
             return true;
+        } else if (xpp.getName().equals("manualTask")) {
+            BpmnUserTask task = new BpmnUserTask("manualTask");
+            task.importElement(xpp, bpmn);
+            tasks.add(task);
+            return true;
         } else if (xpp.getName().equals("serviceTask")) {
             BpmnServiceTask task = new BpmnServiceTask("serviceTask");
             task.importElement(xpp, bpmn);
