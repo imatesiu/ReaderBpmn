@@ -39,7 +39,7 @@ public class BpmnProcess extends BpmnIdName {
 	private Collection<BpmnDataObjectReference> dataObjectsRefs;
 	private Collection<BpmnTextAnnotation> textAnnotations;
 	private Collection<BpmnAssociation> associations;
-	private BpmnLaneSet laneSet;
+	private Collection<BpmnLaneSet> laneSets;
 
 	public BpmnProcess(String tag) {
 		super(tag);
@@ -147,8 +147,9 @@ public class BpmnProcess extends BpmnIdName {
 			dataObjectsRefs.add(dataObjectRef);
 			return true;
 		} else if (xpp.getName().equals("laneSet")) {
-			laneSet = new BpmnLaneSet("laneSet");
+			BpmnLaneSet laneSet = new BpmnLaneSet("laneSet");
 			laneSet.importElement(xpp, bpmn);
+			laneSets.add(laneSet);
 			return true;
 		} else if (xpp.getName().equals("textAnnotation")) {
 			BpmnTextAnnotation textAnnotation = new BpmnTextAnnotation("textAnnotation");
@@ -192,7 +193,8 @@ public class BpmnProcess extends BpmnIdName {
 		 * Export node child elements.
 		 */
 		String s = super.exportElements();
-		if (laneSet != null) {
+		
+		for (BpmnLaneSet laneSet : laneSets) {
 			s += laneSet.exportElement();
 		}
 		for (BpmnStartEvent startEvent : startEvents) {
@@ -245,7 +247,8 @@ public class BpmnProcess extends BpmnIdName {
 
 	public void unmarshall(BPMNDiagram diagram, Map<String, BPMNNode> id2node, Map<String, Swimlane> id2lane) {
 		Swimlane lane = id2lane.get(id);
-		if(laneSet != null) {
+		
+		for (BpmnLaneSet laneSet : laneSets) {
 			laneSet.unmarshall(diagram, id2node,  id2lane, lane);
 		}
 		for (BpmnStartEvent startEvent : startEvents) {
@@ -307,7 +310,8 @@ public class BpmnProcess extends BpmnIdName {
 	public void unmarshall(BPMNDiagram diagram, Collection<String> elements, Map<String, BPMNNode> id2node,
 			Map<String, Swimlane> id2lane) {
 		Swimlane lane = id2lane.get(id);
-		if(laneSet != null) {
+		
+		for (BpmnLaneSet laneSet : laneSets) {
 			laneSet.unmarshall(diagram, elements, id2node, id2lane, lane);
 		}
 		for (BpmnStartEvent startEvent : startEvents) {
@@ -367,7 +371,8 @@ public class BpmnProcess extends BpmnIdName {
 	}
 	
 	private Swimlane retrieveParentSwimlane(BpmnId bpmnFlow, Map<String, Swimlane> id2lane) {
-		if(laneSet != null) {
+		
+		for (BpmnLaneSet laneSet : laneSets) {
 			Collection<BpmnLane> lanes = laneSet.getAllChildLanes();	
 			for(BpmnLane bpmnLane : lanes) {
 				for(BpmnText flowNodeRef : bpmnLane.getFlowNodeRef()) {
@@ -424,7 +429,7 @@ public class BpmnProcess extends BpmnIdName {
 
 		return !(startEvents.isEmpty() && endEvents.isEmpty() && tasks.isEmpty() 
 					&& exclusiveGateways.isEmpty() && parallelGateways.isEmpty() 
-					&& textAnnotations.isEmpty() && associations.isEmpty() && (laneSet == null));
+					&& textAnnotations.isEmpty() && associations.isEmpty() && laneSets.isEmpty());
 	}
 
     private void marshallAssociations(BPMNDiagram diagram, Swimlane pool) {
@@ -537,8 +542,10 @@ public class BpmnProcess extends BpmnIdName {
 	
 	private void marshallLaneSet(BPMNDiagram diagram, Swimlane pool) {
 		if(diagram.getLanes(pool).size() > 0) {
-			laneSet = new BpmnLaneSet("laneSet");
-			laneSet.marshall(diagram, pool);
+			for (Swimlane lane : diagram.getLanes(pool)){
+				BpmnLaneSet laneSet = new BpmnLaneSet("laneSet");
+				laneSet.marshall(diagram, lane);
+			}
 		}
 	}
 	
