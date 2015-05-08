@@ -3,21 +3,18 @@
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-
 import java.io.File;
-
 import java.util.Collection;
 import java.util.Map;
-
 
 import javax.swing.JFrame;
 import javax.swing.SwingConstants;
 
+import org.jbpt.petri.PetriNet;
 
 import com.jgraph.layout.JGraphFacade;
 import com.jgraph.layout.JGraphLayout;
 import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
-
 
 import framework.util.ui.scalableview.ScalableViewPanel;
 import framework.util.ui.scalableview.interaction.ExportInteractionPanel;
@@ -39,13 +36,16 @@ public class main {
 			System.out.println("Non del file non trovato");
 		}else{
 			try {
-
+				
 				
 				File file = new File(args[0]);
 				Bpmn bpmn = new Bpmn(file);
 
 				Collection<BPMNDiagram> BPMNdiagrams = 	bpmn.BpmnextractDiagram();
 				for(BPMNDiagram graph : BPMNdiagrams){
+					
+				BPMNtoNetSystem fpn = new	BPMNtoNetSystem(graph);
+				PetriNet pn = fpn.getPN();
 					
 					//BPMNDiagram graph = BPMNdiagrams.iterator().next();
 					CustomGraphModel model = new CustomGraphModel(graph);

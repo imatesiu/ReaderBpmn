@@ -22,13 +22,13 @@ import models.graphbased.directed.bpmn.elements.Gateway.GatewayType;
 
 public class BPMNtoNetSystem {
 
-	
+	PetriNet net=null;
 	BPMNtoNetSystem(BPMNDiagram d){
-		
+		net = getNetSystem(d);
 	}
 	
 	
-	public PetriNet getNetSystem(BPMNDiagram diagram){
+	private PetriNet getNetSystem(BPMNDiagram diagram){
 		
 		
 		LinkedHashMap<Flow, Place> flowMap = new LinkedHashMap<Flow, Place>();
@@ -37,7 +37,7 @@ public class BPMNtoNetSystem {
 			nameBPMNDiagram="Unnamed";
 
 		}	
-		PetriNet net = new PetriNet();
+		net = new PetriNet();
 		Marking marking = new Marking(net);
 	
 
@@ -427,6 +427,12 @@ public class BPMNtoNetSystem {
 			}
 		
 
+	}
+
+
+	public PetriNet getPN() {
+		
+		return null;
 	}
 
 	
