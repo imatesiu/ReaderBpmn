@@ -31,11 +31,11 @@
 					</execution>
 				</executions>
 			</plugin>
-			
 
 
 
-			
+
+
 		</plugins>
 	</build>
 
@@ -74,7 +74,23 @@
 			<artifactId>batik-svggen</artifactId>
 			<version>1.7</version>
 		</dependency>
-
+		
+		
+		<dependency>
+<groupId>com.github.imatesiu.jbpt</groupId>
+<artifactId>jbpt-core</artifactId>
+<version>0.2.393d</version>
+</dependency>
+<dependency>
+<groupId>com.github.imatesiu.jbpt</groupId>
+<artifactId>jbpt-petri</artifactId>
+<version>0.2.393d</version>
+</dependency>
+<dependency>
+			<groupId>com.github.imatesiu.jbpt</groupId>
+			<artifactId>jbpt-deco</artifactId>
+			<version>0.2.393d</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.freehep</groupId>
@@ -114,6 +130,9 @@
 		</dependency>
 	</dependencies>
 	<repositories>
-
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
 	</repositories>
 </project>
