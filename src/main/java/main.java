@@ -3,21 +3,16 @@
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-
 import java.io.File;
-
 import java.util.Collection;
 import java.util.Map;
-
 
 import javax.swing.JFrame;
 import javax.swing.SwingConstants;
 
-
 import com.jgraph.layout.JGraphFacade;
 import com.jgraph.layout.JGraphLayout;
 import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
-
 
 import framework.util.ui.scalableview.ScalableViewPanel;
 import framework.util.ui.scalableview.interaction.ExportInteractionPanel;
@@ -25,11 +20,15 @@ import framework.util.ui.scalableview.interaction.ZoomInteractionPanel;
 import models.graphbased.AttributeMap;
 import models.graphbased.ViewSpecificAttributeMap;
 import models.graphbased.directed.bpmn.BPMNDiagram;
+import models.graphbased.directed.petrinet.Petrinet;
+import models.graphbased.directed.petrinet.PetrinetGraph;
 import models.jgraph.CustomGraphModel;
 import models.jgraph.CustomJGraph;
 import models.jgraph.visualization.CustomJGraphPanel;
 import models.connections.*;
+import petrinet.analysis.WorkflowNetUtils;
 import plugins.bpmn.Bpmn;
+import plugins.bpmn.trasform.BpmnToPetriNet;
 
 public class main {
 
@@ -46,9 +45,12 @@ public class main {
 
 				Collection<BPMNDiagram> BPMNdiagrams = 	bpmn.BpmnextractDiagram();
 				for(BPMNDiagram graph : BPMNdiagrams){
+					BpmnToPetriNet btpn = new BpmnToPetriNet(graph);
+					Petrinet pn = (Petrinet) btpn.getPetriNet();
+					boolean result = WorkflowNetUtils.isValidWFNet(pn);
 					
 					//BPMNDiagram graph = BPMNdiagrams.iterator().next();
-					CustomGraphModel model = new CustomGraphModel(graph);
+					CustomGraphModel model = new CustomGraphModel(pn);
 					ViewSpecificAttributeMap map =new ViewSpecificAttributeMap();
 					GraphLayoutConnection layoutConnection =  new GraphLayoutConnection(graph);
 					CustomJGraph jgraph = new CustomJGraph(model,map,layoutConnection);
