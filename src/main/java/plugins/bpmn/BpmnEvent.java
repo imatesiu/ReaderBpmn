@@ -18,7 +18,7 @@ public class BpmnEvent extends BpmnIncomingOutgoing {
 	private boolean isInterrupting = true;
 	private String parallelMultiple;
 	protected EventType eventType;
-	protected EventTrigger eventTrigger;
+	protected EventTrigger eventTrigger = EventTrigger.NONE;
 	protected EventUse eventUse;
 	
 	public BpmnEvent(String tag, EventType eventType) {

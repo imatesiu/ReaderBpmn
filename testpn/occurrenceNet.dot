@@ -1,0 +1,154 @@
+digraph G { label="";
+graph [fontname="Helvetica" fontsize="10" nodesep="0.35" ranksep="0.25 equally"];
+node [fontname="Helvetica" fontsize="10" fixedsize="true" style="filled" penwidth="2"];
+edge [fontname="Helvetica" fontsize="10" arrowhead="normal" color="black"];
+
+node [shape="circle"];
+	nf51b587b19f24a47b171e68830797406[label="parallel_split#Calcolo
+Anatocismo-10" width=".5" height=".5" fillcolor=white];
+	n5864ac129e2249e4ac4f12a6de8dd18d[label="Se TEG>TSU#Se TEG>TEGM-14" width=".5" height=".5" fillcolor=white];
+	n8489b57ccaf2432ea75a15228c7756fd[label="Calcolo
+Interessi e Spese
+Trimestrali#Reperimento
+Dati Soglia
+TEGM e TSU-8" width=".5" height=".5" fillcolor=white];
+	n0616d1ed7ad4422996a6aa8e4232b12b[label="Calcolo
+Usura
+Oggettiva#Se TEG>TEGM-17" width=".5" height=".5" fillcolor=white];
+	n15cad8da81fd4d2baa313546895275dd[label="Calcolo
+Usura
+Soggettiva#gate_join-22" width=".5" height=".5" fillcolor=white];
+	naa7b493018d241e681e967738a09c808[label="Calcolo
+Anatocismo#parallel_merge-13" width=".5" height=".5" fillcolor=white];
+	n15175855878044f899c4d04d1dd6eea9[label="Inserimento
+Num. Debitori
+Interessi e Spese#Calcolo
+Interessi e Spese
+Trimestrali-6" width=".5" height=".5" fillcolor=white];
+	nf791d854de8b44faaf052deb2bd2e431[label="pend_event-7" width=".5" height=".5" fillcolor=white];
+	na83815a16e4a4897a631e4be307045aa[label="Se TEG>TEGM#Calcolo
+Usura
+Soggettiva-19" width=".5" height=".5" fillcolor=white];
+	na1dd399016f643b4848f3f58dd2b13c6[label="Exclusive Gateway5#Inserimento
+Num. Debitori
+Interessi e Spese-3" width=".5" height=".5" fillcolor=white];
+	nf4006ad15b0f4147b9f4e6194c966b56[label="Calcolo TEG#Se TEG>TSU-12" width=".5" height=".5" fillcolor=white];
+	n06143826171448e19fa04f74629df750[label="gate_join#parallel_merge-21" width=".5" height=".5" fillcolor=white];
+	ndeeb05327dad4b9395f780d7e9630781[label="Exclusive Gateway6#end_event-26" width=".5" height=".5" fillcolor=white];
+	nb55db82f7bb749b791115e719fa0548c[label="Exclusive Gateway5#Exclusive Gateway6-4" width=".5" height=".5" fillcolor=white];
+	n238ce6ebe7c44b799611efe9056bea4b[label="Se TEG>TEGM#gate_join-18" width=".5" height=".5" fillcolor=white];
+	n1af16506c5a441f5b518123e13164f81[label="Calcolo Interessi 
+Legali e
+Maltolto#Exclusive Gateway6-25" width=".5" height=".5" fillcolor=white];
+	nc24958aa4ef24b188810dd154c584cef[label="parallel_split#Calcolo TEG-11" width=".5" height=".5" fillcolor=white];
+	n0f52128e9e2f4d999700cbbfa6f96bf7[label="Reperimento
+Dati Soglia
+TEGM e TSU#parallel_split-9" width=".5" height=".5" fillcolor=white];
+	n95fb8e9b0f604d8ab726bb004e27936a[label="Exclusive Gateway6#end_event-5" width=".5" height=".5" fillcolor=white];
+	n5f0bb44f409c45559606276758ee03dd[label="Se TEG>TEGM-20" width=".5" height=".5" fillcolor=white];
+	nf0b6ca0f6532404d8f2abc16075e9592[label="pstart_event-1" width=".5" height=".5" fillcolor=white];
+	n248c069a09c04e509778e03fd36c10fe[label="gate_join#parallel_merge-23" width=".5" height=".5" fillcolor=white];
+	nf85305aa9aa441829b729498e1798b33[label="parallel_merge#Calcolo Interessi 
+Legali e
+Maltolto-24" width=".5" height=".5" fillcolor=white];
+	n1b7f291d18eb4b538e55311a19e846d1[label="Se TEG>TSU#Calcolo
+Usura
+Oggettiva-15" width=".5" height=".5" fillcolor=white];
+	nccdae33589a74b798b63742ae3e895fd[label="start_event#Exclusive Gateway5-2" width=".5" height=".5" fillcolor=white];
+	n46bfe964ae514370be46bac0c026c143[label="Se TEG>TEGM-16" width=".5" height=".5" fillcolor=white];
+
+node [shape="box"];
+	ne08f0adc24c1420eb712585c95309b28[label="Se TEG>TEGM_0-16" width=".5" height=".5" fillcolor=white];
+	n2105d1c9a384492eb8d5e39edf61765b[label="Calcolo
+Anatocismo+complete-11" width=".5" height=".5" fillcolor=white];
+	nff6293cda0694ede8883fc6b0c6f3248[label="gate_join_1-22" width=".5" height=".5" fillcolor=orange];
+	n6895e5d5dd7b4709b8337504bac730f9[label="Exclusive Gateway5_1-2" width=".5" height=".5" fillcolor=white];
+	n44e10c42ca924359b462ffa58c5cfcfb[label="Inserimento
+Num. Debitori
+Interessi e Spese+complete-4" width=".5" height=".5" fillcolor=white];
+	ne881feb857e041fd9293ee24c10c5421[label="Calcolo Interessi 
+Legali e
+Maltolto+complete-23" width=".5" height=".5" fillcolor=white];
+	n06d1b67bc32f49878d4df393e94b8276[label="Calcolo
+Usura
+Soggettiva+complete-20" width=".5" height=".5" fillcolor=white];
+	na65e874a027a4ccfaf63e5ba7cabbf3a[label="Se TEG>TSU_1-13" width=".5" height=".5" fillcolor=white];
+	na054ed007c1f48eb94a2a4872236bb04[label="Calcolo
+Interessi e Spese
+Trimestrali+complete-7" width=".5" height=".5" fillcolor=white];
+	n84620cc7281a4460a9e7c948644107bf[label="Exclusive Gateway5_0-3" width=".5" height=".5" fillcolor=white];
+	n6177f70879114a2c83545b65fcafe308[label="parallel_split_fork-9" width=".5" height=".5" fillcolor=white];
+	n51e65fe348f143059fa7501074e454b4[label="Exclusive Gateway6_0-24" width=".5" height=".5" fillcolor=orange];
+	n579b11e12fb5469d885db868aa1ff9a6[label="t_end_event-6" width=".5" height=".5" fillcolor=white];
+	n175ea9a3ff864ee2b65b14ed5bd61dfb[label="gate_join_0-19" width=".5" height=".5" fillcolor=white];
+	n84dc965b83b8449caa4e6c68723e8d5b[label="Reperimento
+Dati Soglia
+TEGM e TSU+complete-8" width=".5" height=".5" fillcolor=white];
+	n1e7378bc75084358a180c30877d8edf2[label="Calcolo TEG+complete-10" width=".5" height=".5" fillcolor=white];
+	n6576d001a28f4083bb8c8227d14fef71[label="Exclusive Gateway6_1-5" width=".5" height=".5" fillcolor=white];
+	n48d1944e0d8d47c18fbdb95e422affed[label="Calcolo
+Usura
+Oggettiva+complete-15" width=".5" height=".5" fillcolor=white];
+	n45ef147fec2542bcbd1203d4c5798ad4[label="Se TEG>TEGM_1-17" width=".5" height=".5" fillcolor=white];
+	n385ffeb8b6604e3280aebf0fee28780a[label="Se TEG>TSU_0-12" width=".5" height=".5" fillcolor=white];
+	nfa017a724e4248db8d545ed459873a5c[label="parallel_merge_join-21" width=".5" height=".5" fillcolor=white];
+	ncc0e72f5c4fd41afaea955073a549d03[label="Se TEG>TEGM_2-14" width=".5" height=".5" fillcolor=white];
+	n004c52f933bc4789892446d44d1b383d[label="Se TEG>TEGM_3-18" width=".5" height=".5" fillcolor=orange];
+	n401c1773c90841359d63a6cf6fda07e7[label="t_START_EVENT-1" width=".5" height=".5" fillcolor=white];
+
+	n238ce6ebe7c44b799611efe9056bea4b->n175ea9a3ff864ee2b65b14ed5bd61dfb;
+	na83815a16e4a4897a631e4be307045aa->n06d1b67bc32f49878d4df393e94b8276;
+	n15cad8da81fd4d2baa313546895275dd->nff6293cda0694ede8883fc6b0c6f3248;
+	n95fb8e9b0f604d8ab726bb004e27936a->n579b11e12fb5469d885db868aa1ff9a6;
+	nb55db82f7bb749b791115e719fa0548c->n6576d001a28f4083bb8c8227d14fef71;
+	na1dd399016f643b4848f3f58dd2b13c6->n44e10c42ca924359b462ffa58c5cfcfb;
+	nc24958aa4ef24b188810dd154c584cef->n1e7378bc75084358a180c30877d8edf2;
+	n0f52128e9e2f4d999700cbbfa6f96bf7->n6177f70879114a2c83545b65fcafe308;
+	nccdae33589a74b798b63742ae3e895fd->n84620cc7281a4460a9e7c948644107bf;
+	n0616d1ed7ad4422996a6aa8e4232b12b->n004c52f933bc4789892446d44d1b383d;
+	n1af16506c5a441f5b518123e13164f81->n51e65fe348f143059fa7501074e454b4;
+	nf0b6ca0f6532404d8f2abc16075e9592->n401c1773c90841359d63a6cf6fda07e7;
+	n6895e5d5dd7b4709b8337504bac730f9->nb55db82f7bb749b791115e719fa0548c;
+	nfa017a724e4248db8d545ed459873a5c->nf85305aa9aa441829b729498e1798b33;
+	ne881feb857e041fd9293ee24c10c5421->n1af16506c5a441f5b518123e13164f81;
+	nff6293cda0694ede8883fc6b0c6f3248->n248c069a09c04e509778e03fd36c10fe;
+	nf85305aa9aa441829b729498e1798b33->ne881feb857e041fd9293ee24c10c5421;
+	n06143826171448e19fa04f74629df750->nfa017a724e4248db8d545ed459873a5c;
+	n6177f70879114a2c83545b65fcafe308->nc24958aa4ef24b188810dd154c584cef;
+	naa7b493018d241e681e967738a09c808->nfa017a724e4248db8d545ed459873a5c;
+	n385ffeb8b6604e3280aebf0fee28780a->n1b7f291d18eb4b538e55311a19e846d1;
+	n6177f70879114a2c83545b65fcafe308->nf51b587b19f24a47b171e68830797406;
+	n579b11e12fb5469d885db868aa1ff9a6->nf791d854de8b44faaf052deb2bd2e431;
+	nf4006ad15b0f4147b9f4e6194c966b56->n385ffeb8b6604e3280aebf0fee28780a;
+	n45ef147fec2542bcbd1203d4c5798ad4->n238ce6ebe7c44b799611efe9056bea4b;
+	n175ea9a3ff864ee2b65b14ed5bd61dfb->n06143826171448e19fa04f74629df750;
+	n1b7f291d18eb4b538e55311a19e846d1->n48d1944e0d8d47c18fbdb95e422affed;
+	n51e65fe348f143059fa7501074e454b4->ndeeb05327dad4b9395f780d7e9630781;
+	n1e7378bc75084358a180c30877d8edf2->nf4006ad15b0f4147b9f4e6194c966b56;
+	n004c52f933bc4789892446d44d1b383d->n5f0bb44f409c45559606276758ee03dd;
+	nf51b587b19f24a47b171e68830797406->n2105d1c9a384492eb8d5e39edf61765b;
+	n44e10c42ca924359b462ffa58c5cfcfb->n15175855878044f899c4d04d1dd6eea9;
+	nf4006ad15b0f4147b9f4e6194c966b56->na65e874a027a4ccfaf63e5ba7cabbf3a;
+	na65e874a027a4ccfaf63e5ba7cabbf3a->n5864ac129e2249e4ac4f12a6de8dd18d;
+	n46bfe964ae514370be46bac0c026c143->ne08f0adc24c1420eb712585c95309b28;
+	n84dc965b83b8449caa4e6c68723e8d5b->n0f52128e9e2f4d999700cbbfa6f96bf7;
+	ncc0e72f5c4fd41afaea955073a549d03->n46bfe964ae514370be46bac0c026c143;
+	n6576d001a28f4083bb8c8227d14fef71->n95fb8e9b0f604d8ab726bb004e27936a;
+	n06d1b67bc32f49878d4df393e94b8276->n15cad8da81fd4d2baa313546895275dd;
+	n401c1773c90841359d63a6cf6fda07e7->nccdae33589a74b798b63742ae3e895fd;
+	nccdae33589a74b798b63742ae3e895fd->n6895e5d5dd7b4709b8337504bac730f9;
+	n5864ac129e2249e4ac4f12a6de8dd18d->ncc0e72f5c4fd41afaea955073a549d03;
+	n15175855878044f899c4d04d1dd6eea9->na054ed007c1f48eb94a2a4872236bb04;
+	n2105d1c9a384492eb8d5e39edf61765b->naa7b493018d241e681e967738a09c808;
+	n84620cc7281a4460a9e7c948644107bf->na1dd399016f643b4848f3f58dd2b13c6;
+	n46bfe964ae514370be46bac0c026c143->n45ef147fec2542bcbd1203d4c5798ad4;
+	n8489b57ccaf2432ea75a15228c7756fd->n84dc965b83b8449caa4e6c68723e8d5b;
+	n48d1944e0d8d47c18fbdb95e422affed->n0616d1ed7ad4422996a6aa8e4232b12b;
+	ne08f0adc24c1420eb712585c95309b28->na83815a16e4a4897a631e4be307045aa;
+	na054ed007c1f48eb94a2a4872236bb04->n8489b57ccaf2432ea75a15228c7756fd;
+
+edge [fontname="Helvetica" fontsize="8" arrowhead="normal" color="orange"];
+	nff6293cda0694ede8883fc6b0c6f3248->n175ea9a3ff864ee2b65b14ed5bd61dfb;
+	n51e65fe348f143059fa7501074e454b4->n6576d001a28f4083bb8c8227d14fef71;
+	n004c52f933bc4789892446d44d1b383d->ncc0e72f5c4fd41afaea955073a549d03;
+}

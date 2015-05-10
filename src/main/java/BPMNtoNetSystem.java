@@ -43,7 +43,7 @@ public class BPMNtoNetSystem {
 
 		traslateFlow(diagram, flowMap, net);
 
-		translateTask(diagram, flowMap, net,0);
+		translateTask(diagram, flowMap, net,1);
 
 		translateGateway(diagram, flowMap, net);
 
@@ -432,7 +432,7 @@ public class BPMNtoNetSystem {
 
 	public PetriNet getPN() {
 		
-		return null;
+		return this.net;
 	}
 
 	

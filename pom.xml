@@ -91,6 +91,11 @@
 			<artifactId>jbpt-deco</artifactId>
 			<version>0.2.393d</version>
 		</dependency>
+		<dependency>
+			<groupId>com.github.imatesiu.jbpt</groupId>
+			<artifactId>jbpt-bp</artifactId>
+			<version>0.2.393d</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.freehep</groupId>
