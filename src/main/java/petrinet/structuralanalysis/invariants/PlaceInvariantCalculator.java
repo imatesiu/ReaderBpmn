@@ -68,7 +68,7 @@ public class PlaceInvariantCalculator {
 				tempOut.append(" ");
 				tempOut.append(incidenceMatrix.get(i, j));
 			}
-			System.out.println(tempOut.toString());
+			//System.out.println(tempOut.toString());
 		}
 
 		// calculate invariants

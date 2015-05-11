@@ -62,7 +62,7 @@ public class TSGenerator {
 	
 
 	public Object[] calculateTS(Petrinet net, Marking state, PetrinetSemantics semantics)
-			throws ConnectionCannotBeObtained {
+			 {
 		semantics.initialize(net.getTransitions(), new Marking(state));
 		return build( net, state, semantics, null);
 	}
@@ -80,7 +80,7 @@ public class TSGenerator {
 
 	private Object[] build(PetrinetGraph net, Marking initial,
 			Semantics<Marking, Transition> semantics, CoverabilityGraph coverabilityGraph)
-			throws ConnectionCannotBeObtained {
+			 {
 		
 		ReachabilityGraph ts = null;
 		NetAnalysisInformation.BOUNDEDNESS info = null;

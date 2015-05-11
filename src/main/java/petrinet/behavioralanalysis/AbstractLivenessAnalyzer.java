@@ -5,11 +5,14 @@ import java.util.HashSet;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import framework.connections.ConnectionCannotBeObtained;
+import framework.connections.ConnectionManager;
+
 
 import framework.util.collection.MultiSet;
 import framework.util.collection.TreeMultiSet;
-
 import models.graphbased.directed.analysis.ComponentFactory;
+import models.graphbased.directed.petrinet.Petrinet;
 import models.graphbased.directed.petrinet.PetrinetGraph;
 import models.graphbased.directed.petrinet.PetrinetNode;
 import petrinet.analysis.NetAnalysisInformation;
@@ -24,7 +27,10 @@ import models.graphbased.directed.transitionsystem.ReachabilityGraph;
 import models.graphbased.directed.transitionsystem.State;
 import models.semantics.Semantics;
 import models.semantics.petrinet.Marking;
+import models.semantics.petrinet.PetrinetSemantics;
 import petrinet.structuralanalysis.FreeChoiceAnalyzer;
+import petrinet.structuralanalysis.SiphonGenerator;
+import petrinet.structuralanalysis.TrapGenerator;
 
 public class AbstractLivenessAnalyzer {
 
@@ -60,26 +66,20 @@ public class AbstractLivenessAnalyzer {
 	 *         contaisn the set of non-live sequences.
 	 * @throws Exception
 	 */
-	protected void analyzeLivenessPetriNetPrivate( PetrinetGraph net, Marking state,
+	protected void analyzeLivenessPetriNetPrivate(PetrinetGraph net, Marking state,
 			ReachabilityGraph reachabilityGraph, Semantics<Marking, Transition> semantics, Marking... finalMarkings)
-			{
+			 {
 		this.reachabilityGraph = reachabilityGraph;
 		this.semantics = semantics;
 		this.finalMarkings = finalMarkings;
 		assert ((reachabilityGraph == null) || (semantics == null));
 
-		// check connectivity between marking and net
-		
-		// check connectivity between reachability graph and the net
 		
 
 		// check for available freechoice property
 		boolean isFreeChoice = false;
 		boolean infoFound = false;
 		
-			
-		
-
 		if (!infoFound) {
 			// check free-choice property first
 			isFreeChoice = FreeChoiceAnalyzer.getNXFCClusters(net).isEmpty();
@@ -88,10 +88,11 @@ public class AbstractLivenessAnalyzer {
 		// check in NetAnalysisInformation about Free Choice property
 		if (isFreeChoice) {
 			// continue with liveness identification for Free Choice Net
-			SiphonSet siphonSet = null;
+			SiphonGenerator sg = new SiphonGenerator();
+			SiphonSet siphonSet  = sg.calculateSiphons((Petrinet)net);
 			
-
-			TrapSet trapSet = null;
+			TrapGenerator tg = new TrapGenerator();
+			TrapSet trapSet = tg.calculateTraps((Petrinet)net) ;
 			
 
 			if ((siphonSet != null) && (trapSet != null)) {
@@ -115,16 +116,19 @@ public class AbstractLivenessAnalyzer {
 		// find or create a new reachability graph
 		if (reachabilityGraph == null) {
 			try {
+				TSGenerator tsg = new TSGenerator();
+				Object[] result = tsg.calculateTS( (Petrinet)net, state, (PetrinetSemantics)semantics);
 				
+				reachabilityGraph = (ReachabilityGraph)result[0];
 				if (reachabilityGraph == null) {
 					System.out.println("Liveness cannot be determined due to infinite state space");
 				}
 				analyzeLivenessOnNonFreeChoicePetriNet(net, state, reachabilityGraph, finalMarkings);
-			
+		//	} catch (ConnectionCannotBeObtained e) {
 				// if the reachability graph cannot be constructed, liveness can not be decided
-				info = new NetAnalysisInformation.LIVENESS();
-				info.setValue(UnDetBool.UNDETERMINED);
-				System.out.println("Statespace construction failed. Maximum number of states reached");
+		//		info = new NetAnalysisInformation.LIVENESS();
+		//		info.setValue(UnDetBool.UNDETERMINED);
+		//		System.out.println("Statespace construction failed. Maximum number of states reached");
 			} catch (Exception exc) {
 				System.out.println("Exception happened. Maximum number of states reached");
 			}
