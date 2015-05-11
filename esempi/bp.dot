@@ -1,0 +1,45 @@
+digraph G {
+rankdir=LR 
+  nb566907ee5ea446398a895a0b460423d[shape=ellipse,label="start_event"];
+  n330bb6872d8543849a9c6f972fd36efb[shape=ellipse,label="end_event"];
+
+  n19c617c82ca44e0e835af2481401eabd[shape=box,label="ReperimentoDati SogliaTEGM e TSU"];
+  n6fcbb696a8574ccfa3e4d9071fd84143[shape=box,label="CalcoloAnatocismo"];
+  n4c9fd1cfce4749bc858245c31fd27e05[shape=box,label="InserimentoNum. DebitoriInteressi e Spese"];
+  n76fbba01e5bb4f75b068729798044db7[shape=box,label="Calcolo TEG"];
+  n9c2a8e92007949c191822e0417f2d60c[shape=box,label="CalcoloUsuraSoggettiva"];
+  n50be75a6b7004f4db5213ee996d2347f[shape=box,label="CalcoloUsuraOggettiva"];
+  n4e0f76558e7d4556bb13989b8387416d[shape=box,label="Calcolo Interessi Legali eMaltolto"];
+  n42f6dee0e3b94fd49a151d430b95ecd0[shape=box,label="CalcoloInteressi e SpeseTrimestrali"];
+
+  nceda589192054e6d8ba5e376a877a44c[shape=diamond,label="XOR"];
+  nd8c1a4e02bc74a83b6faf3e9c67c944f[shape=diamond,label="XOR"];
+  n8bfeffee259047759f8a24ab7c237827[shape=diamond,label="XOR"];
+  nc41196346fee470a84034e61c4a5888a[shape=diamond,label="XOR"];
+  ncecc31f343ff47f9ae39ced21e138023[shape=diamond,label="XOR"];
+  n620fdd571b774a3db15bc4c3445addfa[shape=diamond,label="AND"];
+  n1fd55440e4614668b1973acf8da70031[shape=diamond,label="AND"];
+
+
+  n620fdd571b774a3db15bc4c3445addfa->n6fcbb696a8574ccfa3e4d9071fd84143;
+  n19c617c82ca44e0e835af2481401eabd->n620fdd571b774a3db15bc4c3445addfa;
+  n76fbba01e5bb4f75b068729798044db7->nceda589192054e6d8ba5e376a877a44c;
+  nceda589192054e6d8ba5e376a877a44c->n50be75a6b7004f4db5213ee996d2347f;
+  nceda589192054e6d8ba5e376a877a44c->nd8c1a4e02bc74a83b6faf3e9c67c944f;
+  nd8c1a4e02bc74a83b6faf3e9c67c944f->n9c2a8e92007949c191822e0417f2d60c;
+  nd8c1a4e02bc74a83b6faf3e9c67c944f->n8bfeffee259047759f8a24ab7c237827;
+  n9c2a8e92007949c191822e0417f2d60c->n8bfeffee259047759f8a24ab7c237827;
+  n50be75a6b7004f4db5213ee996d2347f->nd8c1a4e02bc74a83b6faf3e9c67c944f;
+  n620fdd571b774a3db15bc4c3445addfa->n76fbba01e5bb4f75b068729798044db7;
+  n1fd55440e4614668b1973acf8da70031->n4e0f76558e7d4556bb13989b8387416d;
+  n6fcbb696a8574ccfa3e4d9071fd84143->n1fd55440e4614668b1973acf8da70031;
+  n8bfeffee259047759f8a24ab7c237827->n1fd55440e4614668b1973acf8da70031;
+  n4c9fd1cfce4749bc858245c31fd27e05->n42f6dee0e3b94fd49a151d430b95ecd0;
+  n42f6dee0e3b94fd49a151d430b95ecd0->n19c617c82ca44e0e835af2481401eabd;
+  n4e0f76558e7d4556bb13989b8387416d->nc41196346fee470a84034e61c4a5888a;
+  nc41196346fee470a84034e61c4a5888a->n330bb6872d8543849a9c6f972fd36efb;
+  nb566907ee5ea446398a895a0b460423d->ncecc31f343ff47f9ae39ced21e138023;
+  ncecc31f343ff47f9ae39ced21e138023->n4c9fd1cfce4749bc858245c31fd27e05;
+  ncecc31f343ff47f9ae39ced21e138023->nc41196346fee470a84034e61c4a5888a;
+
+}
