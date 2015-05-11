@@ -28,6 +28,7 @@ import models.graphbased.directed.petrinet.PetrinetGraph;
 import models.jgraph.CustomGraphModel;
 import models.jgraph.CustomJGraph;
 import models.jgraph.visualization.CustomJGraphPanel;
+import models.semantics.petrinet.Marking;
 import models.connections.*;
 import petrinet.analysis.WorkflowNetUtils;
 import plugins.bpmn.Bpmn;
@@ -55,6 +56,11 @@ public class main {
 					String dot = graph.toDOT();
 					toFile("./esempi/bp.dot", dot);
 					String  dot2png = "dot -q -Tpng ./esempi/bp.dot -o ./esempi/bp.png \n";
+					System.out.println(dot2png);
+					
+					 dot = pn.toDOT();
+					toFile("./esempi/pn.dot", dot);
+					  dot2png = "dot -q -Tpng ./esempi/pn.dot -o ./esempi/pn.png \n";
 					System.out.println(dot2png);
 					
 					//BPMNDiagram graph = BPMNdiagrams.iterator().next();

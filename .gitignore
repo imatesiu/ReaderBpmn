@@ -46,3 +46,7 @@ Temporary Items
 *.pos
 *.txt
 /target
+
+*.png
+
+*.dot
