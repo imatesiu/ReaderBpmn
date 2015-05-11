@@ -20,7 +20,6 @@ import framework.connections.ConnectionCannotBeObtained;
 
 import framework.util.collection.MultiSet;
 import framework.util.collection.TreeMultiSet;
-
 import models.graphbased.directed.petrinet.Petrinet;
 import models.graphbased.directed.petrinet.PetrinetGraph;
 import models.graphbased.directed.petrinet.PetrinetNode;
@@ -50,15 +49,38 @@ import models.semantics.petrinet.impl.PetrinetSemanticsFactory;
  */
 
 public class BoundednessAnalyzer {
+	
+	NetAnalysisInformation.BOUNDEDNESS boundednessRes = null;
+	UnboundedPlacesSet UnbountedPlacesSet = null;
+	UnboundedSequences UnboundedSequences = null;
+	
+	public BoundednessAnalyzer(Petrinet net, Marking state){
+		CGGenerator cg = new CGGenerator();
+		Object[] result = cg.petriNetToCoverabilityGraph(net,state);
+		CoverabilitySet covSet = (CoverabilitySet) result[1];
+		PetrinetSemantics semantics = PetrinetSemanticsFactory
+		.regularPetrinetSemantics(Petrinet.class);
+		analyzeBoundednessPetriNetInternal( net, state, covSet, semantics);
+	}
+	
+	public BoundednessAnalyzer(Petrinet net, Marking state,
+		CoverabilitySet covSet, PetrinetSemantics semantics){
+		analyzeBoundednessPetriNetInternal( net, state, covSet, semantics);
+	}
+	
+	
+	
 
-	
-	
+	public NetAnalysisInformation.BOUNDEDNESS getBoundednessRes() {
+		return boundednessRes;
+	}
 
-	// variant with petri net, marking, and coverability graph as input
-	
-	public Object[] analyzeBoundednessPetriNet( Petrinet net, Marking state,
-			CoverabilitySet covSet, PetrinetSemantics semantics) throws ConnectionCannotBeObtained {
-		return analyzeBoundednessPetriNetInternal( net, state, covSet, semantics);
+	public UnboundedPlacesSet getUnbountedPlacesSet() {
+		return UnbountedPlacesSet;
+	}
+
+	public UnboundedSequences getUnboundedSequences() {
+		return UnboundedSequences;
 	}
 
 	/**
@@ -81,7 +103,7 @@ public class BoundednessAnalyzer {
 	 * @throws Exception
 	 */
 	private Object[] analyzeBoundednessPetriNetInternal( PetrinetGraph net, Marking state,
-			CoverabilitySet covSet, PetrinetSemantics semantics) throws ConnectionCannotBeObtained {
+			CoverabilitySet covSet, PetrinetSemantics semantics) {
 		// check connection between coverability graph, net, and marking
 		
 
@@ -126,7 +148,7 @@ public class BoundednessAnalyzer {
 	 * @throws CancellationException
 	 */
 	private Object[] analyzeBoundednessAssumingConnection( PetrinetGraph net, Marking state,
-			CoverabilitySet covSet, PetrinetSemantics semantics) throws ConnectionCannotBeObtained {
+			CoverabilitySet covSet, PetrinetSemantics semantics) {
 
 		// if there is an omega in coverability graph, the graph is not bounded
 		boolean boundedness = true;
@@ -145,24 +167,24 @@ public class BoundednessAnalyzer {
 			}
 		}
 
-		NetAnalysisInformation.BOUNDEDNESS boundednessRes = new NetAnalysisInformation.BOUNDEDNESS();
-		UnboundedPlacesSet result2 = new UnboundedPlacesSet();
-		result2.add(unboundedPlaces);
-		UnboundedSequences result3;
+		boundednessRes = new NetAnalysisInformation.BOUNDEDNESS();
+		UnbountedPlacesSet = new UnboundedPlacesSet();
+		UnbountedPlacesSet.add(unboundedPlaces);
+		UnboundedSequences=null;;
 
 		if (boundedness) {
 			boundednessRes.setValue(UnDetBool.TRUE);
-			result3 = new UnboundedSequences();
+			UnboundedSequences = new UnboundedSequences();
 		} else {
 			boundednessRes.setValue(UnDetBool.FALSE);
 			CoverabilityGraph cg = null;
 			cg =  CGGenerator.getCoverabilityGraph((Petrinet)net, state, semantics);
 					
 
-			result3 = getUnboundedSequences(net, state, cg);
+			UnboundedSequences = getUnboundedSequences(net, state, cg);
 		}
 		// add connection
-		return new Object[] { boundednessRes, result2, result3 };
+		return new Object[] { boundednessRes, UnbountedPlacesSet, UnboundedSequences };
 	}
 
 	private UnboundedSequences getUnboundedSequences(PetrinetGraph net, Marking initialState,

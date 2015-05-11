@@ -41,8 +41,8 @@ public class DeadTransitionAnalyzer {
 
 	// variant with only petri net, marking and semantics
 	
-	public DeadTransitionsSet analyzeDeadTransitionPetriNet( Petrinet net, Marking state,
-			PetrinetSemantics semantics, CoverabilityGraph graph) throws ConnectionCannotBeObtained {
+	public static DeadTransitionsSet analyzeDeadTransitionPetriNet( Petrinet net, Marking state,
+			PetrinetSemantics semantics, CoverabilityGraph graph)  {
 		semantics.initialize(net.getTransitions(), new Marking(state));
 
 		
@@ -66,7 +66,7 @@ public class DeadTransitionAnalyzer {
 	 * 
 	 * 
 	 */
-	private DeadTransitionsSet analyzeDeadTransitionAssumingConnection( Petrinet net,
+	private static DeadTransitionsSet analyzeDeadTransitionAssumingConnection( Petrinet net,
 			Marking state, CoverabilityGraph graph, Semantics<Marking, Transition> semantics) {
 		// for each transition, if it's not included in coverability graph, add it to list of dead transition
 		SortedSet<Transition> result = new TreeSet<Transition>();
@@ -86,6 +86,16 @@ public class DeadTransitionAnalyzer {
 		System.out.println("Dead Transition of " + net.getLabel());
 
 		return nodeMarking;
+	}
+
+	public static DeadTransitionsSet analyzeDeadTransitionPetriNet(
+			Petrinet net, Marking initialMarking) {
+		PetrinetSemantics semantics = PetrinetSemanticsFactory.regularPetrinetSemantics(Petrinet.class);
+		semantics.initialize(net.getTransitions(), new Marking(initialMarking));
+		
+		CoverabilityGraph covergraph = CGGenerator.getCoverabilityGraph(net, initialMarking, semantics);
+		
+		return analyzeDeadTransitionPetriNet(net,initialMarking,semantics,covergraph);
 	}
 
 }

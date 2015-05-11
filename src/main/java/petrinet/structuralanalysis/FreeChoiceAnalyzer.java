@@ -38,7 +38,7 @@ import models.graphbased.directed.petrinet.elements.Transition;
  */
 public class FreeChoiceAnalyzer {
 
-	public Object[] analyzeFCAndEFCProperty( Petrinet net) throws Exception {
+	public Object[] analyzeFCAndEFCProperty( Petrinet net) {
 		return analyzeFCAndEFCPropertyPriv( net);
 	}
 
@@ -60,7 +60,7 @@ public class FreeChoiceAnalyzer {
 	 *         non-extended-free-choice clusters.
 	 * @throws Exception
 	 */
-	private Object[] analyzeFCAndEFCPropertyPriv( PetrinetGraph net) throws Exception {
+	private Object[] analyzeFCAndEFCPropertyPriv( PetrinetGraph net)  {
 		// call main method
 		NonFreeChoiceClustersSet nonFCClusters = getNFCClusters(net);
 		NonExtendedFreeChoiceClustersSet nonXFCClusters = getNXFCClusters(net);

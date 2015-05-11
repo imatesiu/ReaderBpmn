@@ -31,11 +31,11 @@
 					</execution>
 				</executions>
 			</plugin>
-			
 
 
 
-			
+
+
 		</plugins>
 	</build>
 
@@ -112,6 +112,13 @@
 			<artifactId>freehep-graphicsio-swf</artifactId>
 			<version>2.4</version>
 		</dependency>
+		<dependency>
+			<groupId>colt</groupId>
+			<artifactId>colt</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+
+
 	</dependencies>
 	<repositories>
 

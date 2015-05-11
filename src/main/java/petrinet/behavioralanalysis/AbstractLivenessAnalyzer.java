@@ -5,8 +5,6 @@ import java.util.HashSet;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import framework.connections.ConnectionCannotBeObtained;
-import framework.connections.ConnectionManager;
 
 import framework.util.collection.MultiSet;
 import framework.util.collection.TreeMultiSet;
@@ -64,7 +62,7 @@ public class AbstractLivenessAnalyzer {
 	 */
 	protected void analyzeLivenessPetriNetPrivate( PetrinetGraph net, Marking state,
 			ReachabilityGraph reachabilityGraph, Semantics<Marking, Transition> semantics, Marking... finalMarkings)
-			throws ConnectionCannotBeObtained {
+			{
 		this.reachabilityGraph = reachabilityGraph;
 		this.semantics = semantics;
 		this.finalMarkings = finalMarkings;
@@ -80,8 +78,6 @@ public class AbstractLivenessAnalyzer {
 		boolean infoFound = false;
 		
 			
-				isFreeChoice = info.getValue().equals(UnDetBool.TRUE);
-				infoFound = true;
 		
 
 		if (!infoFound) {

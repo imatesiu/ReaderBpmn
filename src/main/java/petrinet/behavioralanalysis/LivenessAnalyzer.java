@@ -7,6 +7,8 @@
 
 package petrinet.behavioralanalysis;
 
+import org.hamcrest.DiagnosingMatcher;
+
 import framework.connections.ConnectionCannotBeObtained;
 import models.graphbased.directed.petrinet.Petrinet;
 import models.graphbased.directed.petrinet.PetrinetGraph;
@@ -53,7 +55,10 @@ public class LivenessAnalyzer extends AbstractLivenessAnalyzer {
 	
 	public Object[] analyzeLivenessPetriNet( Petrinet net, Marking state)
 			throws ConnectionCannotBeObtained {
-		analyzeLivenessPetriNetPrivate( net, state, null, PetrinetSemanticsFactory
+		
+		TSGenerator tsg = new TSGenerator();
+		Object[] result = tsg.calculateTS(net, state);
+		analyzeLivenessPetriNetPrivate( net, state,(ReachabilityGraph) result[0], PetrinetSemanticsFactory
 				.regularPetrinetSemantics(Petrinet.class));
 
 		return finalizeResult( net, state);
@@ -70,7 +75,8 @@ public class LivenessAnalyzer extends AbstractLivenessAnalyzer {
 	
 	public Object[] analyzeLivenessPetriNet( Petrinet net, Marking state,
 			PetrinetSemantics semantics) throws ConnectionCannotBeObtained {
-		analyzeLivenessPetriNetPrivate( net, state, null, semantics);
+		
+		analyzeLivenessPetriNetPrivate( net, state,null, semantics);
 		return finalizeResult( net, state);
 	}
 

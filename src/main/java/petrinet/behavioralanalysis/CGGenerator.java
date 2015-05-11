@@ -48,8 +48,8 @@ import models.semantics.petrinet.impl.PetrinetSemanticsFactory;
 public class CGGenerator {
 
 	// variant with Petrinet and marking
-	public Object[] petriNetToCoverabilityGraph( Petrinet net, Marking state)
-			throws ConnectionCannotBeObtained {
+	public   Object[] petriNetToCoverabilityGraph( Petrinet net, Marking state)
+			 {
 		return petrinetetToCoverabilityGraph( net, state, PetrinetSemanticsFactory
 				.regularPetrinetSemantics(Petrinet.class));
 	}
@@ -60,8 +60,8 @@ public class CGGenerator {
 
 	// variant with PetriNet, marking, and semantic
 	
-	public Object[] petrinetetToCoverabilityGraph( Petrinet net, Marking state,
-			PetrinetSemantics semantics) throws ConnectionCannotBeObtained {
+	public  Object[] petrinetetToCoverabilityGraph( Petrinet net, Marking state,
+			PetrinetSemantics semantics)  {
 		return buildAndConnect( net, state, semantics);
 	}
 
@@ -95,7 +95,7 @@ public class CGGenerator {
 	 * 
 	 */
 	private Object[] buildAndConnect( PetrinetGraph net, Marking initial,
-			Semantics<Marking, Transition> semantics) throws ConnectionCannotBeObtained {
+			Semantics<Marking, Transition> semantics)  {
 		semantics.initialize(net.getTransitions(), initial);
 		CoverabilityGraph ts = doBreadthFirst( net.getLabel(), new CTMarking(initial), semantics);
 

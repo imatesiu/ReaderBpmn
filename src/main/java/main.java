@@ -27,6 +27,7 @@ import models.jgraph.CustomJGraph;
 import models.jgraph.visualization.CustomJGraphPanel;
 import models.connections.*;
 import petrinet.analysis.WorkflowNetUtils;
+import petrinet.behavioralanalysis.woflan.Woflan;
 import plugins.bpmn.Bpmn;
 import plugins.bpmn.trasform.BpmnToPetriNet;
 
@@ -48,6 +49,11 @@ public class main {
 					BpmnToPetriNet btpn = new BpmnToPetriNet(graph);
 					Petrinet pn = (Petrinet) btpn.getPetriNet();
 					boolean result = WorkflowNetUtils.isValidWFNet(pn);
+					
+					Woflan wolf = new Woflan();
+					wolf.diagnose(pn);
+					
+					
 					
 					//BPMNDiagram graph = BPMNdiagrams.iterator().next();
 					CustomGraphModel model = new CustomGraphModel(pn);
