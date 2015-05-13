@@ -40,7 +40,7 @@ public class PetrinetImpl extends AbstractResetInhibitorNet implements Petrinet 
 		
 		for (Place p : this.getPlaces()) {
 			Integer n = 0; // m.occurrences(p);
-			String label = ((n == 0) || (n == null)) ? p.getLabel() : p.getLabel() + "[" + n.toString() + "]"; 
+			String label = ((n == 0) || (n == null)) ? p.getLabel().replace("\n", "").replace("\r", "") : p.getLabel().replace("\n", "").replace("\r", "") + "[" + n.toString() + "]"; 
 			result += String.format("\tn%s[label=\"%s\" width=\".3\" height=\".3\"];\n", p.getId().toString().replace("-", "").replace("node ", "").replace("-", ""), label);
 		}
 		
@@ -52,7 +52,7 @@ public class PetrinetImpl extends AbstractResetInhibitorNet implements Petrinet 
 			if (t.isInvisible())
 				result += String.format("\tn%s[label=\"\" width=\".3\""+fillColor+" height=\".1\"];\n", t.getId().toString().replace("-", "").replace("node ", "").replace("-", ""));
 			else 
-				result += String.format("\tn%s[label=\"%s\" width=\".3\""+fillColor+" height=\".3\"];\n", t.getId().toString().replace("-", "").replace("node ", "").replace("-", ""), t.getLabel());
+				result += String.format("\tn%s[label=\"%s\" width=\".3\""+fillColor+" height=\".3\"];\n", t.getId().toString().replace("-", "").replace("node ", "").replace("-", ""), t.getLabel().replace("\n", "").replace("\r", ""));
 		}
 		
 		result += "\n";
