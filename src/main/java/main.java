@@ -3,7 +3,10 @@
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
 
@@ -25,6 +28,7 @@ import models.graphbased.directed.petrinet.PetrinetGraph;
 import models.jgraph.CustomGraphModel;
 import models.jgraph.CustomJGraph;
 import models.jgraph.visualization.CustomJGraphPanel;
+import models.semantics.petrinet.Marking;
 import models.connections.*;
 import petrinet.analysis.WorkflowNetUtils;
 import petrinet.behavioralanalysis.woflan.Woflan;
@@ -50,10 +54,22 @@ public class main {
 					Petrinet pn = (Petrinet) btpn.getPetriNet();
 					boolean result = WorkflowNetUtils.isValidWFNet(pn);
 					
+
 					Woflan wolf = new Woflan();
 					wolf.diagnose(pn);
 					
 					
+
+					String dot = graph.toDOT();
+					toFile("./esempi/bp.dot", dot);
+					String  dot2png = "dot -q -Tpng ./esempi/bp.dot -o ./esempi/bp.png \n";
+					System.out.println(dot2png);
+					
+					 dot = pn.toDOT();
+					toFile("./esempi/pn.dot", dot);
+					  dot2png = "dot -q -Tpng ./esempi/pn.dot -o ./esempi/pn.png \n";
+					System.out.println(dot2png);
+
 					
 					//BPMNDiagram graph = BPMNdiagrams.iterator().next();
 					CustomGraphModel model = new CustomGraphModel(pn);
@@ -137,5 +153,15 @@ public class main {
 		return layout;
 	}
 
+	public static void toFile(String fileName, String content) {
+		try {
+			BufferedWriter out = new BufferedWriter(new FileWriter(fileName));
+			out.write(content);
+			out.close();
+		}
+		catch (IOException e) {
+			System.err.println(e.getMessage());		
+		}
+	}
 
 }

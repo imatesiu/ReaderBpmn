@@ -13,6 +13,12 @@ import java.util.Set;
 import javax.swing.SwingConstants;
 
 
+
+
+
+
+
+
 import models.graphbased.AttributeMap;
 import models.graphbased.directed.AbstractDirectedGraph;
 import models.graphbased.directed.DirectedGraph;
@@ -21,6 +27,7 @@ import models.graphbased.directed.DirectedGraphElement;
 import models.graphbased.directed.DirectedGraphNode;
 import models.graphbased.directed.bpmn.elements.*;
 import models.graphbased.directed.bpmn.elements.Artifacts.ArtifactType;
+import models.graphbased.directed.bpmn.elements.Gateway.GatewayType;
 import models.graphbased.directed.bpmn.elements.Gateway.*;
 import models.graphbased.directed.bpmn.elements.Event.*;
 import plugins.bpmn.BpmnAssociation.AssociationDirection;
@@ -742,7 +749,7 @@ implements BPMNDiagram {
 	public Activity removeSubProcess(SubProcess subprocess) {
 		//TODO: it is probably necessary to remove all nodes that are contained in the subprocess as well 
 		removeSurroundingEdges(subprocess);
-	return removeNodeFromCollection(subprocesses, subprocess);
+		return removeNodeFromCollection(subprocesses, subprocess);
 	}
 
 	public Event removeEvent(Event event) {
@@ -821,7 +828,7 @@ implements BPMNDiagram {
 		}
 		return associationsFromPool;
 	}
-	
+
 
 	public Artifacts addArtifacts(String label, ArtifactType artifactType,
 			SubProcess parent) {
@@ -905,4 +912,85 @@ implements BPMNDiagram {
 	public Collection<TextAnnotation> getTextannotations() {
 		return textAnnotations;
 	}
+
+
+	public String toDOT() {
+		String result = "";
+		if (this == null) {
+			return result;
+		}
+
+		result += "digraph G {\n";
+		result += "rankdir=LR \n"; //rankdir=LR for left to right graph; rankdir=TD for top to down graph
+
+		for (Event e : this.getEvents()) {
+			result += String.format("  n%s[shape=ellipse,label=\"%s\"];\n", e.getId().toString().replace("-", "").replace("node ", ""), e.getLabel().trim().replace("\n", "").replace("\r", ""));
+		}
+		result+="\n";
+
+		for (Activity a : this.getActivities()) {
+			result += String.format("  n%s[shape=box,label=\"%s\"];\n", a.getId().toString().replace("-", "").replace("node ", ""), a.getLabel().trim().replace("\n", "").replace("\r", ""));
+		}
+		result+="\n";
+
+		for (Gateway g : this.getGateways()) {
+			GatewayType key = g.getGatewayType();
+			switch (key) {
+			case DATABASED:{
+				result += String.format("  n%s[shape=diamond,label=\"%s\"];\n", g.getId().toString().replace("-", "").replace("node ", ""), "XOR");
+				break;
+			}
+			case PARALLEL:{
+				result += String.format("  n%s[shape=diamond,label=\"%s\"];\n", g.getId().toString().replace("-", "").replace("node ", ""), "AND");
+				break;
+			}
+			case EVENTBASED:{
+				result += String.format("  n%s[shape=diamond,label=\"%s\"];\n", g.getId().toString().replace("-", "").replace("node ", ""), "EXOR");
+
+				break;
+			}
+			case INCLUSIVE:{
+				result += String.format("  n%s[shape=diamond,label=\"%s\"];\n", g.getId().toString().replace("-", "").replace("node ", ""), "OR");
+
+
+			}
+			default:{
+				result += String.format("  n%s[shape=diamond,label=\"%s\"];\n", g.getId().toString().replace("-", "").replace("node ", ""), "?");
+				break;
+			}
+			}
+		}
+
+		result+="\n";
+
+		for (DataObject d : this.getDataObjects()) {
+			result += String.format("  n%s[shape=note,label=\"%s\"];\n", d.getId().toString().replace("-", "").replace("node ", ""), d.getLabel().concat(" [" + "" + "]"));
+		}
+		result+="\n";
+
+		for (Flow cf: this.getFlows()) {
+			if (cf.getLabel()!=null && cf.getLabel()!="")
+				result += String.format("  n%s->n%s[label=\"%s\"];\n", cf.getSource().getId().toString().replace("-", "").replace("node ", ""), cf.getTarget().getId().toString().replace("-", "").replace("node ", ""), cf.getLabel());
+			else
+				result += String.format("  n%s->n%s;\n", cf.getSource().getId().toString().replace("-", "").replace("node ", ""), cf.getTarget().getId().toString().replace("-", "").replace("node ", ""));
+		}
+		result+="\n";
+
+
+
+
+
+		/**for (Activity a : this.getActivities()) {
+			for (IDataNode d : a.getReadDocuments()) {
+				result += String.format("  n%s->n%s;\n", d.getId().replace("-", "").replace("node ", ""), a.getId().toString().replace("-", "").replace("node ", ""));
+			}
+			for (IDataNode d : a.getWriteDocuments()) {
+				result += String.format("  n%s->n%s;\n", a.getId().toString().replace("-", "").replace("node ", ""), d.getId().replace("-", "").replace("node ", ""));
+			}
+		}*/
+		result += "}";
+
+		return result;
+	}
 }
+
