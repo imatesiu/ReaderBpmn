@@ -246,7 +246,7 @@ public class Woflan {
 				diagnosis.setSound();
 				break;
 			}
-			case WELLPTHANDLED : {
+			case WELLPTHANDLED  : {
 				System.out.println("Net contains no PT-handles.");
 				state = diagnoseTPHandles();
 				break;
@@ -263,6 +263,7 @@ public class Woflan {
 			}
 			default : {
 				System.out.println("----");
+				state = diagnoseTPHandles();
 				state = WoflanState.DONE;
 				break;
 			}
@@ -594,5 +595,9 @@ public class Woflan {
 			diagnosis.setTPHandles(handles);
 		}
 		return state;
+	}
+	
+	public Marking getInitialMarking(){
+		return initialMarking;
 	}
 }

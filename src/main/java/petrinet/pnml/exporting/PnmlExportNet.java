@@ -35,6 +35,21 @@ public class PnmlExportNet {
 		bw.close();
 	}
 
-	
+	protected void exportPetriNetToPNMLOrEPNMLFile(Marking marking, Petrinet net, File file, Pnml.PnmlType type,GraphLayoutConnection layout )
+			throws IOException {
+		
+		
+		
+		
+		HashMap<PetrinetGraph, Marking> markedNets = new HashMap<PetrinetGraph, Marking>();
+		markedNets.put(net, marking);
+		Pnml pnml = new Pnml().convertFromNet(markedNets, layout);
+		pnml.setType(type);
+		String text = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n" + pnml.exportElement(pnml);
+
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+		bw.write(text);
+		bw.close();
+	}
 
 }

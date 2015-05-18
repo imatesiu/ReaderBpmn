@@ -21,6 +21,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.RepaintManager;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 
 import org.apache.batik.dom.*;
 import org.apache.batik.svggen.SVGGraphics2D;
@@ -34,7 +35,6 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 import framework.util.ui.scalableview.ScalableViewPanel;
 import framework.util.ui.scalableview.interaction.ExportInteractionPanel;
 import framework.util.ui.scalableview.interaction.ZoomInteractionPanel;
-
 import models.connections.GraphLayoutConnection;
 import models.graphbased.AttributeMap;
 import models.graphbased.ViewSpecificAttributeMap;
@@ -43,8 +43,11 @@ import models.graphbased.directed.petrinet.Petrinet;
 import models.jgraph.CustomGraphModel;
 import models.jgraph.CustomJGraph;
 import models.jgraph.visualization.CustomJGraphPanel;
+import models.semantics.petrinet.Marking;
 import petrinet.analysis.WorkflowNetUtils;
 import petrinet.behavioralanalysis.woflan.Woflan;
+import petrinet.behavioralanalysis.woflan.WoflanDiagnosis;
+import petrinet.pnml.exporting.PnmlExportNetToPNML;
 import plugins.bpmn.Bpmn;
 import plugins.bpmn.trasform.BpmnToPetriNet;
 
@@ -79,10 +82,12 @@ public class maintest {
 
 
 					Woflan wolf = new Woflan();
-					wolf.diagnose(pn);
+					WoflanDiagnosis result2 = wolf.diagnose(pn);
+					System.out.println();
+					
 
-
-
+					toFile(file.getAbsolutePath().substring(0, file.getAbsolutePath().lastIndexOf("."))+".html", result2.toHTMLString(false));
+					
 					String dot = graph.toDOT();
 					toFile("./esempi/bp.dot", dot);
 					String  dot2png = "dot -q -Tpng ./esempi/bp.dot -o ./esempi/bp.png \n";
@@ -146,12 +151,21 @@ public class maintest {
 					f.setPreferredSize(new Dimension(width, height));
 					f.setLayout(new BorderLayout());
 					f.add(panel, BorderLayout.CENTER);
-
+					f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 					f.setSize(640, 480);
 					f.pack();
 					f.setVisible(true);
 					//BufferedImage bi = jgraph.getImage(null, 0);
 					//ImageIO.write(bi, "JPG", new File("test.jpg"));
+					
+					File pnml = new File(file.getAbsolutePath().substring(0, file.getAbsolutePath().lastIndexOf("."))+".pnml");
+
+					PnmlExportNetToPNML pex = new PnmlExportNetToPNML();
+					Marking m = wolf.getInitialMarking();
+					if(m==null){
+						m = new Marking();
+					}
+					pex.exportPetriNetToPNMLFile(pn, pnml,m,layoutConnection );
 
 				}
 			}
