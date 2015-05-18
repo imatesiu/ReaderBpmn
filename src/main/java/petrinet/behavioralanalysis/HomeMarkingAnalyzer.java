@@ -10,8 +10,7 @@ package petrinet.behavioralanalysis;
 import java.util.HashSet;
 import java.util.Set;
 
-import framework.connections.ConnectionCannotBeObtained;
-import framework.connections.ConnectionManager;
+
 
 import models.graphbased.directed.analysis.ShortestPathFactory;
 import models.graphbased.directed.analysis.ShortestPathInfo;
@@ -44,7 +43,7 @@ public class HomeMarkingAnalyzer {
 	// variant with Petrinet and marking
 	
 	public HomeMarkingSet analyzeHomeMarkingPetriNet( Petrinet net, Marking state)
-			throws ConnectionCannotBeObtained {
+			 {
 		return analyzeHomeMarkingPetriNet( net, state, PetrinetSemanticsFactory
 				.regularPetrinetSemantics(Petrinet.class));
 	}
@@ -57,7 +56,7 @@ public class HomeMarkingAnalyzer {
 	// variant with Petrinet and marking
 	
 	public HomeMarkingSet analyzeHomeMarkingPetriNet( Petrinet net, Marking state,
-			PetrinetSemantics semantics) throws ConnectionCannotBeObtained {
+			PetrinetSemantics semantics)  {
 		semantics.initialize(net.getTransitions(), new Marking(state));
 		return analyzeHomeMarkingPetriNetPrivate( net, state, null, semantics);
 	}
@@ -70,7 +69,7 @@ public class HomeMarkingAnalyzer {
 	// variant with Petrinet and marking
 	
 	public HomeMarkingSet analyzeHomeMarkingPetriNet( Petrinet net, Marking state,
-			ReachabilityGraph reachabilityGraph) throws ConnectionCannotBeObtained {
+			ReachabilityGraph reachabilityGraph)  {
 		return analyzeHomeMarkingPetriNetPrivate( net, state, reachabilityGraph);
 	}
 
@@ -81,7 +80,7 @@ public class HomeMarkingAnalyzer {
 	// variant with ResetNet and marking
 	
 	public HomeMarkingSet analyzeHomeMarkingPetriNet( ResetNet net, Marking state,
-			ReachabilityGraph reachabilityGraph) throws ConnectionCannotBeObtained {
+			ReachabilityGraph reachabilityGraph)  {
 		return analyzeHomeMarkingPetriNetPrivate( net, state, reachabilityGraph);
 	}
 
@@ -104,7 +103,7 @@ public class HomeMarkingAnalyzer {
 	 * @throws Exception
 	 */
 	private HomeMarkingSet analyzeHomeMarkingPetriNetPrivate( PetrinetGraph net, Marking state,
-			ReachabilityGraph reachabilityGraph ) throws ConnectionCannotBeObtained {
+			ReachabilityGraph reachabilityGraph )  {
 		// reachability graph must be produced by a certain semantics, therefore
 		// try catch block is skipped
 		

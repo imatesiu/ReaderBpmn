@@ -7,7 +7,7 @@
 
 package petrinet.behavioralanalysis;
 
-import framework.connections.ConnectionCannotBeObtained;
+
 import models.graphbased.directed.petrinet.Petrinet;
 import models.graphbased.directed.petrinet.PetrinetGraph;
 import models.graphbased.directed.petrinet.ResetNet;
@@ -51,7 +51,7 @@ public class LivenessAnalyzerWithSequence extends AbstractLivenessAnalyzer {
 	// variant with Petrinet and marking
 	
 	public Object[] analyzeLivenessPetriNet( Petrinet net, Marking state, Marking[] finalMarkings)
-			throws ConnectionCannotBeObtained {
+			 {
 		analyzeLivenessPetriNetPrivate(net, state, null, PetrinetSemanticsFactory
 				.regularPetrinetSemantics(Petrinet.class), finalMarkings);
 		return finalizeResult(net, state, finalMarkings);
@@ -65,7 +65,7 @@ public class LivenessAnalyzerWithSequence extends AbstractLivenessAnalyzer {
 	// variant with Petrinet and marking
 	
 	public Object[] analyzeLivenessPetriNet( Petrinet net, Marking state,
-			PetrinetSemantics semantics, Marking[] finalMarkings) throws ConnectionCannotBeObtained {
+			PetrinetSemantics semantics, Marking[] finalMarkings)  {
 		analyzeLivenessPetriNetPrivate(net, state, null, semantics, finalMarkings);
 		return finalizeResult(net, state, finalMarkings);
 	}
@@ -80,7 +80,7 @@ public class LivenessAnalyzerWithSequence extends AbstractLivenessAnalyzer {
 	// variant with Petrinet and marking
 	
 	public Object[] analyzeLivenessPetriNet( Petrinet net, Marking state,
-			ReachabilityGraph reachabilityGraph, Marking[] finalMarkings) throws ConnectionCannotBeObtained {
+			ReachabilityGraph reachabilityGraph, Marking[] finalMarkings)  {
 		analyzeLivenessPetriNetPrivate(net, state, reachabilityGraph, null, finalMarkings);
 		return finalizeResult(net, state, finalMarkings);
 	}
@@ -90,7 +90,7 @@ public class LivenessAnalyzerWithSequence extends AbstractLivenessAnalyzer {
 	// variant with ResetNet and marking
 	
 	public Object[] analyzeLivenessPetriNet( ResetNet net, Marking state,
-			ReachabilityGraph reachabilityGraph, Marking[] finalMarkings) throws ConnectionCannotBeObtained {
+			ReachabilityGraph reachabilityGraph, Marking[] finalMarkings)  {
 		analyzeLivenessPetriNetPrivate(net, state, reachabilityGraph, null, finalMarkings);
 		return finalizeResult(net, state, finalMarkings);
 	}

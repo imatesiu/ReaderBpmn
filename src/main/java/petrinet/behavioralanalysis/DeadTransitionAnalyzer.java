@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import framework.connections.ConnectionCannotBeObtained;
+
 
 import models.graphbased.directed.petrinet.Petrinet;
 import petrinet.analysis.DeadTransitionsSet;

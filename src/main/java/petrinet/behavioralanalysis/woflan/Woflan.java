@@ -11,19 +11,6 @@ import java.util.concurrent.ExecutionException;
 
 
 
-
-
-
-
-
-
-
-
-
-
-import framework.connections.ConnectionCannotBeObtained;
-
-
 import framework.util.collection.MultiSet;
 import models.graphbased.directed.petrinet.Petrinet;
 import models.graphbased.directed.petrinet.PetrinetNode;
@@ -134,7 +121,7 @@ public class Woflan {
 	//	
 	//	
 	public WoflanDiagnosis diagnose( Petrinet net, Collection<WoflanState> assumptions)
-			throws ConnectionCannotBeObtained {
+			 {
 		
 		
 		/**
@@ -178,7 +165,7 @@ public class Woflan {
 	 * @throws CancellationException
 	 * @throws Exception
 	 */
-	public WoflanState diagnose(WoflanState state) throws ConnectionCannotBeObtained {
+	public WoflanState diagnose(WoflanState state)  {
 		switch (state) {
 			case BOUNDED : {
 				System.out.println("Net is bounded.");
@@ -358,7 +345,7 @@ public class Woflan {
 		return state;
 	}
 
-	private WoflanState diagnoseSCover() throws ConnectionCannotBeObtained {
+	private WoflanState diagnoseSCover()  {
 		/**
 		 * Check assumptions.
 		 */
@@ -399,7 +386,7 @@ public class Woflan {
 		return state;
 	}
 
-	private WoflanState diagnosePCover() throws ConnectionCannotBeObtained {
+	private WoflanState diagnosePCover()  {
 		/**
 		 * Check assumptions.
 		 */
@@ -436,7 +423,7 @@ public class Woflan {
 		return state;
 	}
 
-	private WoflanState diagnoseDeadness() throws ConnectionCannotBeObtained {
+	private WoflanState diagnoseDeadness()  {
 		/**
 		 * Check assumptions.
 		 */
@@ -458,7 +445,7 @@ public class Woflan {
 		return state;
 	}
 
-	private WoflanState diagnoseLiveness() throws ConnectionCannotBeObtained {
+	private WoflanState diagnoseLiveness()  {
 		/**
 		 * Check assumptions.
 		 */
@@ -495,7 +482,7 @@ public class Woflan {
 		return state;
 	}
 
-	private WoflanState diagnoseBoundedness() throws ConnectionCannotBeObtained {
+	private WoflanState diagnoseBoundedness()  {
 		/**
 		 * Check assumptions.
 		 */
@@ -551,7 +538,7 @@ public class Woflan {
 		return state;
 	}
 
-	private WoflanState diagnosePTHandles() throws ConnectionCannotBeObtained {
+	private WoflanState diagnosePTHandles()  {
 		/**
 		 * Check assumptions.
 		 */
@@ -574,7 +561,7 @@ public class Woflan {
 		return state;
 	}
 
-	private WoflanState diagnoseTPHandles() throws ConnectionCannotBeObtained {
+	private WoflanState diagnoseTPHandles()  {
 		/**
 		 * Check assumptions.
 		 */

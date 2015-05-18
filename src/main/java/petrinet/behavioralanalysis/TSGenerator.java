@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.Set;
 
 
-import framework.connections.ConnectionCannotBeObtained;
+
 
 import models.graphbased.directed.petrinet.Petrinet;
 import models.graphbased.directed.petrinet.PetrinetGraph;
@@ -40,7 +40,7 @@ public class TSGenerator {
 
 	
 	
-	public Object[] calculateTS(Petrinet net, Marking state) throws ConnectionCannotBeObtained {
+	public Object[] calculateTS(Petrinet net, Marking state)  {
 		return calculateTS( net, state, PetrinetSemanticsFactory.regularPetrinetSemantics(Petrinet.class));
 	}
 
@@ -49,13 +49,13 @@ public class TSGenerator {
 	
 	
 	public Object[] calculateTS(Petrinet net, Marking state, CoverabilityGraph graph)
-			throws ConnectionCannotBeObtained {
+			 {
 		return build( net, state, graph);
 	}
 
 	
 	public Object[] calculateTS(ResetNet net, Marking state, CoverabilityGraph graph)
-			throws ConnectionCannotBeObtained {
+			 {
 		return build( net, state, graph);
 	}
 
@@ -70,7 +70,7 @@ public class TSGenerator {
 	
 	
 	private Object[] build(PetrinetGraph net, Marking initial,
-			CoverabilityGraph coverabilityGraph) throws ConnectionCannotBeObtained {
+			CoverabilityGraph coverabilityGraph)  {
 
 		
 		PetrinetSemantics sem=null;

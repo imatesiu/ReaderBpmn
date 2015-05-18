@@ -15,7 +15,6 @@ import java.util.TreeSet;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 
-import framework.connections.ConnectionCannotBeObtained;
 
 
 import framework.util.collection.MultiSet;

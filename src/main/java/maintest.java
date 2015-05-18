@@ -3,30 +3,23 @@
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.geom.Rectangle2D;
-import java.awt.image.BufferedImage;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.util.Collection;
 import java.util.Map;
 
-import javax.imageio.ImageIO;
+ 
+
+
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.RepaintManager;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
+ 
 
-import org.apache.batik.dom.*;
-import org.apache.batik.svggen.SVGGraphics2D;
-import org.w3c.dom.DOMImplementation;
-import org.w3c.dom.Document;
+
 
 import com.jgraph.layout.JGraphFacade;
 import com.jgraph.layout.JGraphLayout;

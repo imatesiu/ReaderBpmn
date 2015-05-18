@@ -3,14 +3,18 @@ package models.connections;
 import java.awt.Dimension;
 import java.awt.geom.Dimension2D;
 import java.awt.geom.Point2D;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.jgraph.graph.GraphConstants;
-import framework.connections.DynamicConnection;
-import framework.connections.impl.AbstractConnection;
+
+
+
 import models.graphbased.AttributeMap;
 import models.graphbased.AttributeMapOwner;
 import models.graphbased.Expandable;
@@ -19,8 +23,15 @@ import models.graphbased.ExpansionListener.ListenerList;
 import models.graphbased.ViewSpecificAttributeMap;
 import models.graphbased.directed.DirectedGraph;
 
-public class GraphLayoutConnection extends AbstractConnection implements DynamicConnection {
+public class GraphLayoutConnection  {
 
+	
+
+	private String label;
+
+	
+	
+   
 	/**
 	 * A List<java.awt.geom.Point2D> of points, which are the inner points of
 	 * the spline.
@@ -97,9 +108,9 @@ public class GraphLayoutConnection extends AbstractConnection implements Dynamic
 	private transient List<Listener> listeners = new ArrayList<Listener>();
 
 	public GraphLayoutConnection(DirectedGraph<?, ?> graph) {
-		super("Layout information for " + graph.getLabel());
+		setLabel("Layout information for " + graph.getLabel());
 		this.map = new ViewSpecificAttributeMap();
-		put(GRAPH, graph);
+		
 
 		for (AttributeMapOwner node : graph.getNodes()) {
 			setSize(node, node.getAttributeMap().get(AttributeMap.SIZE, new Dimension(50, 50)));
@@ -110,10 +121,26 @@ public class GraphLayoutConnection extends AbstractConnection implements Dynamic
 		}
 
 	}
+	
+	
 
-	public DirectedGraph<?, ?> getGraph() {
-		return (DirectedGraph<?, ?>) get(GRAPH);
+	
+
+	/**
+	 * sets the label of the connection to the new name
+	 * 
+	 * @param name
+	 */
+	public void setLabel(String name) {
+		boolean changed = name.equals(label);
+		this.label = name;
+		if (changed) {
+			
+		}
 	}
+
+
+	
 
 	//	public ViewSpecificAttributeMap getMap() {
 	//		return map;
@@ -194,7 +221,7 @@ public class GraphLayoutConnection extends AbstractConnection implements Dynamic
 		for (Listener l : listeners) {
 			l.layoutConnectionUpdated(owners);
 		}
-		super.updated();
+		
 	}
 
 	private Object readResolve() {
