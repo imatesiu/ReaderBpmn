@@ -88,6 +88,7 @@ public class SimplePanel {
 
 		f.setSize(640, 480);
 		f.pack();
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 		
 		
