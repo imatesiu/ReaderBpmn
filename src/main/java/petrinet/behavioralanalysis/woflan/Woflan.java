@@ -571,8 +571,11 @@ public class Woflan {
 			return WoflanState.NOTWELLTPHANDLED;
 		}
 		WoflanState state = WoflanState.DONE;
-		
-		TPHandlesGenerator tphg = new TPHandlesGenerator(diagnosis.shortCNet);
+		TPHandlesGenerator tphg=null;
+		if(diagnosis.shortCNet!=null)
+		 tphg = new TPHandlesGenerator(diagnosis.shortCNet);
+		else
+		 tphg = new TPHandlesGenerator(diagnosis.net);	
 		TPHandles handles = tphg.analyzeTPHandles();
 
 		if (handles.isEmpty()) {

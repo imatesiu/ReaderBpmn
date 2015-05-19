@@ -63,5 +63,6 @@ public interface PetrinetGraph extends
 	Arc getArc(PetrinetNode source, PetrinetNode target);
 	
 	String toDOT(/*Marking m*/);
+	String toPEP();
 
 }

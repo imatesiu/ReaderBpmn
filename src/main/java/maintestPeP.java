@@ -1,5 +1,3 @@
-
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -10,8 +8,30 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
+
+import models.connections.GraphLayoutConnection;
+import models.graphbased.AttributeMap;
+import models.graphbased.ViewSpecificAttributeMap;
+import models.graphbased.directed.DirectedGraph;
+import models.graphbased.directed.DirectedGraphEdge;
+import models.graphbased.directed.DirectedGraphNode;
+import models.graphbased.directed.bpmn.BPMNDiagram;
+import models.graphbased.directed.petrinet.Petrinet;
+import models.jgraph.CustomGraphModel;
+import models.jgraph.CustomJGraph;
+import models.jgraph.visualization.CustomJGraphPanel;
+import models.semantics.petrinet.Marking;
+import petrinet.analysis.WorkflowNetUtils;
+import petrinet.behavioralanalysis.woflan.Woflan;
+import petrinet.behavioralanalysis.woflan.WoflanDiagnosis;
+import petrinet.pep.PePImporting;
+import petrinet.pnml.exporting.PnmlExportNetToPNML;
+import plugins.bpmn.Bpmn;
+import plugins.bpmn.trasform.BpmnToPetriNet;
 
 import com.jgraph.layout.JGraphFacade;
 import com.jgraph.layout.JGraphLayout;
@@ -20,73 +40,72 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 import framework.util.ui.scalableview.ScalableViewPanel;
 import framework.util.ui.scalableview.interaction.ExportInteractionPanel;
 import framework.util.ui.scalableview.interaction.ZoomInteractionPanel;
-import models.graphbased.AttributeMap;
-import models.graphbased.ViewSpecificAttributeMap;
-import models.graphbased.directed.DirectedGraph;
-import models.graphbased.directed.DirectedGraphEdge;
-import models.graphbased.directed.DirectedGraphNode;
-import models.graphbased.directed.bpmn.BPMNDiagram;
-import models.graphbased.directed.petrinet.Petrinet;
-import models.graphbased.directed.petrinet.PetrinetGraph;
-import models.jgraph.CustomGraphModel;
-import models.jgraph.CustomJGraph;
-import models.jgraph.visualization.CustomJGraphPanel;
-import models.semantics.petrinet.Marking;
-import models.connections.*;
-import petrinet.analysis.WorkflowNetUtils;
-import petrinet.behavioralanalysis.woflan.Woflan;
-import plugins.bpmn.Bpmn;
-import plugins.bpmn.trasform.BpmnToPetriNet;
 
-public class main {
+
+public class maintestPeP {
 
 	public static void main(String[] args) {
-		
-		if(args.length<0 || args[0]==null){
-			System.out.println("Non del file non trovato");
-		}else{
-			try {
 
+
+		try {
+
+			JFileChooser fc = new JFileChooser();
+			fc.setDialogType(JFileChooser.OPEN_DIALOG);		
+			fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+			int returnVal = fc.showOpenDialog(new JFrame("Load File"));
+
+			if (returnVal == JFileChooser.APPROVE_OPTION) {
+				File file = fc.getSelectedFile();
+
+
+					PePImporting pepi = new PePImporting(file);
 				
-				File file = new File(args[0]);
-				Bpmn bpmn = new Bpmn(file);
-
-				Collection<BPMNDiagram> BPMNdiagrams = 	bpmn.BpmnextractDiagram();
-				for(BPMNDiagram graph : BPMNdiagrams){
-					BpmnToPetriNet btpn = new BpmnToPetriNet(graph);
-					Petrinet pn = (Petrinet) btpn.getPetriNet();
+					Petrinet pn = pepi.importPetriNet();
 					boolean result = WorkflowNetUtils.isValidWFNet(pn);
-					
+
 
 					Woflan wolf = new Woflan();
-					wolf.diagnose(pn);
+					WoflanDiagnosis result2 = wolf.diagnose(pn);
+					System.out.println();
 					
-					view(graph);
+				//	toFile(file.getAbsolutePath().substring(0, file.getAbsolutePath().lastIndexOf("."))+".ll_net",pn.toPEP());
 					
-					view(pn);
-
-					String dot = graph.toDOT();
+					toFile(file.getAbsolutePath().substring(0, file.getAbsolutePath().lastIndexOf("."))+".html", result2.toHTMLString(false));
+					
+					/*String dot = graph.toDOT();
 					toFile("./esempi/bp.dot", dot);
 					String  dot2png = "dot -q -Tpng ./esempi/bp.dot -o ./esempi/bp.png \n";
-					System.out.println(dot2png);
-					
-					 dot = pn.toDOT();
+					System.out.println(dot2png);*/
+
+					String dot =dot = pn.toDOT();
 					toFile("./esempi/pn.dot", dot);
-					  dot2png = "dot -q -Tpng ./esempi/pn.dot -o ./esempi/pn.png \n";
+					String  dot2png = "dot -q -Tpng ./esempi/pn.dot -o ./esempi/pn.png \n";
 					System.out.println(dot2png);
 
 					
+					view(pn);
 					
-				}
+					/*File pnml = new File(file.getAbsolutePath().substring(0, file.getAbsolutePath().lastIndexOf("."))+".pnml");
 
-			} catch (Exception e) {
-				
-				e.printStackTrace();
-			}
+					PnmlExportNetToPNML pex = new PnmlExportNetToPNML();
+					Marking m = wolf.getInitialMarking();
+					if(m==null){
+						m = new Marking();
+					}
+					pex.exportPetriNetToPNMLFile(pn, pnml,m,new GraphLayoutConnection(pn) );*/
+
+				}
+			
+			
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
 		}
 
+
 	}
-	
 	protected static void view(DirectedGraph<? extends DirectedGraphNode, ? extends DirectedGraphEdge<? extends DirectedGraphNode, ? extends DirectedGraphNode>> graph) {
 		//BPMNDiagram graph = BPMNdiagrams.iterator().next();
 		CustomGraphModel model = new CustomGraphModel(graph);
@@ -148,7 +167,6 @@ public class main {
 		//ImageIO.write(bi, "JPG", new File("test.jpg"));
 		
 	}
-
 	protected static JGraphLayout getLayout(int orientation) {
 		JGraphHierarchicalLayout layout = new JGraphHierarchicalLayout();
 		layout.setDeterministic(false);
@@ -173,4 +191,6 @@ public class main {
 		}
 	}
 
+	
+	
 }
