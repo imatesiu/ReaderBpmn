@@ -1,0 +1,104 @@
+PEP
+PetriBox
+FORMAT_N2
+PL
+"parallel_split#CalcoloAnatocismo"
+"ReperimentoDati SogliaTEGM e TSU#parallel_split"
+"Calcolo TEG#Se TEG>TSU"
+"Se TEG>TSU#CalcoloUsuraOggettiva"
+"Se TEG>TSU#Se TEG>TEGM"
+"Se TEG>TEGM#CalcoloUsuraSoggettiva"
+"Se TEG>TEGM#gate_join"
+"CalcoloUsuraSoggettiva#gate_join"
+"CalcoloUsuraOggettiva#Se TEG>TEGM"
+"parallel_split#Calcolo TEG"
+"parallel_merge#Calcolo Interessi Legali eMaltolto"
+"CalcoloAnatocismo#parallel_merge"
+"gate_join#parallel_merge"
+"InserimentoNum. DebitoriInteressi e Spese#CalcoloInteressi e SpeseTrimestrali"
+"CalcoloInteressi e SpeseTrimestrali#ReperimentoDati SogliaTEGM e TSU"
+"Calcolo Interessi Legali eMaltolto#Exclusive Gateway6"
+"Exclusive Gateway6#end_event"
+"start_event#Exclusive Gateway5"
+"Exclusive Gateway5#InserimentoNum. DebitoriInteressi e Spese"
+"Exclusive Gateway5#Exclusive Gateway6"
+"Se TEG>TEGM"
+"pstart_event"M1
+"pend_event"
+TR
+"ReperimentoDati SogliaTEGM e TSU"
+"CalcoloAnatocismo"
+"InserimentoNum. DebitoriInteressi e Spese"
+"Calcolo TEG"
+"CalcoloUsuraSoggettiva"
+"CalcoloUsuraOggettiva"
+"Calcolo Interessi Legali eMaltolto"
+"CalcoloInteressi e SpeseTrimestrali"
+"Se TEG>TSU_0"
+"Se TEG>TSU_1"
+"Se TEG>TEGM_0"
+"Se TEG>TEGM_1"
+"Se TEG>TEGM_2"
+"Se TEG>TEGM_3"
+"gate_join_0"
+"gate_join_1"
+"Exclusive Gateway6_0"
+"Exclusive Gateway6_1"
+"Exclusive Gateway5_0"
+"Exclusive Gateway5_1"
+"parallel_split_fork"
+"parallel_merge_join"
+"t_START_EVENT"
+"t_end_event"
+TP
+7<16
+11<6
+17<17
+24<23
+6<9
+3<14
+8<15
+21<1
+19<19
+14<21
+1<2
+23<18
+9<4
+10<5
+12<7
+20<20
+21<10
+22<11
+13<21
+4<3
+16<13
+5<8
+15<13
+18<17
+2<12
+PT
+15>1
+3>9
+11>7
+5>13
+22>23
+17>24
+19>3
+1>2
+16>17
+8>16
+10>4
+20>18
+21>11
+14>8
+21>12
+6>5
+9>14
+12>22
+7>15
+18>20
+18>19
+4>6
+3>10
+2>21
+13>22

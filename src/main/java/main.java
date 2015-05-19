@@ -1,40 +1,14 @@
 
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.io.BufferedWriter;
+
+
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Collection;
-import java.util.Map;
-
-import javax.swing.JFrame;
-import javax.swing.SwingConstants;
-
-import com.jgraph.layout.JGraphFacade;
-import com.jgraph.layout.JGraphLayout;
-import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 import framework.util.SimplePanel;
 import framework.util.Util;
-import framework.util.ui.scalableview.ScalableViewPanel;
-import framework.util.ui.scalableview.interaction.ExportInteractionPanel;
-import framework.util.ui.scalableview.interaction.ZoomInteractionPanel;
-import models.graphbased.AttributeMap;
-import models.graphbased.ViewSpecificAttributeMap;
-import models.graphbased.directed.DirectedGraph;
-import models.graphbased.directed.DirectedGraphEdge;
-import models.graphbased.directed.DirectedGraphNode;
 import models.graphbased.directed.bpmn.BPMNDiagram;
 import models.graphbased.directed.petrinet.Petrinet;
-import models.graphbased.directed.petrinet.PetrinetGraph;
-import models.jgraph.CustomGraphModel;
-import models.jgraph.CustomJGraph;
-import models.jgraph.visualization.CustomJGraphPanel;
-import models.semantics.petrinet.Marking;
-import models.connections.*;
 import petrinet.analysis.WorkflowNetUtils;
 import petrinet.behavioralanalysis.woflan.Woflan;
 import plugins.bpmn.Bpmn;

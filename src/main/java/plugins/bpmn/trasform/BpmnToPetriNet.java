@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import models.graphbased.NodeID;
 import models.graphbased.directed.ContainableDirectedGraphElement;
 import models.graphbased.directed.ContainingDirectedGraphNode;
 import models.graphbased.directed.bpmn.BPMNDiagram;
@@ -31,23 +32,23 @@ import models.graphbased.directed.petrinet.impl.PetrinetFactory;
 import models.semantics.petrinet.Marking;
 
 public class BpmnToPetriNet {
-	
+
 	private PetrinetGraph net=null;
 	private ExpandableSubNet subNet = null;
 	private Marking marking  = new Marking();
 	public BpmnToPetriNet(BPMNDiagram bpmn){
 		createPetriNet(bpmn);
 	}
-	
+
 	public PetrinetGraph getPetriNet(){
-		
+
 		return net;
 	}
-	
+
 	public Marking getMarking() {
 		return marking;
 	}
-	
+
 	private void createPetriNet(BPMNDiagram bpmn ){
 		LinkedHashMap<Flow, Place> flowMap = new LinkedHashMap<Flow, Place>();
 		String nameBPMNDiagram =  bpmn.getLabel();
@@ -60,7 +61,7 @@ public class BpmnToPetriNet {
 
 
 		net = PetrinetFactory.newPetrinet(nameBPMNDiagram);
-		
+
 		Collection<Swimlane> collezioneswimlane = bpmn.getSwimlanes();
 		ContainingDirectedGraphNode parent = null;
 
@@ -74,14 +75,14 @@ public class BpmnToPetriNet {
 
 		translateSubProcess(bpmn, flowMap, net, marking, parent);
 
-		
+
 
 
 
 
 	}
-	
-	
+
+
 	private void translateSubProcess(BPMNDiagram bpmn,
 			LinkedHashMap<Flow, Place> flowMap, PetrinetGraph net,
 			Marking marking, ContainingDirectedGraphNode parent) {
@@ -199,14 +200,14 @@ public class BpmnToPetriNet {
 
 		}
 	}
-	
+
 	private void traslateFlow(BPMNDiagram bpmn,
 			LinkedHashMap<Flow, Place> flowMap, PetrinetGraph net,
 			ContainingDirectedGraphNode parent) {
 		// gli archi del diagramma BPMN diventano piazze della rete Petri
 		for (Flow g : bpmn.getFlows()) {
-			String f = g.getSource().getLabel() + "#";
-			String z = g.getTarget().getLabel();
+			String f = sanitizeorid(g.getSource().getLabel(),g.getSource().getId() )+ "#";
+			String z = sanitizeorid(g.getTarget().getLabel(),g.getTarget().getId());
 			ContainingDirectedGraphNode parentFlow = g.getParentSubProcess();
 			// System.out.println("parent: " + parent);
 			if (parentFlow == parent) {
@@ -218,13 +219,24 @@ public class BpmnToPetriNet {
 		}
 
 	}
+
+	private String sanitizeorid(String input,NodeID nodeid){
+		String san = nodeid.toString();
+		if(input!=null){
+			if(input.length()>0){
+				
+				san = input.replace("\n", " ").replace("\r", " ").replace("  ", " ");
+			}
+		}
+		return san;
+	}
 	private void translateTask(BPMNDiagram bpmn,
 			LinkedHashMap<Flow, Place> flowMap, PetrinetGraph net,
 			ContainingDirectedGraphNode parent,int typelifecycle) {
 
 		for (Activity c : bpmn.getActivities()) {
 			if (parent == c.getParentSubProcess()) {
-				String id = c.getLabel();
+				String id = sanitizeorid(c.getLabel(), c.getId());
 				if(typelifecycle==0){
 					Transition t = net.addTransition(id + "+start", this.subNet);
 					Transition t1 = net.addTransition(id + "+complete", this.subNet);
@@ -254,7 +266,7 @@ public class BpmnToPetriNet {
 						}
 					}
 				}else{
-					Transition t = net.addTransition(id + "+complete", this.subNet);
+					Transition t = net.addTransition(id , this.subNet);
 					for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : c
 							.getGraph().getInEdges(c)) {
 						if (s instanceof Flow) {
@@ -274,7 +286,7 @@ public class BpmnToPetriNet {
 							net.addArc(t, pst, 1, this.subNet);
 						}
 					}
-					
+
 				}
 
 			}
@@ -297,10 +309,10 @@ public class BpmnToPetriNet {
 							&& g.getGraph().getInEdges(g).size() == 1) {
 						for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : g
 								.getGraph().getOutEdges(g)) {
-							String source = s.getSource().getLabel();
-							String target = s.getTarget().getLabel();
+							String source = sanitizeorid(s.getSource().getLabel(),s.getSource().getId() );
+							String target = sanitizeorid(s.getTarget().getLabel(),s.getTarget().getId());
 
-							Transition t = net.addTransition(g.getLabel() + "_"
+							Transition t = net.addTransition(sanitizeorid(g.getLabel(),g.getId()) + "_"
 									+ i++, this.subNet);
 							t.setInvisible(true);
 							tranMap.put(target + source, t);
@@ -312,8 +324,8 @@ public class BpmnToPetriNet {
 						}
 						for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : g
 								.getGraph().getInEdges(g)) {
-							String source = s.getSource().getLabel();
-							String target = s.getTarget().getLabel();
+							//	String source = s.getSource().getLabel();
+							//	String target = s.getTarget().getLabel();
 
 							Place pst = flowMap.get(s);
 
@@ -339,7 +351,7 @@ public class BpmnToPetriNet {
 
 								Place pst = flowMap.get(s);
 
-								Transition t = net.addTransition(g.getLabel()
+								Transition t = net.addTransition(sanitizeorid(g.getLabel(),g.getId())
 										+ "_" + i++, this.subNet);
 								t.setInvisible(true);
 								net.addArc(pst, t, 1, this.subNet);
@@ -351,15 +363,15 @@ public class BpmnToPetriNet {
 							if (g.getGraph().getOutEdges(g).size() > 1
 									&& g.getGraph().getInEdges(g).size() > 1) {
 								i = 0;
-								Place placecentral = net.addPlace(g.getLabel(),
+								Place placecentral = net.addPlace(sanitizeorid(g.getLabel(),g.getId()),
 										this.subNet);
 								for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : g
 										.getGraph().getOutEdges(g)) {
-									String source = s.getSource().getLabel();
-									String target = s.getTarget().getLabel();
+									String source = sanitizeorid(s.getSource().getLabel(),s.getSource().getId() );
+									String target = sanitizeorid(s.getTarget().getLabel(),s.getTarget().getId());
 
 									Transition t = net.addTransition(
-											g.getLabel() + "_" + i++,
+											sanitizeorid(g.getLabel(),g.getId()) + "_" + i++,
 											this.subNet);
 									t.setInvisible(true);
 									tranMap.put(target + source, t);
@@ -373,13 +385,13 @@ public class BpmnToPetriNet {
 								//i = 0;
 								for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : g
 										.getGraph().getInEdges(g)) {
-									String source = s.getSource().getLabel();
-									String target = s.getTarget().getLabel();
+									//		String source = s.getSource().getLabel();
+									//		String target = s.getTarget().getLabel();
 
 									Place pst = flowMap.get(s);
 
 									Transition t = net.addTransition(
-											g.getLabel() + "_" + i++,
+											sanitizeorid(g.getLabel(),g.getId()) + "_" + i++,
 											this.subNet);
 									t.setInvisible(true);
 									net.addArc(pst, t, 1, this.subNet);
@@ -409,7 +421,7 @@ public class BpmnToPetriNet {
 									.getGraph().getInEdges(g).iterator().next();
 
 							Place ps = flowMap.get(so);
-							Transition t = net.addTransition(g.getLabel()
+							Transition t = net.addTransition(sanitizeorid(g.getLabel(),g.getId())
 									+ "_fork", this.subNet);
 							t.setInvisible(true);
 							net.addArc(ps, t, 1, this.subNet);
@@ -430,7 +442,7 @@ public class BpmnToPetriNet {
 										.next();
 
 								Place ps = flowMap.get(so);
-								Transition t = net.addTransition(g.getLabel()
+								Transition t = net.addTransition(sanitizeorid(g.getLabel(),g.getId())
 										+ "_join", this.subNet);
 								t.setInvisible(true);
 								net.addArc(t, ps, 1, this.subNet);
@@ -462,7 +474,7 @@ public class BpmnToPetriNet {
 									Place pst = flowMap.get(s);
 
 									Transition t = net.addTransition(
-											g.getLabel() + "_" + i++,
+											sanitizeorid(g.getLabel(),g.getId()) + "_" + i++,
 											this.subNet);
 									t.setInvisible(true);
 									net.addArc(t, pst, 1, this.subNet);
@@ -489,10 +501,10 @@ public class BpmnToPetriNet {
 						&& e.getEventTrigger().equals(EventTrigger.NONE)) {
 
 					// Place p = new Place(e.getLabel(), net);
-					String name = e.getLabel().toUpperCase();
-					Place p = net.addPlace("p" + e.getLabel(), this.subNet);
+					String name = sanitizeorid(e.getLabel(),e.getId());
+					Place p = net.addPlace("p" + name, this.subNet);
 
-					Transition t = net.addTransition("t_" + name, this.subNet);
+					Transition t = net.addTransition("t_" + name.toUpperCase(), this.subNet);
 					t.setInvisible(true);
 					net.addArc(p, t, 1, this.subNet);
 					SubProcess sub = e.getParentSubProcess();
@@ -514,10 +526,10 @@ public class BpmnToPetriNet {
 				}
 				if (e.getEventType().equals(EventType.END)
 						&& e.getEventTrigger().equals(EventTrigger.NONE)) {
+					String name =sanitizeorid(e.getLabel(),e.getId());
+					Place p = net.addPlace("p" + name, this.subNet);
 
-					Place p = net.addPlace("p" + e.getLabel(), this.subNet);
-
-					Transition t = net.addTransition("t_" + e.getLabel(),
+					Transition t = net.addTransition("t_" + name,
 							this.subNet);
 
 					t.setInvisible(true);
@@ -536,7 +548,7 @@ public class BpmnToPetriNet {
 				if (e.getEventType().equals(EventType.INTERMEDIATE)
 						&& !e.getEventTrigger().equals(EventTrigger.NONE)) {
 
-					Transition t = net.addTransition(e.getLabel(), this.subNet);
+					Transition t = net.addTransition(sanitizeorid(e.getLabel(),e.getId()), this.subNet);
 
 					if (e.getBoundingNode() == null) {
 						BPMNEdge<? extends BPMNNode, ? extends BPMNNode> g = e
