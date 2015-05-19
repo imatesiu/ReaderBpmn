@@ -50,3 +50,7 @@ Temporary Items
 *.dot
 
 *.png
+
+*.ll_net
+
+*.pnml
