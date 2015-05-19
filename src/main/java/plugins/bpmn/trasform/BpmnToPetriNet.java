@@ -34,6 +34,7 @@ public class BpmnToPetriNet {
 	
 	private PetrinetGraph net=null;
 	private ExpandableSubNet subNet = null;
+	private Marking marking  = new Marking();
 	public BpmnToPetriNet(BPMNDiagram bpmn){
 		createPetriNet(bpmn);
 	}
@@ -41,6 +42,10 @@ public class BpmnToPetriNet {
 	public PetrinetGraph getPetriNet(){
 		
 		return net;
+	}
+	
+	public Marking getMarking() {
+		return marking;
 	}
 	
 	private void createPetriNet(BPMNDiagram bpmn ){
@@ -55,7 +60,7 @@ public class BpmnToPetriNet {
 
 
 		net = PetrinetFactory.newPetrinet(nameBPMNDiagram);
-		Marking marking = new Marking();
+		
 		Collection<Swimlane> collezioneswimlane = bpmn.getSwimlanes();
 		ContainingDirectedGraphNode parent = null;
 
