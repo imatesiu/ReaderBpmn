@@ -51,6 +51,7 @@ public class maintestcunf {
 				Petrinet pnunfold = doti.importPetriNet();
 				SimplePanel sp = new SimplePanel();
 				sp.view(pnunfold);
+				sp.view(BPMNdiagram);
 
 			}
 		} catch (Exception e) {
