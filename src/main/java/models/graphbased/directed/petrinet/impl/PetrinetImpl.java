@@ -69,13 +69,19 @@ public class PetrinetImpl extends AbstractResetInhibitorNet implements Petrinet 
 		return result;
 	}
 
-	public String toPEP(){
+	public String toPEP(Marking m){
 		String result ="PEP\nPetriBox\nFORMAT_N2\n";
 		result += "PL\n";
 		int count = 1;
 		Map<PetrinetNode,Integer> posPeP = new HashMap<PetrinetNode,Integer>();
 		for (Place p : this.getPlaces()) {
-			result +="\""+p.getLabel()+"\"\n";
+
+			if(m.contains(p)){
+				result +="\""+p.getLabel()+"\"M1\n";
+			}
+			else{
+				result +="\""+p.getLabel()+"\"\n";
+			}
 			posPeP.put(p, count);
 			count++;
 		}

@@ -83,13 +83,13 @@ public class maintest {
 					BpmnToPetriNet btpn = new BpmnToPetriNet(graph);
 					Petrinet pn = (Petrinet) btpn.getPetriNet();
 					boolean result = WorkflowNetUtils.isValidWFNet(pn);
-
+					Marking marking = btpn.getMarking();
 
 					Woflan wolf = new Woflan();
 					WoflanDiagnosis result2 = wolf.diagnose(pn);
 					System.out.println();
 					
-					Util.toFile(file.getAbsolutePath().substring(0, file.getAbsolutePath().lastIndexOf("."))+".ll_net",pn.toPEP());
+					Util.toFile(file.getAbsolutePath().substring(0, file.getAbsolutePath().lastIndexOf("."))+".ll_net",pn.toPEP(marking));
 					
 					Util.toFile(file.getAbsolutePath().substring(0, file.getAbsolutePath().lastIndexOf("."))+".html", result2.toHTMLString(false));
 					
