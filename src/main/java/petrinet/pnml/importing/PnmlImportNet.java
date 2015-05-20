@@ -6,10 +6,12 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
+
 import models.graphbased.directed.petrinet.Petrinet;
 import models.graphbased.directed.petrinet.PetrinetGraph;
 import models.graphbased.directed.petrinet.impl.PetrinetFactory;
 import models.semantics.petrinet.Marking;
+import models.utils.Pair;
 import petrinet.pnml.Pnml;
 
 
@@ -19,7 +21,7 @@ public class PnmlImportNet  {
 		return new FileNameExtensionFilter("PNML files", "pnml");
 	}
 
-	protected Object importFromStream( InputStream input, String filename, long fileSizeInBytes)
+	public Pair<PetrinetGraph,Marking> importFromStream( InputStream input, String filename, long fileSizeInBytes)
 			throws Exception {
 		PnmlImportUtils utils = new PnmlImportUtils();
 		Pnml pnml = utils.importPnmlFromStream( input, filename, fileSizeInBytes);
@@ -35,6 +37,8 @@ public class PnmlImportNet  {
 		 */
 		PetrinetGraph net = PetrinetFactory.newPetrinet(pnml.getLabel() + " (imported from " + filename + ")");
 
-		return new Object[]{ pnml, net};
+		utils.connectNet(pnml, net);
+		
+		return new Pair<PetrinetGraph, Marking>(utils.getNet(), utils.getMarking());
 	}
 }

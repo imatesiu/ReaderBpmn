@@ -7,18 +7,18 @@ import java.util.List;
 import java.util.Map;
 
 
-import framework.util.Pair;
+
+
 import models.connections.GraphLayoutConnection;
 import models.graphbased.AbstractGraphElement;
-
 import models.graphbased.directed.petrinet.PetrinetEdge;
 import models.graphbased.directed.petrinet.PetrinetGraph;
 import models.graphbased.directed.petrinet.PetrinetNode;
-
 import models.graphbased.directed.petrinet.elements.ExpandableSubNet;
 import models.graphbased.directed.petrinet.elements.Place;
 import models.graphbased.directed.petrinet.elements.Transition;
 import models.semantics.petrinet.Marking;
+import models.utils.Pair;
 
 import org.xmlpull.v1.XmlPullParser;
 

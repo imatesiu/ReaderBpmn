@@ -2,7 +2,7 @@ package petrinet.pnml.graphics;
 
 import java.awt.geom.Point2D;
 
-import framework.util.Pair;
+import models.utils.Pair;
 import models.connections.GraphLayoutConnection;
 import models.graphbased.AbstractGraphElement;
 import models.graphbased.directed.petrinet.elements.ExpandableSubNet;

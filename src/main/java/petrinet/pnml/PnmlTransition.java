@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import framework.util.Pair;
+import models.utils.Pair;
 import models.connections.GraphLayoutConnection;
 import models.graphbased.AbstractGraphElement;
 

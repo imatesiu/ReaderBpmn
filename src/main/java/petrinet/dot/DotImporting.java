@@ -60,7 +60,7 @@ public class DotImporting {
 					String node = line.substring(0, line.indexOf(" "));
 					String label ="";
 					if(line.contains("\"")){
-						label = line.substring(line.indexOf("\"")+1, line.lastIndexOf(":"));
+						label = line.substring(line.indexOf("\"")+1, line.lastIndexOf("\""));
 					}
 					Place p =net.addPlace(label);
 					posPT.put(node, p);
@@ -70,7 +70,7 @@ public class DotImporting {
 					String node = line.substring(0, line.indexOf(" "));
 					String label ="";
 					if(line.contains("\"")){
-						label = line.substring(line.indexOf("\"")+1, line.lastIndexOf(":"));
+						label = line.substring(line.indexOf("\"")+1, line.lastIndexOf("\""));
 					}
 					Transition t =net.addTransition(label);
 					posPT.put(node, t);

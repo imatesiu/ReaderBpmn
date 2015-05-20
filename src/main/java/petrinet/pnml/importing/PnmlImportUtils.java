@@ -13,6 +13,11 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 public class PnmlImportUtils {
+	
+	private PetrinetGraph net;
+	private Marking m;
+	
+	
 	public Pnml importPnmlFromStream( InputStream input, String filename, long fileSizeInBytes)
 			throws Exception {
 		/*
@@ -61,7 +66,7 @@ public class PnmlImportUtils {
 		return pnml;
 	}
 	
-	public Object connectNet( Pnml pnml, PetrinetGraph net) {
+	public void connectNet( Pnml pnml, PetrinetGraph net) {
 		/*
 		 * Create a fresh marking.
 		 */
@@ -85,12 +90,20 @@ public class PnmlImportUtils {
 		/*
 		 * Return the net and the marking.
 		 */
-		Object[] objects = new Object[2];
-		objects[0] = net;
-		objects[1] = marking;
-		return objects;
+		
+		this.net = net;
+		this.m = marking;
+		
 	}
 
+	public PetrinetGraph getNet() {
+		return net;
+	}
 
+	public Marking getMarking() {
+		return m;
+	}
+
+	
 
 }
