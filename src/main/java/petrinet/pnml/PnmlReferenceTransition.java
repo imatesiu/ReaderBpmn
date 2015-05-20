@@ -2,7 +2,7 @@ package petrinet.pnml;
 
 import java.util.Map;
 
-import framework.util.Pair;
+import models.utils.Pair;
 import models.connections.GraphLayoutConnection;
 import models.graphbased.AbstractGraphElement;
 import models.graphbased.directed.petrinet.PetrinetGraph;

@@ -6,7 +6,7 @@ import java.util.SortedSet;
 
 
 import framework.util.HTMLToString;
-import framework.util.Pair;
+import models.utils.Pair;
 import framework.util.collection.MultiSet;
 import framework.util.collection.TreeMultiSet;
 

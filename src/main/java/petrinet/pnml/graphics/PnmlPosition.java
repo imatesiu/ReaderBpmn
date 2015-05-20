@@ -4,7 +4,7 @@ import java.awt.Dimension;
 import java.awt.geom.Point2D;
 import java.util.List;
 
-import framework.util.Pair;
+import models.utils.Pair;
 import models.connections.GraphLayoutConnection;
 import models.graphbased.AbstractGraphElement;
 import models.graphbased.AttributeMap;

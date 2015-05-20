@@ -1,6 +1,6 @@
 package framework.util.collection;
 
-import framework.util.Pair;
+import models.utils.Pair;
 
 public class ComparablePair<F extends Comparable<? super F>, S extends Comparable<? super S>> extends Pair<F, S>
 		implements Comparable<ComparablePair<F, S>> {
