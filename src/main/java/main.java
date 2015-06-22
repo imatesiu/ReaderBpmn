@@ -35,6 +35,7 @@ import framework.util.ui.scalableview.interaction.ZoomInteractionPanel;
 import models.graphbased.AttributeMap;
 import models.graphbased.ViewSpecificAttributeMap;
 import models.graphbased.directed.bpmn.BPMNDiagram;
+import models.graphbased.directed.petrinet.Petrinet;
 import models.jgraph.CustomGraphModel;
 import models.jgraph.CustomJGraph;
 import models.jgraph.visualization.CustomJGraphPanel;
@@ -75,7 +76,7 @@ public class main {
 				String result = dga.isCyclic(sys) ? "cyclic\n" : "acyclic\n"; 
 				
 				CompletePrefixUnfoldingSetup setup = new CompletePrefixUnfoldingSetup();
-				setup.ADEQUATE_ORDER = AdequateOrderType.ESPARZA_FOR_ARBITRARY_SYSTEMS;
+				setup.ADEQUATE_ORDER = AdequateOrderType.ESPARZA_FOR_SAFE_SYSTEMS;
 				
 				CompletePrefixUnfolding unfolding = new CompletePrefixUnfolding(sys,setup);
 				OccurrenceNet occurrenceNet = (OccurrenceNet) unfolding.getOccurrenceNet();
@@ -86,12 +87,12 @@ public class main {
 				System.out.println(dot2png);
 				
 				
-				System.out.println(result);
+				Petrinet pn1 = JbptConversion.convert(unfolding);
 				
 					//BPMNDiagram graph = BPMNdiagrams.iterator().next();
-					CustomGraphModel model = new CustomGraphModel(graph);
+					CustomGraphModel model = new CustomGraphModel(pn1);
 					ViewSpecificAttributeMap map =new ViewSpecificAttributeMap();
-					GraphLayoutConnection layoutConnection =  new GraphLayoutConnection(graph);
+					GraphLayoutConnection layoutConnection =  new GraphLayoutConnection(pn1);
 					CustomJGraph jgraph = new CustomJGraph(model,map,layoutConnection);
 					jgraph.repositionToOrigin();
 					JGraphLayout layout = getLayout(map.get(graph, AttributeMap.PREF_ORIENTATION, SwingConstants.SOUTH));
