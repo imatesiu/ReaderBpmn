@@ -46,3 +46,11 @@ Temporary Items
 *.pos
 *.txt
 /target
+
+*.dot
+
+*.png
+
+*.ll_net
+
+*.pnml

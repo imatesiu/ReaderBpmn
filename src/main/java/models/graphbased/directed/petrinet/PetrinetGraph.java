@@ -7,6 +7,7 @@ import models.graphbased.directed.petrinet.elements.Arc;
 import models.graphbased.directed.petrinet.elements.ExpandableSubNet;
 import models.graphbased.directed.petrinet.elements.Place;
 import models.graphbased.directed.petrinet.elements.Transition;
+import models.semantics.petrinet.Marking;
 
 public interface PetrinetGraph extends
 		DirectedGraph<PetrinetNode, PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode>> {
@@ -60,5 +61,8 @@ public interface PetrinetGraph extends
 	Arc removeArc(PetrinetNode source, PetrinetNode target);
 
 	Arc getArc(PetrinetNode source, PetrinetNode target);
+	
+	String toDOT(/*Marking m*/);
+	String toPEP(Marking m);
 
 }
