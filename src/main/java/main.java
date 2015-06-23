@@ -24,6 +24,7 @@ import org.jbpt.utils.IOUtils;
 
 
 
+
 import framework.util.SimplePanel;
 import framework.util.Util;
 
@@ -67,7 +68,7 @@ public class main {
 				String name="testpn";
 				if (serializeModels) IOUtils.toFile("./"+name+"/original.dot", sys.toDOT());
 				String dot2png="";
-				if (serializeModels) dot2png += "dot -q -Tpng ./"+name+"/original.dot -o ./"+name+"/original.png\n";
+				if (serializeModels) Util.executeCommand("/usr/local/bin/dot -q -Tpng ./"+name+"/original.dot -o ./"+name+"/original.png\n");
 				System.out.println(dot2png);
 				
 				// check if net is cyclic
@@ -82,7 +83,7 @@ public class main {
 				List<Event> log = unfolding.getLog();
 				if (serializeModels) IOUtils.toFile("./"+name+"/occurrenceNet.dot", occurrenceNet.toDOT());
 				dot2png="";
-				if (serializeModels) dot2png += "dot -q -Tpng ./"+name+"/occurrenceNet.dot -o ./"+name+"/occurrenceNet.png\n";
+				if (serializeModels) Util.executeCommand("/usr/local/bin/dot -q -Tpng ./"+name+"/occurrenceNet.dot -o ./"+name+"/occurrenceNet.png\n");
 				System.out.println(dot2png);
 				
 				
