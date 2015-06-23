@@ -26,7 +26,7 @@ public class mainCoverGrapGen {
 	public static void main(String[] args) {
 		try {
 
-			JFileChooser fc = new JFileChooser();
+			JFileChooser fc = new JFileChooser("/Users/isiu/github/learnpadworkspace/ReaderBpmn/esempi");
 			fc.setDialogType(JFileChooser.OPEN_DIALOG);		
 			fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
@@ -39,13 +39,14 @@ public class mainCoverGrapGen {
 				File file = fc.getSelectedFile();
 				Petrinet pn = null;
 				Marking marking = null;
+				BpmnToPetriNet btpn = null;
 				if(file.getAbsolutePath().contains(".bpmn")){
 					Bpmn bpmn = new Bpmn(file);
 
 
 					BPMNDiagram BPMNdiagram = 	bpmn.BpmnextractDiagram().iterator().next();
 					sp.view(BPMNdiagram);
-					BpmnToPetriNet btpn = new BpmnToPetriNet(BPMNdiagram);
+					 btpn = new BpmnToPetriNet(BPMNdiagram);
 					pn = (Petrinet) btpn.getPetriNet();
 					marking = btpn.getMarking();
 
@@ -76,7 +77,11 @@ public class mainCoverGrapGen {
 				
 				sp.view(covGraph);
 				Set<Transition> v = covGraph.getEdges();
-				System.out.println(v);
+				
+				DepthFirstSearchLearnPad dpslp =new DepthFirstSearchLearnPad(covGraph, btpn.getMap());
+				
+				System.out.println(dpslp.toStringCT());
+						System.out.println(dpslp);
 
 			}
 		} catch (Exception e) {

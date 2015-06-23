@@ -25,6 +25,7 @@ import models.graphbased.directed.bpmn.elements.Gateway.GatewayType;
 import models.graphbased.directed.bpmn.elements.SubProcess;
 import models.graphbased.directed.bpmn.elements.Swimlane;
 import models.graphbased.directed.petrinet.PetrinetGraph;
+import models.graphbased.directed.petrinet.PetrinetNode;
 import models.graphbased.directed.petrinet.elements.ExpandableSubNet;
 import models.graphbased.directed.petrinet.elements.Place;
 import models.graphbased.directed.petrinet.elements.Transition;
@@ -36,8 +37,15 @@ public class BpmnToPetriNet {
 	private PetrinetGraph net=null;
 	private ExpandableSubNet subNet = null;
 	private Marking marking  = new Marking();
+	private Map<PetrinetNode,BPMNNode> mapBPPN;
 	public BpmnToPetriNet(BPMNDiagram bpmn){
+		mapBPPN = new HashMap<PetrinetNode,BPMNNode>();
 		createPetriNet(bpmn);
+		
+	}
+	
+	public Map<PetrinetNode,BPMNNode> getMap(){
+		return mapBPPN;
 	}
 
 	public PetrinetGraph getPetriNet(){
@@ -113,7 +121,7 @@ public class BpmnToPetriNet {
 
 			traslateFlow(bpmn, flowMap, net, sub);
 
-			translateTask(bpmn, flowMap, net, sub,0);
+			translateTask(bpmn, flowMap, net, sub,1);
 
 			translateGateway(bpmn, flowMap, net, sub);
 
@@ -267,6 +275,7 @@ public class BpmnToPetriNet {
 					}
 				}else{
 					Transition t = net.addTransition(id , this.subNet);
+					mapBPPN.put( t,c);
 					for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : c
 							.getGraph().getInEdges(c)) {
 						if (s instanceof Flow) {
