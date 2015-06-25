@@ -95,8 +95,8 @@ public class WoflanDiagnosis implements HTMLToString {
 		/**
 		 * Woflan uses regular semantics.
 		 */
-//		semantics = PetrinetSemanticsFactory
-//				.regularPetrinetSemantics(Petrinet.class);
+		//		semantics = PetrinetSemanticsFactory
+		//				.regularPetrinetSemantics(Petrinet.class);
 		semantics = new WoflanSemantics();
 		/**
 		 * Initialize the diagnostic information.
@@ -129,6 +129,16 @@ public class WoflanDiagnosis implements HTMLToString {
 		}
 	}
 
+	public boolean isSound(){
+		switch (diagnosis) {
+		case SOUND:
+			return true;
+
+
+		default:
+			return false;
+		} 
+	}
 	/**
 	 * Sets the set of source places, and the final verdict to NOWFNET.
 	 * 
@@ -172,8 +182,8 @@ public class WoflanDiagnosis implements HTMLToString {
 			SortedSet<PetrinetNode> nodes) {
 		unconnectedNodesSet = new UnconnectedNodesSet();
 		unconnectedNodesSet.add(nodes);
-	//	context.addConnection(new UnconnectedNodesConnection(net,
-	//			unconnectedNodesSet));
+		//	context.addConnection(new UnconnectedNodesConnection(net,
+		//			unconnectedNodesSet));
 		setDiagnosis(NOWFNET);
 	}
 
@@ -367,9 +377,9 @@ public class WoflanDiagnosis implements HTMLToString {
 		buffer.append("<h2>" + error("The net is not a workflow net.")
 				+ "</h2>");
 		buffer
-				.append("<p>The soundness property has been defined on workflow nets. ");
+		.append("<p>The soundness property has been defined on workflow nets. ");
 		buffer
-				.append("As this net is not a workflow net, soundness is not defined on it.</p>");
+		.append("As this net is not a workflow net, soundness is not defined on it.</p>");
 		buffer.append("<h3>Workflow net requirements</h3>");
 		buffer.append("<dl>");
 		if (sourcePlacesSet == null) {
@@ -390,17 +400,17 @@ public class WoflanDiagnosis implements HTMLToString {
 			buffer.append("<dt>" + error("Unconnected nodes") + "</dt>");
 		}
 		buffer
-				.append("<dd>Every node is on some path from the source place to the sink place.</dd>");
+		.append("<dd>Every node is on some path from the source place to the sink place.</dd>");
 		buffer.append("</dl>");
 		buffer
-				.append("<p>Note that the <b>Unconnected nodes</b> requirement assumes ");
+		.append("<p>Note that the <b>Unconnected nodes</b> requirement assumes ");
 		buffer
-				.append("that the <b>Source place</b> and <b>Sink place</b> requirements are met.</p>");
+		.append("that the <b>Source place</b> and <b>Sink place</b> requirements are met.</p>");
 		if (sourcePlacesSet != null) {
 			SortedSet<Place> places = sourcePlacesSet.iterator().next();
 			int size = places.size();
 			buffer
-					.append("<p>The net does not satisfy the <b>Source place</b> requirement, ");
+			.append("<p>The net does not satisfy the <b>Source place</b> requirement, ");
 			buffer.append("as it contains " + (size == 0 ? "no" : size)
 					+ " source places:");
 			buffer.append("<ol>");
@@ -418,7 +428,7 @@ public class WoflanDiagnosis implements HTMLToString {
 				buffer.append("<p>The ");
 			}
 			buffer
-					.append("net does not satisfy the <b>Sink place</b> requirement, ");
+			.append("net does not satisfy the <b>Sink place</b> requirement, ");
 			buffer.append("as it contains " + (size == 0 ? "no" : size)
 					+ " sink places:");
 			buffer.append("<ol>");
@@ -432,7 +442,7 @@ public class WoflanDiagnosis implements HTMLToString {
 					.next();
 			int size = nodes.size();
 			buffer
-					.append("<p>The net does not satisfy the <b>Unconnected nodes</b> requirement, ");
+			.append("<p>The net does not satisfy the <b>Unconnected nodes</b> requirement, ");
 			buffer.append("as it contains " + size + " unconnected "
 					+ (size > 1 ? "nodes:" : "node:"));
 			buffer.append("<ol>");
@@ -454,17 +464,17 @@ public class WoflanDiagnosis implements HTMLToString {
 				+ "</h2>");
 		if (notSCoveredNodesSet != null) {
 			buffer
-					.append("<p>The following diagnostic information presents places that are ");
+			.append("<p>The following diagnostic information presents places that are ");
 			buffer
-					.append("not covered by any S-component. An S-component strongly relates ");
+			.append("not covered by any S-component. An S-component strongly relates ");
 			buffer
-					.append("to an aspect (say, a data field) of a case. Therefore, it is ");
+			.append("to an aspect (say, a data field) of a case. Therefore, it is ");
 			buffer
-					.append("strongly recommended to have all places covered, and any ");
+			.append("strongly recommended to have all places covered, and any ");
 			buffer
-					.append("uncovered place cannot be related to any aspect of the case, ");
+			.append("uncovered place cannot be related to any aspect of the case, ");
 			buffer
-					.append("which seems odd. Note, however, that the net is sound even ");
+			.append("which seems odd. Note, however, that the net is sound even ");
 			buffer.append("though some places are not covered.");
 			buffer.append("<ol>");
 			SortedSet<PetrinetNode> nodes = notSCoveredNodesSet.iterator()
@@ -492,18 +502,18 @@ public class WoflanDiagnosis implements HTMLToString {
 		buffer.append("<dl>");
 		buffer.append("<dt>" + strong("Option to complete") + "</dt>");
 		buffer
-				.append("<dd>Whatever happens, an instance can always mark the sink place</dd>");
+		.append("<dd>Whatever happens, an instance can always mark the sink place</dd>");
 		buffer.append("<dt>" + error("Proper completion") + "</dt>");
 		buffer
-				.append("<dd>On completion, only the sink place is marked, and it is marked only once</dd>");
+		.append("<dd>On completion, only the sink place is marked, and it is marked only once</dd>");
 		buffer.append("<dt>" + strong("No dead tasks") + "</dt>");
 		buffer.append("<dd>No transition is dead</dd>");
 		buffer.append("</dl>");
 		buffer
-				.append("<p>The short-circuited net is unbounded. As a result, completion cannot be proper.</p>");
+		.append("<p>The short-circuited net is unbounded. As a result, completion cannot be proper.</p>");
 		if (unboundedPlacesSet != null) {
 			buffer
-					.append("<p>The following places are unbounded in the short-circuited net:<ol>");
+			.append("<p>The following places are unbounded in the short-circuited net:<ol>");
 			SortedSet<Place> places = unboundedPlacesSet.iterator().next();
 			for (Place place : places) {
 				buffer.append("<li>" + error(place.getLabel()) + "</li>");
@@ -512,12 +522,12 @@ public class WoflanDiagnosis implements HTMLToString {
 		}
 		if (unboundedSequences != null) {
 			buffer
-					.append("<p>The following diagnostic information assumes that there exists a bounded safe haven ");
+			.append("<p>The following diagnostic information assumes that there exists a bounded safe haven ");
 			buffer.append("(a bounded strongly connected component ");
 			buffer
-					.append("which includes the initial marking). Clearly, to avoid unbounded behavior, ");
+			.append("which includes the initial marking). Clearly, to avoid unbounded behavior, ");
 			buffer
-					.append("behavior should be restricted to this component. Thus, any transition leaving ");
+			.append("behavior should be restricted to this component. Thus, any transition leaving ");
 			buffer.append("the component should be disabled.</p>");
 			boolean all = (unboundedSequences.size() == 1);
 			if (all) {
@@ -532,7 +542,7 @@ public class WoflanDiagnosis implements HTMLToString {
 						+ "</p>");
 			} else {
 				buffer
-						.append("<p>Disabling the following transitions at the following (reachable) markings effectively would restrict ");
+				.append("<p>Disabling the following transitions at the following (reachable) markings effectively would restrict ");
 				buffer.append("the behavior to the bounded safe haven:<ol>");
 				for (MultiSet<PetrinetNode> nodes : unboundedSequences) {
 					MultiSet<Place> marking = new TreeMultiSet<Place>();
@@ -559,17 +569,17 @@ public class WoflanDiagnosis implements HTMLToString {
 		}
 		if (notSCoveredNodesSet != null) {
 			buffer
-					.append("<p>The following diagnostic information presents places that are ");
+			.append("<p>The following diagnostic information presents places that are ");
 			buffer
-					.append("not covered by any S-component. An S-component strongly relates ");
+			.append("not covered by any S-component. An S-component strongly relates ");
 			buffer
-					.append("to an aspect (say, a data field) of a case. Therefore, it is ");
+			.append("to an aspect (say, a data field) of a case. Therefore, it is ");
 			buffer
-					.append("strongly recommended to have all places covered, and any ");
+			.append("strongly recommended to have all places covered, and any ");
 			buffer
-					.append("uncovered place cannot be related to any aspect of the case, ");
+			.append("uncovered place cannot be related to any aspect of the case, ");
 			buffer
-					.append("which seems odd. Note, however, that a net may be sound even ");
+			.append("which seems odd. Note, however, that a net may be sound even ");
 			buffer.append("if some places are not covered.");
 			buffer.append("<ol>");
 			SortedSet<PetrinetNode> nodes = notSCoveredNodesSet.iterator()
@@ -582,36 +592,36 @@ public class WoflanDiagnosis implements HTMLToString {
 			buffer.append("</ol></p>");
 			if (nonFreeChoiceClusters == null) {
 				buffer
-						.append("<p>A bounded, live, and free-choice net has to be S-coverable. ");
+				.append("<p>A bounded, live, and free-choice net has to be S-coverable. ");
 				buffer
-						.append("The short-circuited net is not S-coverable, as some ");
+				.append("The short-circuited net is not S-coverable, as some ");
 				buffer.append("places are not covered by the S-components. ");
 				buffer
-						.append("As a result, the net is either unbounded, not live, or not free-choice. ");
+				.append("As a result, the net is either unbounded, not live, or not free-choice. ");
 				buffer
-						.append("As the short-circuited net is free-choice, it cannot be live and bounded. ");
+				.append("As the short-circuited net is free-choice, it cannot be live and bounded. ");
 				buffer.append(error("Hence, the net cannot be sound. "));
 				buffer
-						.append("Possibly, the facts that the short-circuited net is free-choice but ");
+				.append("Possibly, the facts that the short-circuited net is free-choice but ");
 				buffer.append("not S-coverable helps to diagnose the net.");
 			} else if ((pTHandles == null) && (tPHandles == null)) {
 				buffer
-						.append("<p>A bounded, live, and well-handled net has to be S-coverable. ");
+				.append("<p>A bounded, live, and well-handled net has to be S-coverable. ");
 				buffer
-						.append("The short-circuited net is not S-coverable, as some ");
+				.append("The short-circuited net is not S-coverable, as some ");
 				buffer.append("places are not covered by the S-components. ");
 				buffer
-						.append("As a result, the net is either unbounded, non live, or not well-handled. ");
+				.append("As a result, the net is either unbounded, non live, or not well-handled. ");
 				buffer
-						.append("As the short-circuited net is well-handled (it contains PT handles nor TP handles), it cannot be live and bounded. ");
+				.append("As the short-circuited net is well-handled (it contains PT handles nor TP handles), it cannot be live and bounded. ");
 				buffer.append(error("Hence, the net cannot be sound. "));
 				buffer
-						.append("To make the net sound, cover the abovementioned places by S-components, or make the net not free-choice.");
+				.append("To make the net sound, cover the abovementioned places by S-components, or make the net not free-choice.");
 			}
 		}
 		if (notPCoveredNodesSet != null) {
 			buffer
-					.append("<p>The following diagnostic information presents places that are ");
+			.append("<p>The following diagnostic information presents places that are ");
 			buffer.append("not covered by any positive place invariant. ");
 			buffer.append("Note, however, that a net may be sound even ");
 			buffer.append("if some places are not covered.");
@@ -624,13 +634,13 @@ public class WoflanDiagnosis implements HTMLToString {
 		}
 		if (tPHandles != null) {
 			buffer
-					.append("<p>The following diagnostic information presents transition-place ");
+			.append("<p>The following diagnostic information presents transition-place ");
 			buffer
-					.append("pairs for which multiple disjoint paths exist from the transition to ");
+			.append("pairs for which multiple disjoint paths exist from the transition to ");
 			buffer
-					.append("the place. Such pairs relate strongly to unbounded behavior, and, hence ");
+			.append("the place. Such pairs relate strongly to unbounded behavior, and, hence ");
 			buffer
-					.append("listing them might help detecting the root cause for the unboundedness. ");
+			.append("listing them might help detecting the root cause for the unboundedness. ");
 			buffer.append("<ol>");
 			for (Pair<Transition, Place> tPPair : tPHandles) {
 				Transition transition = tPPair.getFirst();
@@ -656,20 +666,20 @@ public class WoflanDiagnosis implements HTMLToString {
 		buffer.append("<dl>");
 		buffer.append("<dt>" + error("Option to complete") + "</dt>");
 		buffer
-				.append("<dd>Whatever happens, an instance can always mark the sink place</dd>");
+		.append("<dd>Whatever happens, an instance can always mark the sink place</dd>");
 		buffer.append("<dt>" + okay("Proper completion") + "</dt>");
 		buffer
-				.append("<dd>On completion, only the sink place is marked, and it is marked only once</dd>");
+		.append("<dd>On completion, only the sink place is marked, and it is marked only once</dd>");
 		buffer.append("<dt>" + okay("No dead tasks") + "</dt>");
 		buffer.append("<dd>No transition is dead</dd>");
 		buffer.append("</dl>");
 		buffer
-				.append("<p>The short-circuited net is bounded, contains no dead transitions, ");
+		.append("<p>The short-circuited net is bounded, contains no dead transitions, ");
 		buffer
-				.append("but is not live. As a result, completion is not always possible.</p>");
+		.append("but is not live. As a result, completion is not always possible.</p>");
 		if (nonLiveTransitionsSet != null) {
 			buffer
-					.append("<p>The following transitions are not live in the short-circuited net</h3>");
+			.append("<p>The following transitions are not live in the short-circuited net</h3>");
 			buffer.append("<ol>");
 			SortedSet<Transition> transitions = nonLiveTransitionsSet
 					.iterator().next();
@@ -680,12 +690,12 @@ public class WoflanDiagnosis implements HTMLToString {
 		}
 		if (nonLiveSequences != null) {
 			buffer
-					.append("<p>The following diagnostic information assumes that there exists a part ");
+			.append("<p>The following diagnostic information assumes that there exists a part ");
 			buffer.append("of the state space ");
 			buffer
-					.append("from which completion is still possible. Clearly, to avoid losing the ");
+			.append("from which completion is still possible. Clearly, to avoid losing the ");
 			buffer
-					.append("option to complete, behavior should be restricted to this part. Thus, any transition leaving ");
+			.append("option to complete, behavior should be restricted to this part. Thus, any transition leaving ");
 			buffer.append("the part should be disabled.</p>");
 			boolean all = nonLiveSequences.size() == 1;
 			if (all) {
@@ -697,15 +707,15 @@ public class WoflanDiagnosis implements HTMLToString {
 			}
 			if (all) {
 				buffer
-						.append("<p>"
-								+ error("Such a part of the state space does not exist."));
+				.append("<p>"
+						+ error("Such a part of the state space does not exist."));
 				buffer
-						.append("Most likely, the sink place cannot be marked.</p>");
+				.append("Most likely, the sink place cannot be marked.</p>");
 			} else {
 				buffer
-						.append("<p>Disabling the following transitions at the following (reachable) markings effectively would restrict ");
+				.append("<p>Disabling the following transitions at the following (reachable) markings effectively would restrict ");
 				buffer
-						.append("the behavior to the part from which completion is possible:<ol>");
+				.append("the behavior to the part from which completion is possible:<ol>");
 				for (MultiSet<PetrinetNode> nodes : nonLiveSequences) {
 					MultiSet<Place> marking = new TreeMultiSet<Place>();
 					Transition transition = null;
@@ -731,17 +741,17 @@ public class WoflanDiagnosis implements HTMLToString {
 		}
 		if (notSCoveredNodesSet != null) {
 			buffer
-					.append("<p>The following diagnostic information presents places that are ");
+			.append("<p>The following diagnostic information presents places that are ");
 			buffer
-					.append("not covered by any S-component. An S-component strongly relates ");
+			.append("not covered by any S-component. An S-component strongly relates ");
 			buffer
-					.append("to an aspect (say, a data field) of a case. Therefore, it is ");
+			.append("to an aspect (say, a data field) of a case. Therefore, it is ");
 			buffer
-					.append("strongly recommended to have all places covered, and any ");
+			.append("strongly recommended to have all places covered, and any ");
 			buffer
-					.append("uncovered place cannot be related to any aspect of the case, ");
+			.append("uncovered place cannot be related to any aspect of the case, ");
 			buffer
-					.append("which seems odd. Note, however, that a net may be sound even ");
+			.append("which seems odd. Note, however, that a net may be sound even ");
 			buffer.append("if some places are not covered.");
 			buffer.append("<ol>");
 			SortedSet<PetrinetNode> nodes = notSCoveredNodesSet.iterator()
@@ -754,43 +764,43 @@ public class WoflanDiagnosis implements HTMLToString {
 			buffer.append("</ol></p>");
 			if (nonFreeChoiceClusters == null) {
 				buffer
-						.append("<p>A bounded, live, and free-choice net has to be S-coverable. ");
+				.append("<p>A bounded, live, and free-choice net has to be S-coverable. ");
 				buffer
-						.append("The short-circuited net is not S-coverable, as some ");
+				.append("The short-circuited net is not S-coverable, as some ");
 				buffer.append("places are not covered by the S-components. ");
 				buffer
-						.append("As a result, the net is either unbounded, non live, or not free-choice. ");
+				.append("As a result, the net is either unbounded, non live, or not free-choice. ");
 				buffer
-						.append("As the short-circuited net is bounded and free-choice, it cannot be live. ");
+				.append("As the short-circuited net is bounded and free-choice, it cannot be live. ");
 				buffer.append(error("Hence, the net cannot be sound. "));
 				buffer
-						.append("Possibly, the facts that the short-circuited net is free-choice but ");
+				.append("Possibly, the facts that the short-circuited net is free-choice but ");
 				buffer.append("not S-coverable helps to diagnose the net.");
 			} else if ((pTHandles == null) && (tPHandles == null)) {
 				buffer
-						.append("<p>A bounded, live, and well-handled net has to be S-coverable. ");
+				.append("<p>A bounded, live, and well-handled net has to be S-coverable. ");
 				buffer
-						.append("The short-circuited net is not S-coverable, as some ");
+				.append("The short-circuited net is not S-coverable, as some ");
 				buffer.append("places are not covered by the S-components. ");
 				buffer
-						.append("As a result, the net is either unbounded, non live, or not well-handled. ");
+				.append("As a result, the net is either unbounded, non live, or not well-handled. ");
 				buffer
-						.append("As the short-circuited net is bounded and  well-handled (it contains PT handles nor TP handles), it cannot be live. ");
+				.append("As the short-circuited net is bounded and  well-handled (it contains PT handles nor TP handles), it cannot be live. ");
 				buffer.append(error("Hence, the net cannot be sound. "));
 				buffer
-						.append("Possibly, the facts that the short-circuited net is well-handles but ");
+				.append("Possibly, the facts that the short-circuited net is well-handles but ");
 				buffer.append("not S-coverable helps to diagnose the net.");
 			}
 		}
 		if (pTHandles != null) {
 			buffer
-					.append("<p>The following diagnostic information presents place-transition ");
+			.append("<p>The following diagnostic information presents place-transition ");
 			buffer
-					.append("pairs for which multiple disjoint paths exist from the place to ");
+			.append("pairs for which multiple disjoint paths exist from the place to ");
 			buffer
-					.append("the transition. Such pairs relate strongly to non-live behavior, and, hence ");
+			.append("the transition. Such pairs relate strongly to non-live behavior, and, hence ");
 			buffer
-					.append("listing them might help detecting the root cause for the non-liveness. ");
+			.append("listing them might help detecting the root cause for the non-liveness. ");
 			buffer.append("<ol>");
 			for (Pair<Place, Transition> pTPair : pTHandles) {
 				Place place = pTPair.getFirst();
@@ -817,15 +827,15 @@ public class WoflanDiagnosis implements HTMLToString {
 		buffer.append("<dl>");
 		buffer.append("<dt>" + strong("Option to complete") + "</dt>");
 		buffer
-				.append("<dd>Whatever happens, an instance can always mark the sink place</dd>");
+		.append("<dd>Whatever happens, an instance can always mark the sink place</dd>");
 		buffer.append("<dt>" + okay("Proper completion") + "</dt>");
 		buffer
-				.append("<dd>On completion, only the sink place is marked, and it is marked only once</dd>");
+		.append("<dd>On completion, only the sink place is marked, and it is marked only once</dd>");
 		buffer.append("<dt>" + error("No dead tasks") + "</dt>");
 		buffer.append("<dd>No transition is dead</dd>");
 		buffer.append("</dl>");
 		buffer
-				.append("<p>The short-circuited net is bounded, but contains dead transitions. ");
+		.append("<p>The short-circuited net is bounded, but contains dead transitions. ");
 		buffer.append("As a result, the net contains dead tasks.</p>");
 		if (deadTransitionsSet != null) {
 			buffer.append("<ol>");

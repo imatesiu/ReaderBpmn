@@ -16,6 +16,7 @@ import petrinet.analysis.CoverabilitySet;
 import petrinet.behavioralanalysis.CGGenerator;
 import petrinet.dot.DotImporting;
 import petrinet.pnml.importing.PnmlImportNet;
+import plugin.sim.DepthFirstSearchLearnPad;
 import plugins.bpmn.Bpmn;
 import plugins.bpmn.trasform.BpmnToPetriNet;
 import framework.util.SimplePanel;

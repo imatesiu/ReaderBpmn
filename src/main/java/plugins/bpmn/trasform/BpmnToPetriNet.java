@@ -38,12 +38,19 @@ public class BpmnToPetriNet {
 	private ExpandableSubNet subNet = null;
 	private Marking marking  = new Marking();
 	private Map<PetrinetNode,BPMNNode> mapBPPN;
+	private boolean exploresub=false;
 	public BpmnToPetriNet(BPMNDiagram bpmn){
 		mapBPPN = new HashMap<PetrinetNode,BPMNNode>();
 		createPetriNet(bpmn);
-		
+
 	}
-	
+
+	public BpmnToPetriNet(BPMNDiagram bpmn, boolean exploresub){
+		mapBPPN = new HashMap<PetrinetNode,BPMNNode>();
+		createPetriNet(bpmn);
+		this.exploresub=exploresub;
+	}
+
 	public Map<PetrinetNode,BPMNNode> getMap(){
 		return mapBPPN;
 	}
@@ -81,7 +88,11 @@ public class BpmnToPetriNet {
 
 		translateEvent(bpmn, flowMap, net, marking, parent);
 
-		translateSubProcess(bpmn, flowMap, net, marking, parent);
+		if(exploresub){
+			translateSubProcessNE(bpmn, flowMap, net, marking, parent);
+		}else{
+			translateSubProcess(bpmn, flowMap, net, marking, parent);
+		}
 
 
 
@@ -209,6 +220,163 @@ public class BpmnToPetriNet {
 		}
 	}
 
+	private void translateSubProcessNE(BPMNDiagram bpmn,
+			LinkedHashMap<Flow, Place> flowMap, PetrinetGraph net,
+			Marking marking, ContainingDirectedGraphNode parent) {
+		for (SubProcess sub : bpmn.getSubProcesses()) {
+			HashSet<ContainableDirectedGraphElement> childre = (HashSet<ContainableDirectedGraphElement>) sub
+					.getChildren();
+			List<BPMNNode> listnode = new ArrayList<BPMNNode>();
+			List<Flow> listFlow = new ArrayList<Flow>();
+			for (ContainableDirectedGraphElement containableDirectedGraphElement : childre) {
+				if (containableDirectedGraphElement instanceof BPMNNode) {
+
+					listnode.add((BPMNNode) containableDirectedGraphElement);
+					System.out.println(""
+							+ ((BPMNNode) containableDirectedGraphElement)
+							.getLabel());
+				} else {
+					if (containableDirectedGraphElement instanceof Flow) {
+
+						listFlow.add((Flow) containableDirectedGraphElement);
+						System.out.println(""
+								+ ((Flow) containableDirectedGraphElement)
+								.getEdgeID());
+					}
+				}
+			}
+
+			//transFlows(listFlow, flowMap, net);
+
+			//transNodes(listnode, flowMap, net);
+
+			sub.isBMultiinstance();
+
+
+			Transition t = net.addTransition(sub.getLabel() + "+start",
+					this.subNet);
+			t.setInvisible(true);
+
+			Transition tend = net.addTransition(sub.getLabel() + "+end", this.subNet);
+			tend.setInvisible(true);
+
+			Place pst_central = net.addPlace(sub.getLabel(), this.subNet);
+
+			net.addArc(pst_central, tend, 1, this.subNet);
+			net.addArc(t, pst_central, 1, this.subNet);
+
+			for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : sub
+					.getGraph().getInEdges(sub)) {
+				if (s instanceof Flow) {
+
+					Place pst = flowMap.get(s);
+
+					net.addArc(pst, t, 1, this.subNet);
+				}
+
+			}
+
+			for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : sub
+					.getGraph().getOutEdges(sub)) {
+				if (s instanceof Flow) {
+
+					Place pst = flowMap.get(s);
+
+					net.addArc(tend, pst, 1, this.subNet);
+				}
+
+			}
+
+			/*traslateFlow(bpmn, flowMap, net, sub);
+
+			translateTask(bpmn, flowMap, net, sub);
+
+			translateGateway(bpmn, flowMap, net, sub);
+
+			translateEvent(bpmn, flowMap, net, marking, sub);
+
+			Transition t = net.addTransition(sub.getLabel() + "start",
+					this.subNet);
+			t.setInvisible(true);
+			Transition tend = net.addTransition(sub.getLabel() + "end",
+					this.subNet);
+			tend.setInvisible(true);
+
+			for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : sub
+					.getGraph().getInEdges(sub)) {
+				if (s instanceof Flow) {
+
+					Place pst = flowMap.get(s);
+
+					net.addArc(pst, t, 1, this.subNet);
+				}
+
+			}
+
+			for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : sub
+					.getGraph().getOutEdges(sub)) {
+				if (s instanceof Flow) {
+
+					Place pst = flowMap.get(s);
+
+					net.addArc(tend, pst, 1, this.subNet);
+				}
+
+			}
+
+			Set<ContainableDirectedGraphElement> children = sub.getChildren();
+			for (ContainableDirectedGraphElement containableDirectedGraphElement : children) {
+				if (containableDirectedGraphElement instanceof Event) {
+					Event evnt = (Event) containableDirectedGraphElement;
+					if (evnt.getEventType() == EventType.START
+							& evnt.getEventTrigger() == EventTrigger.NONE) {
+						for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : evnt
+								.getGraph().getOutEdges(evnt)) {
+							if (s instanceof Flow) {
+
+								Place pst = flowMap.get(s);
+
+								Transition t2 = (Transition) pst.getGraph()
+										.getInEdges(pst).iterator().next()
+										.getSource();
+								Place pt2 = (Place) t2.getGraph()
+										.getInEdges(t2).iterator().next()
+										.getSource();
+								net.addArc(t, pt2, 1, this.subNet);
+							}
+
+						}
+					} else {
+						if (evnt.getEventType() == EventType.END
+								& evnt.getEventTrigger() == EventTrigger.NONE) {
+							for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : evnt
+									.getGraph().getInEdges(evnt)) {
+								if (s instanceof Flow) {
+
+									Place pst = flowMap.get(s);
+
+									Transition t2 = (Transition) pst.getGraph()
+											.getOutEdges(pst).iterator().next()
+											.getTarget();
+									Place pt2 = (Place) t2.getGraph()
+											.getOutEdges(t2).iterator().next()
+											.getTarget();
+									net.addArc(pt2, tend, 1, this.subNet);
+								}
+
+							}
+						}
+					}
+				} else {
+					if (containableDirectedGraphElement instanceof Activity) {
+
+					}
+				}
+			}
+			 */
+		}
+	}
+
 	private void traslateFlow(BPMNDiagram bpmn,
 			LinkedHashMap<Flow, Place> flowMap, PetrinetGraph net,
 			ContainingDirectedGraphNode parent) {
@@ -232,7 +400,7 @@ public class BpmnToPetriNet {
 		String san = nodeid.toString();
 		if(input!=null){
 			if(input.length()>0){
-				
+
 				san = input.replace("\n", " ").replace("\r", " ").replace("  ", " ");
 			}
 		}
