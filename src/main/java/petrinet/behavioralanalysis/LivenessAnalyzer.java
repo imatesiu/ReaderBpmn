@@ -7,13 +7,8 @@
 
 package petrinet.behavioralanalysis;
 
-import org.hamcrest.DiagnosingMatcher;
-
-
 import models.graphbased.directed.petrinet.Petrinet;
 import models.graphbased.directed.petrinet.PetrinetGraph;
-import models.graphbased.directed.petrinet.ResetNet;
-import petrinet.analysis.NetAnalysisInformation;
 import petrinet.analysis.NonLiveTransitionsSet;
 import models.graphbased.directed.transitionsystem.ReachabilityGraph;
 import models.semantics.petrinet.Marking;
