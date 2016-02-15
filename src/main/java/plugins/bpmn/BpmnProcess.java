@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
 
+import models.graphbased.directed.ContainingDirectedGraphNode;
 import models.graphbased.directed.bpmn.BPMNDiagram;
 import models.graphbased.directed.bpmn.BPMNNode;
 import models.graphbased.directed.bpmn.elements.Activity;
@@ -136,11 +137,6 @@ public class BpmnProcess extends BpmnIdName {
 			intThrowEvent.importElement(xpp, bpmn);
 			intermediateEvents.add(intThrowEvent);
 			return true;
-//		} else if (xpp.getName().equals("dataObject")) {
-//			BpmnDataObject dataObject = new BpmnDataObject("dataObject");
-//			dataObject.importElement(xpp, bpmn);
-//			dataObjects.add(dataObject);
-//			return true;
 		} else if (xpp.getName().equals("dataObjectReference")) {
 			BpmnDataObjectReference dataObjectRef = new BpmnDataObjectReference("dataObjectReference");
 			dataObjectRef.importElement(xpp, bpmn);
@@ -162,11 +158,6 @@ public class BpmnProcess extends BpmnIdName {
 			return true;
 		} else if (xpp.getName().equals("userTask")) {
             BpmnUserTask task = new BpmnUserTask("userTask");
-            task.importElement(xpp, bpmn);
-            tasks.add(task);
-            return true;
-        } else if (xpp.getName().equals("manualTask")) {
-            BpmnUserTask task = new BpmnUserTask("manualTask");
             task.importElement(xpp, bpmn);
             tasks.add(task);
             return true;
@@ -256,12 +247,12 @@ public class BpmnProcess extends BpmnIdName {
 		for (BpmnStartEvent startEvent : startEvents) {
 			startEvent.unmarshall(diagram, id2node, retrieveParentSwimlane(startEvent, id2lane));
 		}
+		for (BpmnDataObjectReference dataObjectRef : dataObjectsRefs) {
+			dataObjectRef.unmarshall(diagram, id2node);
+		}
 		for (BpmnTask task : tasks) {
 			task.unmarshall(diagram, id2node, retrieveParentSwimlane(task, id2lane));
 		}
-        for (BpmnSubProcess subProcess : subprocess) {
-            subProcess.unmarshall(diagram, id2node,lane);
-        }
 		for (BpmnExclusiveGateway exclusiveGateway : exclusiveGateways) {
 			exclusiveGateway.unmarshall(diagram, id2node, retrieveParentSwimlane(exclusiveGateway, id2lane));
 		}
@@ -277,23 +268,17 @@ public class BpmnProcess extends BpmnIdName {
         for (BpmnEventBasedGateway eventBasedGateway : eventBasedGateways){
             eventBasedGateway.unmarshall(diagram, id2node, retrieveParentSwimlane(eventBasedGateway, id2lane));
         }
-        for (BpmnDataObject dataObject : dataObjects) {
-            dataObject.unmarshall(diagram, id2node);
-        }
 		for (BpmnEndEvent endEvent : endEvents) {
 			endEvent.unmarshall(diagram, id2node, retrieveParentSwimlane(endEvent, id2lane));
 		}
 		for (BpmnSubProcess subProcess : subprocess) {
 			subProcess.unmarshallDataAssociations(diagram, id2node);
 		}
-		for (BpmnSubProcess subPro : subprocess) {
-			subPro.unmarshall(diagram, id2node, retrieveParentSwimlane(subPro, id2lane));
+		for (BpmnSubProcess subProcess : subprocess) {
+			subProcess.unmarshall(diagram, id2node, id2lane, retrieveParentSwimlane(subProcess, id2lane));
 		}
 		for (BpmnIntermediateEvent intermediateEvent : intermediateEvents) {
 			intermediateEvent.unmarshall(diagram, id2node, retrieveParentSwimlane(intermediateEvent, id2lane));
-		}
-		for (BpmnDataObjectReference dataObjectRef : dataObjectsRefs) {
-			dataObjectRef.unmarshall(diagram, id2node);
 		}
 		for (BpmnSequenceFlow sequenceFlow : sequenceFlows) {
 			sequenceFlow.unmarshall(diagram, id2node, lane);
@@ -318,20 +303,17 @@ public class BpmnProcess extends BpmnIdName {
 		for (BpmnStartEvent startEvent : startEvents) {
 			startEvent.unmarshall(diagram, elements, id2node, retrieveParentSwimlane(startEvent, id2lane));
 		}
+        for (BpmnDataObjectReference dataObjectRef : dataObjectsRefs) {
+            dataObjectRef.unmarshall(diagram, elements, id2node, retrieveParentSwimlane(dataObjectRef, id2lane));
+        }
 		for (BpmnTask task : tasks) {
 			task.unmarshall(diagram, elements, id2node, retrieveParentSwimlane(task, id2lane));
 		}
-        for (BpmnSubProcess subProcess : subprocess) {
-            subProcess.unmarshall(diagram, elements, id2node, lane);
-        }
         for (BpmnCallActivity callActivity : callActivities) {
             callActivity.unmarshall(diagram, elements, id2node, retrieveParentSwimlane(callActivity, id2lane));
         }
         for (BpmnEventBasedGateway eventBasedGateway : eventBasedGateways){
             eventBasedGateway.unmarshall(diagram, elements, id2node, retrieveParentSwimlane(eventBasedGateway, id2lane));
-        }
-        for (BpmnDataObjectReference dataObjectRef : dataObjectsRefs) {
-            dataObjectRef.unmarshall(diagram, id2node);
         }
 		for (BpmnExclusiveGateway exclusiveGateway : exclusiveGateways) {
 			exclusiveGateway.unmarshall(diagram, elements, id2node, retrieveParentSwimlane(exclusiveGateway, id2lane));
@@ -343,16 +325,13 @@ public class BpmnProcess extends BpmnIdName {
 			inclusiveGateway.unmarshall(diagram, elements, id2node, retrieveParentSwimlane(inclusiveGateway, id2lane));
 		}
 		for (BpmnSubProcess subPro : subprocess) {
-			subPro.unmarshall(diagram, elements, id2node, retrieveParentSwimlane(subPro, id2lane));
+			subPro.unmarshall(diagram, elements, id2node, id2lane, retrieveParentSwimlane(subPro, id2lane));
 		}
 		for (BpmnEndEvent endEvent : endEvents) {
 			endEvent.unmarshall(diagram, elements, id2node, retrieveParentSwimlane(endEvent, id2lane));
 		}
 		for (BpmnIntermediateEvent intEvent : intermediateEvents) {
 			intEvent.unmarshall(diagram, id2node, retrieveParentSwimlane(intEvent, id2lane));
-		}
-		for (BpmnDataObjectReference dataObjectRef : dataObjectsRefs) {
-			dataObjectRef.unmarshall(diagram, id2node);
 		}
 		for (BpmnSequenceFlow sequenceFlow : sequenceFlows) {
 			sequenceFlow.unmarshall(diagram, elements, id2node, lane);
@@ -442,89 +421,94 @@ public class BpmnProcess extends BpmnIdName {
 
     private void marshallCallActivities(BPMNDiagram diagram, Swimlane pool) {
         for (CallActivity activity : diagram.getCallActivities(pool)) {
-            BpmnCallActivity callActivity=new BpmnCallActivity("callActivity");
-            callActivity .marshall(activity, diagram);
-            callActivities.add(callActivity);
+        	if (activity.getParentSubProcess() == null) {
+        		BpmnCallActivity callActivity=new BpmnCallActivity("callActivity");
+        		callActivity .marshall(activity, diagram);
+        		callActivities.add(callActivity);}
         }
     }
 	
 	private void marshallEvents(BPMNDiagram diagram, Swimlane pool) {		
-		for(Event event : diagram.getEvents(pool)) {
-			if(event.getEventType() == EventType.START) {
-				BpmnStartEvent startEvent = new BpmnStartEvent("startEvent");	
-				startEvent.marshall(event);
-				startEvents.add(startEvent);			
-			} else if(event.getEventType() == EventType.END) {
-				BpmnEndEvent endEvent = new BpmnEndEvent("endEvent");	
-				endEvent.marshall(event);
-				endEvents.add(endEvent);
-			} else if(event.getEventType() == EventType.INTERMEDIATE) {
-				BpmnIntermediateEvent intermediateEvent = null;
-				if(event.getEventUse() == EventUse.CATCH) {
-					if(event.getBoundingNode() != null) {
-						intermediateEvent = new BpmnIntermediateEvent("boundaryEvent",
-								EventUse.CATCH);
+		for (Event event : diagram.getEvents(pool)) {
+			if (event.getAncestorSubProcess() == null) {
+				if (event.getEventType() == EventType.START) {
+					BpmnStartEvent startEvent = new BpmnStartEvent("startEvent");
+					startEvent.marshall(event);
+					startEvents.add(startEvent);
+				} else if (event.getEventType() == EventType.END) {
+					BpmnEndEvent endEvent = new BpmnEndEvent("endEvent");
+					endEvent.marshall(event);
+					endEvents.add(endEvent);
+				} else if (event.getEventType() == EventType.INTERMEDIATE) {
+					BpmnIntermediateEvent intermediateEvent = null;
+					if (event.getEventUse() == EventUse.CATCH) {
+						if (event.getBoundingNode() != null) {
+							intermediateEvent = new BpmnIntermediateEvent("boundaryEvent", EventUse.CATCH);
+						} else {
+							intermediateEvent = new BpmnIntermediateEvent("intermediateCatchEvent", EventUse.CATCH);
+						}
 					} else {
-					intermediateEvent = new BpmnIntermediateEvent("intermediateCatchEvent",
-							EventUse.CATCH);
+						intermediateEvent = new BpmnIntermediateEvent("intermediateThrowEvent", EventUse.THROW);
 					}
-				} else {
-					intermediateEvent = new BpmnIntermediateEvent("intermediateThrowEvent",
-							EventUse.THROW);
+					intermediateEvent.marshall(event);
+					intermediateEvents.add(intermediateEvent);
 				}
-				intermediateEvent.marshall(event);
-				intermediateEvents.add(intermediateEvent);
 			}
 		}
 	}
 	
 	private void marshallActivities(BPMNDiagram diagram, Swimlane pool) {
 		for (Activity activity : diagram.getActivities(pool)) {
-			BpmnTask task = new BpmnTask("task");
-			task.marshall(activity, diagram);
-			tasks.add(task);
+			if (activity.getAncestorSubProcess() == null) {
+				BpmnTask task = new BpmnTask("task");
+				task.marshall(activity, diagram);
+				tasks.add(task);
+			}
 		}
 	}
 	
 	private void marshallGateways(BPMNDiagram diagram, Swimlane pool) {
 		for (Gateway gateway : diagram.getGateways(pool)) {
-			if (gateway.getGatewayType() == GatewayType.DATABASED) {
-				BpmnExclusiveGateway exclusiveGateway = new BpmnExclusiveGateway("exclusiveGateway");
-				exclusiveGateway.marshall(diagram, gateway);
-				exclusiveGateways.add(exclusiveGateway);
-
-			} else if (gateway.getGatewayType() == GatewayType.PARALLEL) {
-				BpmnParallelGateway parallelGateway = new BpmnParallelGateway("parallelGateway");
-				parallelGateway.marshall(diagram, gateway);
-				parallelGateways.add(parallelGateway);
-			} else if (gateway.getGatewayType() == GatewayType.INCLUSIVE) {
-				BpmnInclusiveGateway inclusiveGateway = new BpmnInclusiveGateway("inclusiveGateway");
-				inclusiveGateway.marshall(diagram, gateway);
-				inclusiveGateways.add(inclusiveGateway);
-			} else if (gateway.getGatewayType() == GatewayType.EVENTBASED) {
-                BpmnEventBasedGateway eventBasedGateway = new BpmnEventBasedGateway("eventBasedGateway");
-                eventBasedGateway.marshall(diagram, gateway);
-                eventBasedGateways.add(eventBasedGateway);
+			if (gateway.getAncestorSubProcess() == null) {
+				if (gateway.getGatewayType() == GatewayType.DATABASED) {
+					BpmnExclusiveGateway exclusiveGateway = new BpmnExclusiveGateway("exclusiveGateway");
+					exclusiveGateway.marshall(diagram, gateway);
+					exclusiveGateways.add(exclusiveGateway);
+				} else if (gateway.getGatewayType() == GatewayType.PARALLEL) {
+					BpmnParallelGateway parallelGateway = new BpmnParallelGateway("parallelGateway");
+					parallelGateway.marshall(diagram, gateway);
+					parallelGateways.add(parallelGateway);
+				} else if (gateway.getGatewayType() == GatewayType.INCLUSIVE) {
+					BpmnInclusiveGateway inclusiveGateway = new BpmnInclusiveGateway("inclusiveGateway");
+					inclusiveGateway.marshall(diagram, gateway);
+					inclusiveGateways.add(inclusiveGateway);
+				} else if (gateway.getGatewayType() == GatewayType.EVENTBASED) {
+	                BpmnEventBasedGateway eventBasedGateway = new BpmnEventBasedGateway("eventBasedGateway");
+	                eventBasedGateway.marshall(diagram, gateway);
+	                eventBasedGateways.add(eventBasedGateway);
+				}
 			}
 		}
 	}
 	
 	private void marshallDataObjects(BPMNDiagram diagram, Swimlane pool) {
-		for (DataObject dataObject : diagram.getDataObjects()) {		
-			BpmnDataObject bpmnDataObject = new BpmnDataObject("dataObject");
-			bpmnDataObject.marshall(dataObject);
-			bpmnDataObject.setId("dataobj_" + dataObject.getId().toString().replace(' ', '_'));
-			dataObjects.add(bpmnDataObject);
-			
-			BpmnDataObjectReference bpmnDataObjectRef = new BpmnDataObjectReference("dataObjectReference");
-			bpmnDataObjectRef.marshall(dataObject);
-			dataObjectsRefs.add(bpmnDataObjectRef);
+		for (DataObject dataObject : diagram.getDataObjects()) {
+			if (dataObject.getAncestorSubProcess() == null) {
+				BpmnDataObject bpmnDataObject = new BpmnDataObject("dataObject");
+				bpmnDataObject.marshall(dataObject);
+				bpmnDataObject.setId("dataobj_" + dataObject.getId().toString().replace(' ', '_'));
+				dataObjects.add(bpmnDataObject);
+
+				BpmnDataObjectReference bpmnDataObjectRef = new BpmnDataObjectReference("dataObjectReference");
+				bpmnDataObjectRef.marshall(dataObject);
+				dataObjectsRefs.add(bpmnDataObjectRef);
+			}
 		}
 	}
 	
 	private void marshallSubProcesses(BPMNDiagram diagram, Swimlane pool) {
 		for (SubProcess sub : diagram.getSubProcesses(pool)) {
-			if (sub.getParentSubProcess() == null) {
+			if (sub.getAncestorSubProcess() == null) {
 				BpmnSubProcess subProcess = new BpmnSubProcess("subProcess");
 				subProcess.marshall(sub, diagram);
 				subprocess.add(subProcess);
@@ -534,13 +518,15 @@ public class BpmnProcess extends BpmnIdName {
 	
 	private void marshallControlFlows(BPMNDiagram diagram, Swimlane pool) {
 		for (Flow flow : diagram.getFlows(pool)) {
-			BpmnSequenceFlow sequenceFlow = new BpmnSequenceFlow("sequenceFlow");
-			sequenceFlow.marshall(flow);
-			sequenceFlows.add(sequenceFlow);
+			if (flow.getAncestorSubProcess() == null) {
+				BpmnSequenceFlow sequenceFlow = new BpmnSequenceFlow("sequenceFlow");
+				sequenceFlow.marshall(flow);
+				sequenceFlows.add(sequenceFlow);
+			}
 		}
 	}
 	
-	private void marshallLaneSet(BPMNDiagram diagram, Swimlane pool) {
+	private void marshallLaneSet(BPMNDiagram diagram, ContainingDirectedGraphNode pool) {
 		if(diagram.getLanes(pool).size() > 0) {
 			laneSet = new BpmnLaneSet("laneSet");
 			laneSet.marshall(diagram, pool);
@@ -549,14 +535,16 @@ public class BpmnProcess extends BpmnIdName {
 	
 	private void marshallArtifacts(BPMNDiagram diagram, Swimlane pool) {
 		for (TextAnnotation textAnnotation : diagram.getTextAnnotations(pool)) {
-			BpmnTextAnnotation bpmnTextAnnotation = new BpmnTextAnnotation("textAnnotation");
-			bpmnTextAnnotation.marshall(textAnnotation);
-			textAnnotations.add(bpmnTextAnnotation);
+			if (textAnnotation.getParentSubProcess() == null) {
+				BpmnTextAnnotation bpmnTextAnnotation = new BpmnTextAnnotation("textAnnotation");
+				bpmnTextAnnotation.marshall(textAnnotation);
+				textAnnotations.add(bpmnTextAnnotation);
+			}
 		}
 		for (Association association : diagram.getAssociations(pool)) {
-			BpmnAssociation bpmnAssociation = new BpmnAssociation("association");
-			bpmnAssociation.marshall(association);
-			associations.add(bpmnAssociation);
+				BpmnAssociation bpmnAssociation = new BpmnAssociation("association");
+				bpmnAssociation.marshall(association);
+				associations.add(bpmnAssociation);
 		}
 	}
 	

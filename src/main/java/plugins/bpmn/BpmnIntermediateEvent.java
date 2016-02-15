@@ -16,6 +16,7 @@ public class BpmnIntermediateEvent extends BpmnEvent {
 	
 	BpmnMessageEventDefinition messageDefinition;
 	BpmnTimerEventDefinition timerDefinition;
+	BpmnErrorEventDefinition errorDefinition;
 	String attachedToRef;
 	
 	public BpmnIntermediateEvent(String tag, EventUse eventUse) {
@@ -55,6 +56,13 @@ public class BpmnIntermediateEvent extends BpmnEvent {
 			timerDefinition.importElement(xpp, bpmn);
 			this.timerDefinition = timerDefinition;
 			eventTrigger = EventTrigger.TIMER;
+			return true;
+		}
+		if (xpp.getName().equals("errorEventDefinition")) {
+			BpmnErrorEventDefinition errorDefinition = new BpmnErrorEventDefinition("errorEventDefinition");
+			errorDefinition.importElement(xpp, bpmn);
+			this.errorDefinition = errorDefinition;
+			eventTrigger = EventTrigger.ERROR;
 			return true;
 		}
 		/*

@@ -19,8 +19,11 @@ import javax.swing.SwingConstants;
 
 
 
+
+
 import models.graphbased.AttributeMap;
 import models.graphbased.directed.AbstractDirectedGraph;
+import models.graphbased.directed.ContainingDirectedGraphNode;
 import models.graphbased.directed.DirectedGraph;
 import models.graphbased.directed.DirectedGraphEdge;
 import models.graphbased.directed.DirectedGraphElement;
@@ -36,7 +39,7 @@ import plugins.bpmn.BpmnAssociation.AssociationDirection;
 // BPMNDiagram interface.
 
 public class BPMNDiagramImpl extends AbstractDirectedGraph<BPMNNode, BPMNEdge<? extends BPMNNode, ? extends BPMNNode>>
-implements BPMNDiagram {
+		implements BPMNDiagram {
 
 	protected final Set<Event> events;
 	protected final List<Activity> activities;
@@ -49,9 +52,9 @@ implements BPMNDiagram {
 	protected final Set<DataAssociation> dataAssociations;
 	protected final Set<Association> associations;
 	protected final List<Swimlane> swimlanes;
-	protected final Set<CallActivity> callActivities;	
-	protected final Set<Artifacts> artifacts;
-	protected final Set<FlowAssociation> flowsassociation;
+    protected final Set<CallActivity> callActivities;
+    protected final Set<Artifacts> artifacts;
+    protected final Set<FlowAssociation> flowsassociation;
 
 	public BPMNDiagramImpl(String label) {
 		super();
@@ -66,10 +69,9 @@ implements BPMNDiagram {
 		dataAssociations = new LinkedHashSet<DataAssociation>();
 		associations = new LinkedHashSet<Association>();
 		swimlanes = new ArrayList<Swimlane>();
-		callActivities = new LinkedHashSet<CallActivity>();
-		artifacts= new LinkedHashSet<Artifacts>();
+        callActivities = new LinkedHashSet<CallActivity>();
+        artifacts= new LinkedHashSet<Artifacts>();
 		flowsassociation= new LinkedHashSet<FlowAssociation>();
-
 		getAttributeMap().put(AttributeMap.PREF_ORIENTATION, SwingConstants.WEST);
 		getAttributeMap().put(AttributeMap.LABEL, label);
 	}
@@ -94,7 +96,7 @@ implements BPMNDiagram {
 					Swimlane parentSwimlane = s.getParentSwimlane();
 					// If there is no parent or parent has been added, add swimlane
 					if (parentSwimlane == null) {
-						mapping.put(s, addSwimlane(s.getLabel(), null, s.getSwimlaneType()));
+						mapping.put(s, addSwimlane(s.getLabel(), parentSwimlane, s.getSwimlaneType()));
 					} else if (mapping.containsKey(parentSwimlane)) {
 						mapping.put(s,
 								addSwimlane(s.getLabel(), (Swimlane) mapping.get(parentSwimlane), 
@@ -103,29 +105,37 @@ implements BPMNDiagram {
 				}
 			}
 		}
-		for (SubProcess s : bpmndiagram.getSubProcesses()) {
-			if (s.getParentSubProcess() != null) {
-				if (mapping.containsKey(s.getParentSubProcess())) {
-					mapping.put(
-							s,
-							addSubProcess(s.getLabel(), s.isBLooped(), s.isBAdhoc(), s.isBCompensation(),
-									s.isBMultiinstance(), s.isBCollapsed(),
-									(SubProcess) mapping.get(s.getParentSubProcess())));
-				}
-			} else if (s.getParentSwimlane() != null) {
-				if (mapping.containsKey(s.getParentSwimlane())) {
-					mapping.put(
-							s,
-							addSubProcess(s.getLabel(), s.isBLooped(), s.isBAdhoc(), s.isBCompensation(),
-									s.isBMultiinstance(), s.isBCollapsed(),
-									(Swimlane) mapping.get(s.getParentSwimlane())));
-				}
-			} else
+		boolean newSubprocesses = true;
+		while (newSubprocesses) {
+			newSubprocesses = false;
+			for (SubProcess s : bpmndiagram.getSubProcesses()) {
+				// If subprocess has not been added yet
+				if (!mapping.containsKey(s)) {
+					newSubprocesses = true;
+					if (s.getParentSubProcess() != null) {
+						if (mapping.containsKey(s.getParentSubProcess())) {
+							mapping.put(
+									s,
+									addSubProcess(s.getLabel(), s.isBLooped(), s.isBAdhoc(), s.isBCompensation(),
+											s.isBMultiinstance(), s.isBCollapsed(),
+											(SubProcess) mapping.get(s.getParentSubProcess())));							
+						}
+					} else if (s.getParentSwimlane() != null) {
+						if (mapping.containsKey(s.getParentSwimlane())) {
+							mapping.put(
+									s,
+									addSubProcess(s.getLabel(), s.isBLooped(), s.isBAdhoc(), s.isBCompensation(),
+											s.isBMultiinstance(), s.isBCollapsed(),
+											(Swimlane) mapping.get(s.getParentSwimlane())));
+						}
+					} else
 
-				mapping.put(
-						s,
-						addSubProcess(s.getLabel(), s.isBLooped(), s.isBAdhoc(), s.isBCompensation(),
-								s.isBMultiinstance(), s.isBCollapsed()));
+						mapping.put(
+								s,
+								addSubProcess(s.getLabel(), s.isBLooped(), s.isBAdhoc(), s.isBCompensation(),
+										s.isBMultiinstance(), s.isBCollapsed()));
+				}
+			}
 		}
 		for (Activity a : bpmndiagram.getActivities()) {
 			if (a.getParentSubProcess() != null) {
@@ -151,29 +161,29 @@ implements BPMNDiagram {
 								a.isBMultiinstance(), a.isBCollapsed()));
 		}
 
-		for (CallActivity a : bpmndiagram.getCallActivities()) {
-			if (a.getParentSubProcess() != null) {
-				if (mapping.containsKey(a.getParentSubProcess())) {
-					mapping.put(
-							a,
-							addCallActivity(a.getLabel(), a.isBLooped(), a.isBAdhoc(), a.isBCompensation(),
-									a.isBMultiinstance(), a.isBCollapsed(),
-									(SubProcess) mapping.get(a.getParentSubProcess())));
-				}
-			} else if (a.getParentSwimlane() != null) {
-				if (mapping.containsKey(a.getParentSwimlane())) {
-					mapping.put(
-							a,
-							addCallActivity(a.getLabel(), a.isBLooped(), a.isBAdhoc(), a.isBCompensation(),
-									a.isBMultiinstance(), a.isBCollapsed(),
-									(Swimlane) mapping.get(a.getParentSwimlane())));
-				}
-			} else
-				mapping.put(
-						a,
-						addCallActivity(a.getLabel(), a.isBLooped(), a.isBAdhoc(), a.isBCompensation(),
-								a.isBMultiinstance(), a.isBCollapsed()));
-		}
+        for (CallActivity a : bpmndiagram.getCallActivities()) {
+            if (a.getParentSubProcess() != null) {
+                if (mapping.containsKey(a.getParentSubProcess())) {
+                    mapping.put(
+                            a,
+                            addCallActivity(a.getLabel(), a.isBLooped(), a.isBAdhoc(), a.isBCompensation(),
+                                    a.isBMultiinstance(), a.isBCollapsed(),
+                                    (SubProcess) mapping.get(a.getParentSubProcess())));
+                }
+            } else if (a.getParentSwimlane() != null) {
+                if (mapping.containsKey(a.getParentSwimlane())) {
+                    mapping.put(
+                            a,
+                            addCallActivity(a.getLabel(), a.isBLooped(), a.isBAdhoc(), a.isBCompensation(),
+                                    a.isBMultiinstance(), a.isBCollapsed(),
+                                    (Swimlane) mapping.get(a.getParentSwimlane())));
+                }
+            } else
+                mapping.put(
+                        a,
+                        addCallActivity(a.getLabel(), a.isBLooped(), a.isBAdhoc(), a.isBCompensation(),
+                                a.isBMultiinstance(), a.isBCollapsed()));
+        }
 
 		for (Event e : bpmndiagram.getEvents()) {
 			if (e.getParentSubProcess() != null) {
@@ -212,23 +222,19 @@ implements BPMNDiagram {
 			} else
 				mapping.put(g, addGateway(g.getLabel(), g.getGatewayType()));
 		}
-
+		
 		for (DataObject d : bpmndiagram.getDataObjects()) {
-			mapping.put(d, addDataObject(d.getLabel()));
+				mapping.put(d, addDataObject(d.getLabel()));
 		}
 
 		for (Flow f : bpmndiagram.getFlows()) {
 			mapping.put(f, addFlow((BPMNNode) mapping.get(f.getSource()), 
 					(BPMNNode) mapping.get(f.getTarget()), f.getLabel()));
 		}
-
-		for (Artifacts a : bpmndiagram.getArtifacts()) {
-
-			mapping.put(a, addArtifacts(a.getLabel(), a.getArtifactType(), (Swimlane)	 mapping.get(a.getParentSwimlane())));
-		}
-		for (FlowAssociation  f : bpmndiagram.getFlowAssociation()) {
-			mapping.put(f, addFlowAssociation((BPMNNode) mapping.get(f.getSource()), (BPMNNode) mapping.get(f.getTarget()),
-					(Swimlane)	 mapping.get(f.getParentSwimlane())));
+		
+		for (DataAssociation a : bpmndiagram.getDataAssociations()) {
+			mapping.put(a, addDataAssociation((BPMNNode) mapping.get(a.getSource()), 
+					(BPMNNode) mapping.get(a.getTarget()), a.getLabel()));
 		}
 
 		getAttributeMap().clear();
@@ -245,11 +251,10 @@ implements BPMNDiagram {
 			flows.remove(edge);
 		} else if (edge instanceof MessageFlow) {
 			messageFlows.remove(edge);
-		} else  {if (edge instanceof FlowAssociation) {
-			flowsassociation.remove(edge);
-		}else{
+		} else if (edge instanceof DataAssociation) {
+			dataAssociations.remove(edge);
+		} else {
 			assert (false);
-		}
 		}
 		graphElementRemoved(edge);
 	}
@@ -272,7 +277,7 @@ implements BPMNDiagram {
 		nodes.addAll(dataObjects);
 		nodes.addAll(swimlanes);
 		nodes.addAll(textAnnotations);
-		nodes.addAll(callActivities);
+        nodes.addAll(callActivities);
 		return nodes;
 	}
 
@@ -320,31 +325,31 @@ implements BPMNDiagram {
 		return a;
 	}
 
-	public CallActivity addCallActivity(String label, boolean bLooped, boolean bAdhoc, boolean bCompensation,
-			boolean bMultiinstance, boolean bCollapsed) {
-		CallActivity a = new CallActivity(this, label, bLooped, bAdhoc, bCompensation, bMultiinstance, bCollapsed);
-		callActivities.add(a);
-		graphElementAdded(a);
-		return a;
-	}
+    public CallActivity addCallActivity(String label, boolean bLooped, boolean bAdhoc, boolean bCompensation,
+                                boolean bMultiinstance, boolean bCollapsed) {
+        CallActivity a = new CallActivity(this, label, bLooped, bAdhoc, bCompensation, bMultiinstance, bCollapsed);
+        callActivities.add(a);
+        graphElementAdded(a);
+        return a;
+    }
 
-	public CallActivity addCallActivity(String label, boolean bLooped, boolean bAdhoc, boolean bCompensation,
-			boolean bMultiinstance, boolean bCollapsed, Swimlane parentSwimlane) {
-		CallActivity a = new CallActivity(this, label, bLooped, bAdhoc, bCompensation, bMultiinstance, bCollapsed,
-				parentSwimlane);
-		callActivities.add(a);
-		graphElementAdded(a);
-		return a;
-	}
+    public CallActivity addCallActivity(String label, boolean bLooped, boolean bAdhoc, boolean bCompensation,
+                                boolean bMultiinstance, boolean bCollapsed, Swimlane parentSwimlane) {
+        CallActivity a = new CallActivity(this, label, bLooped, bAdhoc, bCompensation, bMultiinstance, bCollapsed,
+                parentSwimlane);
+        callActivities.add(a);
+        graphElementAdded(a);
+        return a;
+    }
 
-	public CallActivity addCallActivity(String label, boolean bLooped, boolean bAdhoc, boolean bCompensation,
-			boolean bMultiinstance, boolean bCollapsed, SubProcess parentSubProcess) {
-		CallActivity a = new CallActivity(this, label, bLooped, bAdhoc, bCompensation, bMultiinstance, bCollapsed,
-				parentSubProcess);
-		callActivities.add(a);
-		graphElementAdded(a);
-		return a;
-	}
+    public CallActivity addCallActivity(String label, boolean bLooped, boolean bAdhoc, boolean bCompensation,
+                                boolean bMultiinstance, boolean bCollapsed, SubProcess parentSubProcess) {
+        CallActivity a = new CallActivity(this, label, bLooped, bAdhoc, bCompensation, bMultiinstance, bCollapsed,
+                parentSubProcess);
+        callActivities.add(a);
+        graphElementAdded(a);
+        return a;
+    }
 
 	public SubProcess addSubProcess(String label, boolean looped, boolean adhoc, boolean compensation,
 			boolean multiinstance, boolean collapsed) {
@@ -371,7 +376,7 @@ implements BPMNDiagram {
 		graphElementAdded(s);
 		return s;
 	}
-
+	
 	public SubProcess addSubProcess(String label, boolean looped, boolean adhoc, boolean compensation,
 			boolean multiinstance, boolean collapsed, boolean triggeredByEvent) {
 		SubProcess s = new SubProcess(this, label, looped, adhoc, compensation, multiinstance, collapsed,
@@ -434,7 +439,7 @@ implements BPMNDiagram {
 		graphElementAdded(e);
 		return e;
 	}
-
+	
 	public Event addEvent(String label, EventType eventType, EventTrigger eventTrigger, EventUse eventUse,
 			boolean isInterrupting, Activity exceptionFor) {
 		Event e = new Event(this, label, eventType, eventTrigger, eventUse, isInterrupting, exceptionFor);
@@ -469,14 +474,14 @@ implements BPMNDiagram {
 		graphElementAdded(e);
 		return e;
 	}
-
+	
 	public DataObject addDataObject(String label) {
 		DataObject d = new DataObject(this, label);
 		dataObjects.add(d);
 		graphElementAdded(d);
 		return d;
 	}
-
+	
 	public TextAnnotation addTextAnnotation(String label) {
 		TextAnnotation t = new TextAnnotation(this, label);
 		textAnnotations.add(t);
@@ -501,6 +506,9 @@ implements BPMNDiagram {
 	}
 
 	public Flow addFlow(BPMNNode source, BPMNNode target, String label) {
+		if(source==null || target ==null){
+			System.out.println();
+		}
 		Flow f = new Flow(source, target, label);
 		flows.add(f);
 		graphElementAdded(f);
@@ -527,14 +535,14 @@ implements BPMNDiagram {
 		graphElementAdded(f);
 		return f;
 	}
-
+	
 	public DataAssociation addDataAssociation(BPMNNode source, BPMNNode target, String label) {
 		DataAssociation d = new DataAssociation(source, target, label);
 		dataAssociations.add(d);
 		graphElementAdded(d);
 		return d;
 	}
-
+	
 	public Association addAssociation(BPMNNode source, BPMNNode target, AssociationDirection direction) {
 		Association a = new Association(source, target, direction);
 		associations.add(a);
@@ -562,17 +570,32 @@ implements BPMNDiagram {
 		graphElementAdded(g);
 		return g;
 	}
-
-	@Deprecated
-	public Swimlane addSwimlane(String label, Swimlane parentSwimlane) {
-		Swimlane s = new Swimlane(this, label, parentSwimlane);
+	
+	public Swimlane addSwimlane(String label, ContainingDirectedGraphNode parent) {
+		Swimlane s;
+		if(parent instanceof Swimlane) {
+			s = new Swimlane(this, label, (Swimlane)parent);
+		} else if (parent instanceof SubProcess) {
+			s = new Swimlane(this, label, (SubProcess)parent);
+		} else {
+			s = new Swimlane(this, label);
+		}
 		swimlanes.add(s);
 		graphElementAdded(s);
 		return s;
 	}
 
-	public Swimlane addSwimlane(String label, Swimlane parentSwimlane, SwimlaneType type) {
-		Swimlane s = new Swimlane(this, label, parentSwimlane, type);
+	public Swimlane addSwimlane(String label, ContainingDirectedGraphNode parent, SwimlaneType type) {
+		Swimlane s;
+		if(parent == null) {
+			s = new Swimlane(this, label, type);
+		} else if(parent instanceof Swimlane) {
+			s = new Swimlane(this, label, (Swimlane)parent, type);
+		} else if (parent instanceof SubProcess) {
+			s = new Swimlane(this, label, (SubProcess)parent, type);
+		} else {
+			s = new Swimlane(this, label, type);
+		}
 		swimlanes.add(s);
 		graphElementAdded(s);
 		return s;
@@ -582,10 +605,10 @@ implements BPMNDiagram {
 		return activities;
 	}
 
-	public Collection<CallActivity> getCallActivities() {
-		return callActivities;
-	}
-
+    public Collection<CallActivity> getCallActivities() {
+        return callActivities;
+    }
+	
 	public Collection<Activity> getActivities(Swimlane pool) {
 		List<Activity> activitiesFromPool = new ArrayList<Activity>();
 		for (Activity activity : activities) {
@@ -602,26 +625,26 @@ implements BPMNDiagram {
 		return activitiesFromPool;
 	}
 
-	public Collection<CallActivity> getCallActivities(Swimlane pool) {
-		Set<CallActivity> activitiesFromPool = new HashSet<CallActivity>();
-		for (CallActivity activity : callActivities) {
-			if (activity.getParentSubProcess() == null) {
-				if ((pool != null) && (pool.equals(activity.getParentPool()))) {
-					activitiesFromPool.add(activity);
-				} else if (pool == null) {
-					if (activity.getParentPool() == null) {
-						activitiesFromPool.add(activity);
-					}
-				}
-			}
-		}
-		return activitiesFromPool;
-	}
+    public Collection<CallActivity> getCallActivities(Swimlane pool) {
+        Set<CallActivity> activitiesFromPool = new HashSet<CallActivity>();
+        for (CallActivity activity : callActivities) {
+            if (activity.getParentSubProcess() == null) {
+                if ((pool != null) && (pool.equals(activity.getParentPool()))) {
+                    activitiesFromPool.add(activity);
+                } else if (pool == null) {
+                    if (activity.getParentPool() == null) {
+                        activitiesFromPool.add(activity);
+                    }
+                }
+            }
+        }
+        return activitiesFromPool;
+    }
 
 	public Collection<SubProcess> getSubProcesses() {
 		return subprocesses;
 	}
-
+	
 	public Collection<SubProcess> getSubProcesses(Swimlane pool) {
 		Set<SubProcess> subProcessesFromPool = new HashSet<SubProcess>();
 		for (SubProcess subProcess : subprocesses) {
@@ -639,7 +662,7 @@ implements BPMNDiagram {
 	public Collection<Event> getEvents() {
 		return events;
 	}
-
+	
 	public Collection<Event> getEvents(Swimlane pool) {
 		Set<Event> eventsFromPool = new HashSet<Event>();
 		for (Event event : events) {
@@ -655,15 +678,15 @@ implements BPMNDiagram {
 		}
 		return eventsFromPool;
 	}
-
+	
 	public Collection<DataObject> getDataObjects() {
 		return dataObjects;
 	}
-
+	
 	public Collection<TextAnnotation> getTextAnnotations() {
 		return textAnnotations;
 	}
-
+	
 	public Collection<TextAnnotation> getTextAnnotations(Swimlane pool) {
 		Set<TextAnnotation> textAnnotationsFromPool = new HashSet<TextAnnotation>();
 		for (TextAnnotation textAnnotation : textAnnotations) {
@@ -683,13 +706,13 @@ implements BPMNDiagram {
 	public Collection<Flow> getFlows() {
 		return Collections.unmodifiableCollection(flows);
 	}
-
+	
 	public Collection<Flow> getFlows(Swimlane pool) {
 		List<Flow> flowsFromPool = new ArrayList<Flow>();
 		for (Flow flow : flows) {
 			BPMNNode source = flow.getSource();
 			BPMNNode target = flow.getTarget();
-			if (source.getParentSubProcess() == null) {
+			if (source.getAncestorSubProcess() == null) {
 				if ((source.getParentPool() == pool) && (target.getParentPool() == pool)) {
 					flowsFromPool.add(flow);
 				}
@@ -697,14 +720,14 @@ implements BPMNDiagram {
 		}
 		return Collections.unmodifiableCollection(flowsFromPool);
 	}
-
+	
 	public Collection<Flow> getFlows(SubProcess subProcess) {
 		List<Flow> flowsFromSubProcess = new ArrayList<Flow>();
 		for (Flow flow : flows) {
 			BPMNNode source = flow.getSource();
 			BPMNNode target = flow.getTarget();
-			if ((source.getParentSubProcess() == subProcess) 
-					&& (target.getParentSubProcess() == subProcess)) {
+			if ((source.getAncestorSubProcess() == subProcess) 
+				&& (target.getAncestorSubProcess() == subProcess)) {
 				flowsFromSubProcess.add(flow);
 			}
 		}
@@ -719,7 +742,7 @@ implements BPMNDiagram {
 	public Collection<Gateway> getGateways() {
 		return gateways;
 	}
-
+	
 	public Collection<Gateway> getGateways(Swimlane pool) {
 		List<Gateway> gatewaysFromPool = new ArrayList<Gateway>();
 		for (Gateway gateway : gateways) {
@@ -741,10 +764,10 @@ implements BPMNDiagram {
 		return removeNodeFromCollection(activities, activity);
 	}
 
-	public CallActivity removeCallActivity(CallActivity activity) {
-		removeSurroundingEdges(activity);
-		return removeNodeFromCollection(callActivities, activity);
-	}
+    public CallActivity removeCallActivity(CallActivity activity) {
+        removeSurroundingEdges(activity);
+        return removeNodeFromCollection(callActivities, activity);
+    }
 
 	public Activity removeSubProcess(SubProcess subprocess) {
 		//TODO: it is probably necessary to remove all nodes that are contained in the subprocess as well 
@@ -761,7 +784,7 @@ implements BPMNDiagram {
 		removeSurroundingEdges(gateway);
 		return removeNodeFromCollection(gateways, gateway);
 	}
-
+	
 	public DataObject removeDataObject(DataObject dataObject) {
 		removeSurroundingEdges(dataObject);
 		return removeNodeFromCollection(dataObjects, dataObject);
@@ -775,7 +798,7 @@ implements BPMNDiagram {
 	public Collection<Swimlane> getSwimlanes() {
 		return swimlanes;
 	}
-
+	
 	public Collection<Swimlane> getPools() {
 		Collection<Swimlane> result = new HashSet<Swimlane>();
 		for (Swimlane swimlane : swimlanes) {
@@ -785,36 +808,36 @@ implements BPMNDiagram {
 		}
 		return result;
 	}
-
-	public Collection<Swimlane> getLanes(Swimlane pool) {
-		List<Swimlane> lanesFromPool = new ArrayList<Swimlane>();
+	
+	public Collection<Swimlane> getLanes(ContainingDirectedGraphNode parent) {
+		List<Swimlane> lanes = new ArrayList<Swimlane>();
 		for (Swimlane lane : swimlanes) {
 			if (SwimlaneType.LANE.equals(lane.getSwimlaneType())) {
-				if ((pool != null) && (pool.equals(lane.getParentSwimlane()))) {
-					lanesFromPool.add(lane);
-				} else if (pool == null) {
-					if (lane.getParentSwimlane() == null) {
-						lanesFromPool.add(lane);
+				if ((parent != null) && (parent.equals(lane.getParent()))) {
+					lanes.add(lane);
+				} else if (parent == null) {
+					if (lane.getParent() == null) {
+						lanes.add(lane);
 					}
 				}
 			}
 		}
-		return lanesFromPool;
+		return lanes;
 	}
-
+	
 	public Collection<DataAssociation> getDataAssociations() {
 		return dataAssociations;
 	}
-
+	
 	public Collection<Association> getAssociations() {
 		return associations;
 	}
-
+	
 	public Collection<Association> getAssociations(Swimlane pool) {
 		Set<Association> associationsFromPool = new HashSet<Association>();
 		for (Association association : associations) {
 			if ((association.getTarget().getParentSubProcess() == null) 
-					&& (association.getSource().getParentSubProcess() == null)) {
+				&& (association.getSource().getParentSubProcess() == null)) {
 				if ((pool != null) && (pool.equals(association.getTarget().getParentSubProcess())
 						&&(pool.equals((association.getSource().getParentSubProcess()))))) {
 					associationsFromPool.add(association);
@@ -828,91 +851,17 @@ implements BPMNDiagram {
 		}
 		return associationsFromPool;
 	}
-
-
-	public Artifacts addArtifacts(String label, ArtifactType artifactType,
-			SubProcess parent) {
-		Artifacts a = new Artifacts(this, label,artifactType , parent);
-		artifacts.add(a);
-		graphElementAdded(a);
-		return a;
-	}
-
-
-	public Artifacts removeArtifact(Artifacts artifact) {
-		removeSurroundingEdges(artifact);
-		return removeNodeFromCollection(artifacts, artifact);
-	}
-
-
-	public Collection<Artifacts> getArtifacts() {
-
-		return this.artifacts;
-	}
-
-
-	public FlowAssociation addFlowAssociation(BPMNNode source, BPMNNode target,
-			SubProcess parent) {
-		FlowAssociation f = new FlowAssociation(source, target, parent);
-		flowsassociation.add(f);
-		graphElementAdded(f);
-		return f;
-	}
-
-
-	public Set<FlowAssociation> getFlowAssociation() {
-
-		return Collections.unmodifiableSet(flowsassociation);
-	}
-
-
-	public Artifacts addArtifacts(String label, ArtifactType artifactType) {
-		Artifacts a = new Artifacts(this, label,artifactType);
-		artifacts.add(a);
-		graphElementAdded(a);
-		return a;
-	}
-
-
-	public Artifacts addArtifacts(String label, ArtifactType artifactType,
-			Swimlane parentSwimlane) {
-		Artifacts a = new Artifacts(this, label,artifactType,parentSwimlane);
-		artifacts.add(a);
-		graphElementAdded(a);
-		return a;
-	}
-
-
-	public FlowAssociation addFlowAssociation(BPMNNode source, BPMNNode target) {
-
-		FlowAssociation f = new FlowAssociation(source, target);
-		flowsassociation.add(f);
-		graphElementAdded(f);
-		return f;
-	}
-
-
-	public FlowAssociation addFlowAssociation(BPMNNode source, BPMNNode target,
-			Swimlane parentSwimlane) {
-
-
-		FlowAssociation f = new FlowAssociation(source, target, parentSwimlane);
-		flowsassociation.add(f);
-		graphElementAdded(f);
-		return f;
-	}
-
+	
 	//TextAnnotations
 	public TextAnnotation addTextAnnotations(TextAnnotation textAnnotation) {
-		textAnnotations.add(textAnnotation);
-		graphElementAdded(textAnnotation);
-		return textAnnotation;
+        textAnnotations.add(textAnnotation);
+        graphElementAdded(textAnnotation);
+        return textAnnotation;
 	}
-
+	
 	public Collection<TextAnnotation> getTextannotations() {
 		return textAnnotations;
 	}
-
 
 	public String toDOT() {
 		String result = "";
@@ -992,5 +941,80 @@ implements BPMNDiagram {
 
 		return result;
 	}
+
+	public Artifacts addArtifacts(String label, ArtifactType artifactType,
+			SubProcess parent) {
+		Artifacts a = new Artifacts(this, label,artifactType , parent);
+		artifacts.add(a);
+		graphElementAdded(a);
+		return a;
+	}
+
+
+	public Artifacts removeArtifact(Artifacts artifact) {
+		removeSurroundingEdges(artifact);
+		return removeNodeFromCollection(artifacts, artifact);
+	}
+
+
+	public Collection<Artifacts> getArtifacts() {
+
+		return this.artifacts;
+	}
+
+
+	public FlowAssociation addFlowAssociation(BPMNNode source, BPMNNode target,
+			SubProcess parent) {
+		FlowAssociation f = new FlowAssociation(source, target, parent);
+		flowsassociation.add(f);
+		graphElementAdded(f);
+		return f;
+	}
+
+
+	public Set<FlowAssociation> getFlowAssociation() {
+
+		return Collections.unmodifiableSet(flowsassociation);
+	}
+
+
+	public Artifacts addArtifacts(String label, ArtifactType artifactType) {
+		Artifacts a = new Artifacts(this, label,artifactType);
+		artifacts.add(a);
+		graphElementAdded(a);
+		return a;
+	}
+
+
+	public Artifacts addArtifacts(String label, ArtifactType artifactType,
+			Swimlane parentSwimlane) {
+		Artifacts a = new Artifacts(this, label,artifactType,parentSwimlane);
+		artifacts.add(a);
+		graphElementAdded(a);
+		return a;
+	}
+
+
+	public FlowAssociation addFlowAssociation(BPMNNode source, BPMNNode target) {
+
+		FlowAssociation f = new FlowAssociation(source, target);
+		flowsassociation.add(f);
+		graphElementAdded(f);
+		return f;
+	}
+
+
+	public FlowAssociation addFlowAssociation(BPMNNode source, BPMNNode target,
+			Swimlane parentSwimlane) {
+
+
+		FlowAssociation f = new FlowAssociation(source, target, parentSwimlane);
+		flowsassociation.add(f);
+		graphElementAdded(f);
+		return f;
+	}
+
+
+	
 }
 

@@ -1,5 +1,6 @@
 package plugins.bpmn;
 
+import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.util.Collection;
 import java.util.HashSet;
@@ -7,8 +8,10 @@ import java.util.Map;
 
 import org.jgraph.graph.AbstractCellView;
 import org.jgraph.graph.DefaultGraphCell;
+
 import models.graphbased.directed.DirectedGraphNode;
 import models.graphbased.directed.bpmn.BPMNDiagram;
+import models.graphbased.directed.bpmn.BPMNEdge;
 import models.graphbased.directed.bpmn.BPMNNode;
 import models.graphbased.directed.bpmn.elements.Association;
 import models.graphbased.directed.bpmn.elements.MessageFlow;
@@ -16,12 +19,15 @@ import models.graphbased.directed.bpmn.elements.SubProcess;
 import models.graphbased.directed.bpmn.elements.Swimlane;
 import models.graphbased.directed.bpmn.elements.TextAnnotation;
 
-import org.xmlpull.v1.XmlPullParser;
+import models.jgraph.views.JGraphPortView;
 
 import plugins.bpmn.diagram.BpmnDcBounds;
+import plugins.bpmn.diagram.BpmnDiEdge;
 import plugins.bpmn.diagram.BpmnDiPlane;
 import plugins.bpmn.diagram.BpmnDiShape;
+import plugins.bpmn.diagram.BpmnDiWaypoint;
 import plugins.bpmn.diagram.BpmnDiagram;
+import org.xmlpull.v1.XmlPullParser;
 
 public class BpmnDefinitions extends BpmnElement {
 
@@ -68,7 +74,7 @@ public class BpmnDefinitions extends BpmnElement {
 			collaborations = new HashSet<BpmnCollaboration>();
 			diagrams = new HashSet<BpmnDiagram>();
 
-			buildFromDiagram( diagram);
+			buildFromDiagram(diagram);
 		}
 
 		/**
@@ -160,7 +166,7 @@ public class BpmnDefinitions extends BpmnElement {
 		 * @param bpmnDiagram
 		 * @param plane
 		 */
-		private synchronized static void fillGraphicsInfo( BPMNDiagram diagram,
+		private synchronized static void fillGraphicsInfo(BPMNDiagram diagram,
 				BpmnDiagram bpmnDiagram, BpmnDiPlane plane) {
 
 			
@@ -174,7 +180,7 @@ public class BpmnDefinitions extends BpmnElement {
 		 */
 		private static void addCellGraphicsInfo(DefaultGraphCell graphCell, BpmnDiPlane plane) {
 			DirectedGraphNode graphNode = null;
-			
+		
 			// Create BPMNShape
 			String bpmnElement = graphNode.getId().toString().replace(' ', '_');
 			boolean isExpanded = false;
@@ -201,24 +207,17 @@ public class BpmnDefinitions extends BpmnElement {
 			BpmnDcBounds bounds = new BpmnDcBounds("dc:Bounds", x, y, width, height);
 			BpmnDiShape shape = new BpmnDiShape("bpmndi:BPMNShape", bpmnElement, bounds, isExpanded, isHorizontal);
 			plane.addShape(shape);
-			addChildGrapInfo(graphCell, plane);
-		}
-		
-		
-		
-		/**
-		 * Retrieve graphics info for child elements
-		 * 
-		 * @param graphCell
-		 * @param plane
-		 */
-		private static void addChildGrapInfo(DefaultGraphCell graphCell, BpmnDiPlane plane){
-			for (Object o : graphCell.getChildren()) {
-				
-			}
+			
 		}
 	}
-	
+		
+		/**
+		 * Retrieve graphics info from graphEdge
+		 * 
+		 * @param graphEdge
+		 * @param plane
+		 */
+		
 	protected boolean importElements(XmlPullParser xpp, Bpmn bpmn) {
 		if (super.importElements(xpp, bpmn)) {
 			/*

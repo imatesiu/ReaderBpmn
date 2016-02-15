@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
 
+import models.graphbased.directed.ContainingDirectedGraphNode;
 import models.graphbased.directed.bpmn.BPMNDiagram;
 import models.graphbased.directed.bpmn.BPMNNode;
 import models.graphbased.directed.bpmn.elements.Swimlane;
@@ -51,16 +52,16 @@ public class BpmnLaneSet extends BpmnIdName {
 	}
 
 	public void unmarshall(BPMNDiagram diagram, Map<String, BPMNNode> id2node, Map<String, Swimlane> id2lane,
-			Swimlane parentLane) {
+			ContainingDirectedGraphNode parent) {
 		for (BpmnLane bpmnLane : lanes) {
-			bpmnLane.unmarshall(diagram, id2node, id2lane, parentLane);
+			bpmnLane.unmarshall(diagram, id2node, id2lane, parent);
 		}
 	}
 
 	public void unmarshall(BPMNDiagram diagram, Collection<String> elements, Map<String, BPMNNode> id2node,
-			Map<String, Swimlane> id2lane, Swimlane parentLane) {
+			Map<String, Swimlane> id2lane, ContainingDirectedGraphNode parent) {
 		for (BpmnLane bpmnLane : lanes) {
-			bpmnLane.unmarshall(diagram, elements, id2node, id2lane, parentLane);
+			bpmnLane.unmarshall(diagram, elements, id2node, id2lane, parent);
 		}
 	}
 	
@@ -68,15 +69,15 @@ public class BpmnLaneSet extends BpmnIdName {
 	 * Constructs a process model from diagram
 	 * 
 	 * @param diagram
-	 * @param pool
+	 * @param parent
 	 * @return "true" if at least one element has been added
 	 */
-	public boolean marshall(BPMNDiagram diagram, Swimlane swimlane) {
+	public boolean marshall(BPMNDiagram diagram, ContainingDirectedGraphNode parent) {
 		
 		lanes.clear();
 		
 		// Marshall lanes
-		for (Swimlane lane : diagram.getLanes(swimlane)) {
+		for (Swimlane lane : diagram.getLanes(parent)) {
 			BpmnLane bpmnLane = new BpmnLane("lane");
 			bpmnLane.marshall(diagram, lane);
 			lanes.add(bpmnLane);

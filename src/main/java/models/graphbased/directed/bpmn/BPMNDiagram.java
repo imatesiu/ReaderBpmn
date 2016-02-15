@@ -3,6 +3,7 @@ package models.graphbased.directed.bpmn;
 import java.util.Collection;
 import java.util.Set;
 
+import models.graphbased.directed.ContainingDirectedGraphNode;
 import models.graphbased.directed.DirectedGraph;
 import models.graphbased.directed.bpmn.elements.Activity;
 import models.graphbased.directed.bpmn.elements.Artifacts;
@@ -43,24 +44,24 @@ public interface BPMNDiagram extends DirectedGraph<BPMNNode, BPMNEdge<? extends 
 	Activity removeActivity(Activity activity);
 
 	Collection<Activity> getActivities();
-
+	
 	Collection<Activity> getActivities(Swimlane pool);
 
-	//callActivities
-	CallActivity addCallActivity(String label, boolean bLooped, boolean bAdhoc, boolean bCompensation, boolean bMultiinstance,
-			boolean bCollapsed);
+    //callActivities
+    CallActivity addCallActivity(String label, boolean bLooped, boolean bAdhoc, boolean bCompensation, boolean bMultiinstance,
+                         boolean bCollapsed);
 
-	CallActivity addCallActivity(String label, boolean bLooped, boolean bAdhoc, boolean bCompensation, boolean bMultiinstance,
-			boolean bCollapsed, SubProcess parentSubProcess);
+    CallActivity addCallActivity(String label, boolean bLooped, boolean bAdhoc, boolean bCompensation, boolean bMultiinstance,
+                         boolean bCollapsed, SubProcess parentSubProcess);
 
-	CallActivity addCallActivity(String label, boolean bLooped, boolean bAdhoc, boolean bCompensation, boolean bMultiinstance,
-			boolean bCollapsed, Swimlane parentSwimlane);
+    CallActivity addCallActivity(String label, boolean bLooped, boolean bAdhoc, boolean bCompensation, boolean bMultiinstance,
+                         boolean bCollapsed, Swimlane parentSwimlane);
 
-	CallActivity removeCallActivity(CallActivity activity);
+    CallActivity removeCallActivity(CallActivity activity);
 
-	Collection<CallActivity> getCallActivities();
+    Collection<CallActivity> getCallActivities();
 
-	Collection<CallActivity> getCallActivities(Swimlane pool);
+    Collection<CallActivity> getCallActivities(Swimlane pool);
 
 	//SubProcesses
 	SubProcess addSubProcess(String label, boolean bLooped, boolean bAdhoc, boolean bCompensation,
@@ -71,7 +72,7 @@ public interface BPMNDiagram extends DirectedGraph<BPMNNode, BPMNEdge<? extends 
 
 	SubProcess addSubProcess(String label, boolean bLooped, boolean bAdhoc, boolean bCompensation,
 			boolean bMultiinstance, boolean bCollapsed, Swimlane parentSwimlane);
-
+	
 	SubProcess addSubProcess(String label, boolean bLooped, boolean bAdhoc, boolean bCompensation,
 			boolean bMultiinstance, boolean bCollapsed, boolean bTriggeredByEvent);
 
@@ -85,7 +86,7 @@ public interface BPMNDiagram extends DirectedGraph<BPMNNode, BPMNEdge<? extends 
 	Activity removeSubProcess(SubProcess subprocess);
 
 	Collection<SubProcess> getSubProcesses();
-
+	
 	Collection<SubProcess> getSubProcesses(Swimlane pool);
 
 	//Events
@@ -100,7 +101,7 @@ public interface BPMNDiagram extends DirectedGraph<BPMNNode, BPMNEdge<? extends 
 	@Deprecated
 	Event addEvent(String label, EventType eventType, EventTrigger eventTrigger, EventUse eventUse,
 			Swimlane parentSwimlane, Activity exceptionFor);
-
+	
 	Event addEvent(String label, EventType eventType, EventTrigger eventTrigger, EventUse eventUse,
 			boolean isInterrupting, Activity exceptionFor);
 
@@ -113,7 +114,7 @@ public interface BPMNDiagram extends DirectedGraph<BPMNNode, BPMNEdge<? extends 
 	Event removeEvent(Event event);
 
 	Collection<Event> getEvents();
-
+	
 	Collection<Event> getEvents(Swimlane pool);
 
 	//Gateways
@@ -126,27 +127,27 @@ public interface BPMNDiagram extends DirectedGraph<BPMNNode, BPMNEdge<? extends 
 	Gateway removeGateway(Gateway gateway);
 
 	Collection<Gateway> getGateways();
-
+	
 	Collection<Gateway> getGateways(Swimlane pool);
-
+	
 	//Data objects
 	DataObject addDataObject(String label);
 
 	DataObject removeDataObject(DataObject dataObject);
-
+	
 	Collection<DataObject> getDataObjects();
-
+	
 	//Artifacts
 	TextAnnotation addTextAnnotation(String label);
-
+	
 	Collection<TextAnnotation> getTextAnnotations();
-
+	
 	Collection<TextAnnotation> getTextAnnotations(Swimlane pool);
-
+	
 	Association addAssociation(BPMNNode source, BPMNNode target, AssociationDirection direction);
-
+	
 	Collection<Association> getAssociations();
-
+	
 	Collection<Association> getAssociations(Swimlane pool);
 
 	//Flows
@@ -159,9 +160,9 @@ public interface BPMNDiagram extends DirectedGraph<BPMNNode, BPMNEdge<? extends 
 	Flow addFlow(BPMNNode source, BPMNNode target, SubProcess parent, String label);
 
 	Collection<Flow> getFlows();
-
+	
 	Collection<Flow> getFlows(Swimlane pool);
-
+	
 	Collection<Flow> getFlows(SubProcess subProcess);
 
 	//MessageFlows
@@ -172,44 +173,28 @@ public interface BPMNDiagram extends DirectedGraph<BPMNNode, BPMNEdge<? extends 
 	MessageFlow addMessageFlow(BPMNNode source, BPMNNode target, SubProcess parent, String label);
 
 	Set<MessageFlow> getMessageFlows();
-
+	
 	//DataAssociatons
 	DataAssociation addDataAssociation(BPMNNode source, BPMNNode target, String label);
-
+	
 	Collection<DataAssociation> getDataAssociations();
-
+	
 	//TextAnnotations
 	TextAnnotation addTextAnnotations(TextAnnotation textAnnotation);
-
+	
 	Collection<TextAnnotation> getTextannotations();
 
-	/**
-	 * @deprecated use {@link  addSwimlane(String label, Swimlane parentSwimlane, 
-	 * SwimlaneType type)} instead
-	 */
-	@Deprecated
-	Swimlane addSwimlane(String label, Swimlane parentSwimlane);
-
-	Swimlane addSwimlane(String label, Swimlane parentSwimlane, SwimlaneType type);
+	Swimlane addSwimlane(String label, ContainingDirectedGraphNode parent);
+	
+	Swimlane addSwimlane(String label, ContainingDirectedGraphNode parent, SwimlaneType type);
 
 	Swimlane removeSwimlane(Swimlane swimlane);
 
 	Collection<Swimlane> getSwimlanes();
-
+	
 	Collection<Swimlane> getPools();
-
-	Collection<Swimlane> getLanes(Swimlane pool);
-
-	//Artifacts
-	Artifacts addArtifacts(String label, ArtifactType artifactType);
-
-	Artifacts addArtifacts(String label, ArtifactType artifactType, SubProcess parent);
-
-	Artifacts addArtifacts(String label, ArtifactType artifactType, Swimlane parentSwimlane);
-
-	Artifacts removeArtifact(Artifacts artifacts);
-
-	Collection<Artifacts> getArtifacts();
+	
+	Collection<Swimlane> getLanes(ContainingDirectedGraphNode parent);
 
 	//FlowAssociation
 	FlowAssociation addFlowAssociation(BPMNNode source, BPMNNode target);

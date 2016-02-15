@@ -30,7 +30,7 @@ public class BpmnSequenceFlow extends BpmnFlow {
 			Flow flow = diagram.addFlow(id2node.get(sourceRef), id2node.get(targetRef), name);
 			flow.getAttributeMap().put("Original id", id);
 			flow.setConditionExpression(conditionExpression);
-			id2node.put(id, flow.getTarget());
+			//id2node.put(id, flow);
 			return flow;
 		}
 		return null;

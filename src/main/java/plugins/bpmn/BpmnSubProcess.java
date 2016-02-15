@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import models.graphbased.directed.ContainableDirectedGraphElement;
 import models.graphbased.directed.bpmn.BPMNDiagram;
@@ -21,7 +22,6 @@ import models.graphbased.directed.bpmn.elements.Gateway.GatewayType;
 import models.graphbased.directed.bpmn.elements.SubProcess;
 import models.graphbased.directed.bpmn.elements.Swimlane;
 import models.graphbased.directed.bpmn.elements.TextAnnotation;
-
 import org.xmlpull.v1.XmlPullParser;
 
 public class BpmnSubProcess extends BpmnIncomingOutgoing {
@@ -30,6 +30,7 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
 	private BpmnMultiInstanceLoopCharacteristics multiInstanceLoopCharacteristics;
 	private BpmnStandardLoopCharacteristics standardLoopCharacteristics;
 	private BpmnInputOutputSpecification ioSpecification;
+	private BpmnLaneSet laneSet;
 	
 
 	private Collection<BpmnStartEvent> startEvents;
@@ -49,8 +50,8 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
     private Collection<BpmnCallActivity> callActivities;
 
 	public BpmnSubProcess(String tag) {
+		
 		super(tag);
-
 		triggeredByEvent = null;
 		ioSpecification = null;
 
@@ -185,22 +186,11 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
 			BpmnAssociation association = new BpmnAssociation("association");
 			association.importElement(xpp, bpmn);
 			associations.add(association);
-			return true;
-		}else if (xpp.getName().equals("serviceTask")) {
-            BpmnServiceTask task = new BpmnServiceTask("serviceTask");
-            task.importElement(xpp, bpmn);
-            tasks.add(task);
-            return true;
-        } else if (xpp.getName().equals("sendTask")) {
-            BpmnSendTask task = new BpmnSendTask("sendTask");
-            task.importElement(xpp, bpmn);
-            tasks.add(task);
-            return true;
-		}else if (xpp.getName().equals("receiveTask")) {
-			BpmnReceiveTask task = new BpmnReceiveTask("receiveTask");
-            task.importElement(xpp, bpmn);
-            tasks.add(task);
-            return true;
+			return true; 
+		}	else if (xpp.getName().equals("laneSet")) {
+				laneSet = new BpmnLaneSet("laneSet");
+				laneSet.importElement(xpp, bpmn);
+				return true;
 		}
 		/*
 		 * Unknown tag.
@@ -213,6 +203,9 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
 		 * Export node child elements.
 		 */
 		String s = super.exportElements();
+		if (laneSet != null) {
+			s += laneSet.exportElement();
+		}
 		if (multiInstanceLoopCharacteristics != null) {
 			s += multiInstanceLoopCharacteristics.exportElement();
 		}
@@ -290,11 +283,10 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
 		return s;
 	}
 
-	public void unmarshall(BPMNDiagram diagram, Map<String, BPMNNode> id2node,
+	public void unmarshall(BPMNDiagram diagram, Map<String, BPMNNode> id2node, Map<String, Swimlane> id2lane,
 			Swimlane lane) {
 		SubProcess subProcess;
 		boolean triggerByEvent = false;
-		
 		if ((triggeredByEvent != null) && (triggeredByEvent.equals("true"))) {
 			triggerByEvent = true;
 		}
@@ -311,7 +303,6 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
 					false, triggerByEvent, lane);
 			id2node.put(id, subProcess);
 		}
-
 		if(ioSpecification != null) {
 			Collection<BpmnId> dataIncomings = ioSpecification.getDataInputs();
 			for(BpmnId dataIncoming : dataIncomings) {
@@ -338,7 +329,7 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
             eventBasedGateway.unmarshall(diagram, id2nodeSubProcess, lane);
         }
 		for (BpmnSubProcess childSubProcess : subProcesses) {
-			childSubProcess.unmarshall(diagram, id2nodeSubProcess, lane);
+			childSubProcess.unmarshall(diagram, id2nodeSubProcess, id2lane, lane);
 		}
 		for (BpmnExclusiveGateway exclusiveGateway : exclusiveGateways) {
 			exclusiveGateway.unmarshall(diagram, id2nodeSubProcess, lane);
@@ -376,28 +367,18 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
 		for (BpmnAssociation association : associations) {
 			association.unmarshall(diagram, id2node);
 		}
+		if(laneSet != null) {
+			laneSet.unmarshall(diagram, id2node, id2lane, subProcess);
+		}
 	}
 
 	public void unmarshall(BPMNDiagram diagram, Collection<String> elements,
-			Map<String, BPMNNode> id2node, Swimlane lane) {
+			Map<String, BPMNNode> id2node, Map<String, Swimlane> id2lane, Swimlane lane) {
 		SubProcess subProcess = null;
 		boolean triggerByEvent = false;
 		
 		if ((triggeredByEvent != null) && (triggeredByEvent.equals("true"))) {
 			triggerByEvent = true;
-		}
-		if (multiInstanceLoopCharacteristics != null) {
-			subProcess = diagram.addSubProcess(name, false, false, false, true, true, triggerByEvent,
-					lane);
-			id2node.put(id, subProcess);
-		} else if(standardLoopCharacteristics != null) {
-			subProcess = diagram.addSubProcess(name, true, false, false, false, true, triggerByEvent,
-					lane);
-			id2node.put(id, subProcess);
-		} else {
-			subProcess = diagram.addSubProcess(name, false, false, false, false,
-					false, triggerByEvent, lane);
-			id2node.put(id, subProcess);
 		}
 
 		if (elements.contains(id)) {
@@ -430,7 +411,7 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
 				task.unmarshall(diagram, elements, id2nodeSubProcess, lane);
 			}
 			for (BpmnSubProcess childSubProcess : subProcesses) {
-				childSubProcess.unmarshall(diagram, elements, id2nodeSubProcess, lane);
+				childSubProcess.unmarshall(diagram, elements, id2nodeSubProcess, id2lane, lane);
 			}
             for (BpmnCallActivity callActivity : callActivities) {
                 callActivity.unmarshall(diagram, elements, id2nodeSubProcess, lane);
@@ -460,8 +441,8 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
 					subProcess.addChild(flow);
 				}
 			}
-			for (String NameNode : id2nodeSubProcess.keySet()) {
-				BPMNNode node = id2nodeSubProcess.get(NameNode);
+			for (String idNode : id2nodeSubProcess.keySet()) {
+				BPMNNode node = id2nodeSubProcess.get(idNode);
 				if (subProcess != null) {
 					node.setParentSubprocess(subProcess);
 					subProcess.addChild(node);
@@ -480,8 +461,10 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
 			for (BpmnAssociation association : associations) {
 				association.unmarshall(diagram, elements, id2node);
 			}
+			if(laneSet != null) {
+				laneSet.unmarshall(diagram, id2node,  id2lane, subProcess);
+			}
 		}
-
 	}
 	
 	public void unmarshallDataAssociations(BPMNDiagram diagram, Map<String, BPMNNode> id2node) {
@@ -505,14 +488,22 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
 			standardLoopCharacteristics = 
 					new BpmnStandardLoopCharacteristics("standardLoopCharacteristics");
 		}
-		for (ContainableDirectedGraphElement child : subProcess.getChildren()) {
+		Set<ContainableDirectedGraphElement> allChildren = new HashSet<ContainableDirectedGraphElement>();
+		allChildren.addAll(subProcess.getChildren());
+		for(ContainableDirectedGraphElement child : subProcess.getChildren()) {
+			if(child instanceof Swimlane) {
+				for(ContainableDirectedGraphElement innerChild : ((Swimlane)child).getChildren()) {
+					allChildren.add(innerChild);
+				}
+			}
+		}
+		for (ContainableDirectedGraphElement child : allChildren) {
 			// Marshall child event
 			if (child instanceof Event) {
 				if (((Event) child).getEventType() == EventType.START) {
 					BpmnStartEvent startEvent = new BpmnStartEvent("startEvent");
 					startEvent.marshall((Event) child);
 					startEvents.add(startEvent);
-
 				} else if (((Event) child).getEventType() == EventType.END) {
 					BpmnEndEvent endEvent = new BpmnEndEvent("endEvent");
 					endEvent.marshall((Event) child);
@@ -555,6 +546,14 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
 				BpmnSubProcess childSubProcess = new BpmnSubProcess("subProcess");
 				childSubProcess.marshall((SubProcess) child, diagram);
 				subProcesses.add(childSubProcess);
+			}
+			
+			// Marshall child lanes
+			if (child instanceof Swimlane) {
+				if(diagram.getLanes(subProcess).size() > 0) {
+					laneSet = new BpmnLaneSet("laneSet");
+					laneSet.marshall(diagram, subProcess);
+				}
 			}
 			
 			// Marshall child gateway

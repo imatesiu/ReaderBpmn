@@ -73,8 +73,10 @@ public class BpmnInputOutputSpecification extends BpmnId {
 		return s;
 	}
 	
-	@Override
 	protected void checkValidity(Bpmn bpmn) {
-		// do not require id
+		
 	}
+
+	
+	
 }

@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 
+import javax.swing.border.LineBorder;
+
 import framework.util.ui.scalableview.VerticalLabelUI;
 import models.graphbased.AttributeMap;
 import models.graphbased.directed.AbstractDirectedGraph;
@@ -21,7 +23,8 @@ import models.shapes.Decorated;
 import models.shapes.Rectangle;
 
 public class Swimlane extends BPMNNode implements Decorated, ContainingDirectedGraphNode {
-	
+	//com.jgraph.layout.hierarchical.JGraphHierarchicalLayout, interHierarchySpacing is decreased from 60 to 5. Thus the space between swimlanes decreawsed.
+	//org.processmining.models.jgraph.renderers.ProMGroupShapeRenderer, Rectangle handle dimensions changed from 0,0,20,20 to 0,0,10,10.
 	protected final static int COLLAPSED_WIDTH = 80;
 	protected final static int COLLAPSED_HEIGHT = 40;
 
@@ -37,24 +40,41 @@ public class Swimlane extends BPMNNode implements Decorated, ContainingDirectedG
 	private String partitionElement;
 	
 	public Swimlane(AbstractDirectedGraph<BPMNNode, BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> bpmndiagram,
+			String label) {
+		super(bpmndiagram);
+		children = new HashSet<ContainableDirectedGraphElement>();
+		initAttributeMap(label);
+	}
+	
+	public Swimlane(AbstractDirectedGraph<BPMNNode, BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> bpmndiagram,
 			String label, Swimlane parentSwimlane) {
 		super(bpmndiagram, parentSwimlane);
 		children = new HashSet<ContainableDirectedGraphElement>();
-		getAttributeMap().put(AttributeMap.LABEL, label);
-		getAttributeMap().put(AttributeMap.SHOWLABEL, false);
-		getAttributeMap().put(AttributeMap.SHAPE, new Rectangle(false));
-		getAttributeMap().put(AttributeMap.SQUAREBB, false);
-		getAttributeMap().put(AttributeMap.RESIZABLE, true);
-		getAttributeMap().put(AttributeMap.LABELVERTICALALIGNMENT, SwingConstants.TOP);
-		getAttributeMap().put(AttributeMap.LABELHORIZONTALALIGNMENT, SwingConstants.CENTER);
-		getAttributeMap().put(AttributeMap.LABELALONGEDGE, true);
-		getAttributeMap().put(AttributeMap.PREF_ORIENTATION, SwingConstants.WEST);
+		initAttributeMap(label);
 	}
-
+	
+	public Swimlane(AbstractDirectedGraph<BPMNNode, BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> bpmndiagram,
+			String label, SubProcess parentSubProcess) {
+		super(bpmndiagram, parentSubProcess);
+		children = new HashSet<ContainableDirectedGraphElement>();
+		initAttributeMap(label);
+	}
 
 	public Swimlane(AbstractDirectedGraph<BPMNNode, BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> bpmndiagram,
 			String label, Swimlane parentSwimlane, SwimlaneType type) {
 		this(bpmndiagram,label, parentSwimlane);
+		this.type = type;
+	}
+	
+	public Swimlane(AbstractDirectedGraph<BPMNNode, BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> bpmndiagram,
+			String label, SubProcess parentSubProcess, SwimlaneType type) {
+		this(bpmndiagram,label, parentSubProcess);
+		this.type = type;
+	}
+	
+	public Swimlane(AbstractDirectedGraph<BPMNNode, BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> bpmndiagram,
+			String label, SwimlaneType type) {
+		this(bpmndiagram,label);
 		this.type = type;
 	}
 
@@ -64,9 +84,6 @@ public class Swimlane extends BPMNNode implements Decorated, ContainingDirectedG
 
 	public void addChild(ContainableDirectedGraphElement child) {
 		children.add(child);
-		if(child instanceof Swimlane) {
-			getAttributeMap().put(AttributeMap.PREF_ORIENTATION, SwingConstants.NORTH);
-		}
 	}
 
 	public Dimension getCollapsedSize() {
@@ -90,7 +107,7 @@ public class Swimlane extends BPMNNode implements Decorated, ContainingDirectedG
 		label.setForeground(Color.BLACK);
 		label.setSize(new Dimension(labelW, labelH));
 		label.setPreferredSize(new Dimension(labelW, labelH));
-		label.setBorder(new javax.swing.border.LineBorder(Color.BLACK, 2));
+		label.setBorder(new LineBorder(Color.BLACK, 2));
 		label.setVerticalAlignment(SwingConstants.CENTER);
 		label.setUI(new VerticalLabelUI(false));
 		label.paint(g2d.create(labelX, labelY, labelW, labelH));
@@ -104,6 +121,19 @@ public class Swimlane extends BPMNNode implements Decorated, ContainingDirectedG
 	public String getPartitionElement() {
 		return partitionElement;
 	}
+	
+	private void initAttributeMap (String label) {
+		getAttributeMap().put(AttributeMap.LABEL, label);
+		getAttributeMap().put(AttributeMap.SHOWLABEL, false);
+		getAttributeMap().put(AttributeMap.SHAPE, new Rectangle(false));
+		getAttributeMap().put(AttributeMap.SQUAREBB, false);
+		getAttributeMap().put(AttributeMap.RESIZABLE, true);
+		getAttributeMap().put(AttributeMap.LABELVERTICALALIGNMENT, SwingConstants.TOP);
+		getAttributeMap().put(AttributeMap.LABELHORIZONTALALIGNMENT, SwingConstants.CENTER);
+		getAttributeMap().put(AttributeMap.LABELALONGEDGE, true);
+		getAttributeMap().put(AttributeMap.PREF_ORIENTATION, SwingConstants.WEST);
+	}
 }
+
 
 

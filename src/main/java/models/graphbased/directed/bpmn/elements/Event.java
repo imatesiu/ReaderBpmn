@@ -111,7 +111,8 @@ public class Event extends BPMNNode implements Decorated, BoundaryDirectedGraphN
 		getAttributeMap().put(AttributeMap.SQUAREBB, true);
 		getAttributeMap().put(AttributeMap.RESIZABLE, false);
 		if(exceptionFor==null) {
-			getAttributeMap().put(AttributeMap.SIZE, new Dimension(30, 30));
+			getAttributeMap().put(AttributeMap.SIZE, new Dimension(25, 25));
+			getAttributeMap().put(AttributeMap.FILLCOLOR, Color.WHITE);
 		} else {
 			exceptionFor.incNumOfBoundaryEvents();
 			getAttributeMap().put(AttributeMap.SIZE, new Dimension(25, 25));
@@ -327,12 +328,12 @@ public class Event extends BPMNNode implements Decorated, BoundaryDirectedGraphN
 		this.decorator = decorator;
 	}
 	
-	//@Deprecated
+	@Deprecated
 	public String isInterrupting() {
 		return new Boolean(isInterrupting).toString();
 	}
 	
-	//@Deprecated
+	@Deprecated
 	public void setInterrupting(String isInterrupting) {
 		this.isInterrupting = isInterrupting.equals("false")? false : true;
 	}

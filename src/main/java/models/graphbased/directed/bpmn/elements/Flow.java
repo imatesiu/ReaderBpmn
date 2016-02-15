@@ -87,6 +87,19 @@ public class Flow extends BPMNEdge<BPMNNode, BPMNNode> implements Decorated {
 		}
 		return null;
 	}
+	
+	public SubProcess getAncestorSubProcess() {
+		if (getParent() != null) {
+			if (getParent() instanceof SubProcess) {
+				return (SubProcess) getParent();
+			} else if (getParent() instanceof Swimlane) {
+				return ((Swimlane)getParent()).getParentSubProcess();
+			} else {
+				return null;
+			}
+		}
+		return null;
+	}
 
 	public boolean equals(Object o) {
 		return (o == this);

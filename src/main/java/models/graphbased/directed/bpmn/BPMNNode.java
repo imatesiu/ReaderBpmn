@@ -122,6 +122,19 @@ public abstract class BPMNNode extends AbstractDirectedGraphNode implements Cont
 		return null;
 	}
 	
+	public SubProcess getAncestorSubProcess() {
+		if (getParent() != null) {
+			if (getParent() instanceof SubProcess) {
+				return (SubProcess) getParent();
+			} else if (getParent() instanceof Swimlane) {
+				return ((Swimlane)getParent()).getParentSubProcess();
+			} else {
+				return null;
+			}
+		}
+		return null;
+	}
+	
 	public void setParentSwimlane(Swimlane swimlane) {
 		this.parentSwimlane = swimlane;
 		if(swimlane != null) {

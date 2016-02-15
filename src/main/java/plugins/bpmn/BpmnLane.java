@@ -5,8 +5,10 @@ import java.util.HashSet;
 import java.util.Map;
 
 import models.graphbased.directed.ContainableDirectedGraphElement;
+import models.graphbased.directed.ContainingDirectedGraphNode;
 import models.graphbased.directed.bpmn.BPMNDiagram;
 import models.graphbased.directed.bpmn.BPMNNode;
+import models.graphbased.directed.bpmn.elements.SubProcess;
 import models.graphbased.directed.bpmn.elements.Swimlane;
 import models.graphbased.directed.bpmn.elements.SwimlaneType;
 import org.xmlpull.v1.XmlPullParser;
@@ -82,22 +84,47 @@ public class BpmnLane extends BpmnIdName {
 	}
 
 	public void unmarshall(BPMNDiagram diagram, Map<String, BPMNNode> id2node,
-			Map<String, Swimlane> id2lane, Swimlane parentLane) {
-		Swimlane lane = diagram.addSwimlane(name, parentLane, SwimlaneType.LANE);
+			Map<String, Swimlane> id2lane, ContainingDirectedGraphNode parent) {
+		Swimlane lane = diagram.addSwimlane(name, parent, SwimlaneType.LANE);
 		lane.setPartitionElement(partitionElement);
 		id2lane.put(id, lane);
 		if(childLaneSet != null) {
 			childLaneSet.unmarshall(diagram, id2node, id2lane, lane);
 		}
+		if(flowNodeRefs != null) {
+			for(BpmnText flowNodeRef : flowNodeRefs) {
+				String id = flowNodeRef.getText();
+				BPMNNode node = id2node.get(id);
+				if(node!=null){
+				if(parent != null) {
+					if (parent instanceof SubProcess) {
+						((SubProcess)parent).getChildren().remove(node);
+					}
+				}
+				node.setParentSubprocess(null);
+				node.setParentSwimlane(lane);
+				}
+			}
+		}
 	}
 
 	public void unmarshall(BPMNDiagram diagram, Collection<String> elements, Map<String, BPMNNode> id2node,
-			Map<String, Swimlane> id2lane, Swimlane parentLane) {
-		Swimlane lane = diagram.addSwimlane(name, parentLane, SwimlaneType.LANE);
+			Map<String, Swimlane> id2lane, ContainingDirectedGraphNode parent) {
+		Swimlane lane = diagram.addSwimlane(name, parent, SwimlaneType.LANE);
 		lane.setPartitionElement(partitionElement);
 		id2lane.put(id, lane);
 		if(childLaneSet != null) {
 			childLaneSet.unmarshall(diagram, elements, id2node, id2lane, lane);
+		}
+		if(flowNodeRefs != null) {
+			for(BpmnText flowNodeRef : flowNodeRefs) {
+				String id = flowNodeRef.getText();
+				BPMNNode node = id2node.get(id);
+				if(node!=null){
+				node.setParentSubprocess(null);
+				node.setParentSwimlane(lane);
+				}
+			}
 		}
 	}
 	
