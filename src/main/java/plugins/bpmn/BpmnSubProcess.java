@@ -317,45 +317,37 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
 		Map<String, BPMNNode> id2nodeSubProcess = new HashMap<String, BPMNNode>();
 
 		for (BpmnStartEvent startEvent : startEvents) {
-			startEvent.unmarshall(diagram, id2nodeSubProcess, lane);
+			startEvent.unmarshall(diagram, id2nodeSubProcess, subProcess);
 		}
 		for (BpmnTask task : tasks) {
 			task.unmarshall(diagram, id2nodeSubProcess, lane);
 		}
         for (BpmnCallActivity callActivity : callActivities){
-            callActivity.unmarshall(diagram, id2nodeSubProcess, lane);
+        	callActivity.unmarshall(diagram, id2nodeSubProcess, subProcess);
         }
         for (BpmnEventBasedGateway eventBasedGateway : eventBasedGateways){
-            eventBasedGateway.unmarshall(diagram, id2nodeSubProcess, lane);
+        	eventBasedGateway.unmarshall(diagram, id2nodeSubProcess, subProcess);
         }
 		for (BpmnSubProcess childSubProcess : subProcesses) {
-			childSubProcess.unmarshall(diagram, id2nodeSubProcess, id2lane, lane);
+			childSubProcess.unmarshall(diagram, id2nodeSubProcess, id2lane, subProcess);
 		}
 		for (BpmnExclusiveGateway exclusiveGateway : exclusiveGateways) {
-			exclusiveGateway.unmarshall(diagram, id2nodeSubProcess, lane);
+			exclusiveGateway.unmarshall(diagram, id2nodeSubProcess, subProcess);
 		}
 		for (BpmnParallelGateway parallelGateway : parallelGateways) {
-			parallelGateway.unmarshall(diagram, id2nodeSubProcess, lane);
+			parallelGateway.unmarshall(diagram, id2nodeSubProcess, subProcess);
 		}
 		for (BpmnInclusiveGateway inclusiveGateway : inclusiveGateways) {
-			inclusiveGateway.unmarshall(diagram, id2nodeSubProcess, lane);
+			inclusiveGateway.unmarshall(diagram, id2nodeSubProcess, subProcess);
 		}
 		for (BpmnEndEvent endEvent : endEvents) {
-			endEvent.unmarshall(diagram, id2nodeSubProcess, lane);
+			endEvent.unmarshall(diagram, id2nodeSubProcess, subProcess);
 		}
 		for (BpmnIntermediateEvent intermediateEvent : intermediateEvents) {
-			intermediateEvent.unmarshall(diagram, id2nodeSubProcess, lane);
+			intermediateEvent.unmarshall(diagram, id2nodeSubProcess, subProcess);
 		}
 		for (BpmnSequenceFlow sequenceFlow : sequenceFlows) {
-			Flow flow = sequenceFlow.unmarshall(diagram, id2nodeSubProcess,
-					lane);
-			flow.setParent(subProcess);
-			subProcess.addChild(flow);
-		}
-		for (String nameNode : id2nodeSubProcess.keySet()) {
-			BPMNNode node = id2nodeSubProcess.get(nameNode);
-			node.setParentSubprocess(subProcess);
-			subProcess.addChild(node);
+			sequenceFlow.unmarshall(diagram, id2nodeSubProcess);
 		}
 		id2node.putAll(id2nodeSubProcess);
 		for (BpmnTask task : tasks) {
@@ -369,6 +361,172 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
 		}
 		if(laneSet != null) {
 			laneSet.unmarshall(diagram, id2node, id2lane, subProcess);
+		}
+	}
+	
+	public void unmarshall(BPMNDiagram diagram, Map<String, BPMNNode> id2node, Map<String, Swimlane> id2lane,
+			SubProcess parentSubProcess) {
+		SubProcess subProcess;
+		boolean triggerByEvent = false;
+		if ((triggeredByEvent != null) && (triggeredByEvent.equals("true"))) {
+			triggerByEvent = true;
+		}
+		if (multiInstanceLoopCharacteristics != null) {
+			subProcess = diagram.addSubProcess(name, false, false, false, true, true, triggerByEvent,
+					parentSubProcess);
+			id2node.put(id, subProcess);
+		} else if(standardLoopCharacteristics != null) {
+			subProcess = diagram.addSubProcess(name, true, false, false, false, true, triggerByEvent,
+					parentSubProcess);
+			id2node.put(id, subProcess);
+		} else {
+			subProcess = diagram.addSubProcess(name, false, false, false, false,
+					false, triggerByEvent, parentSubProcess);
+			id2node.put(id, subProcess);
+		}
+		if(ioSpecification != null) {
+			Collection<BpmnId> dataIncomings = ioSpecification.getDataInputs();
+			for(BpmnId dataIncoming : dataIncomings) {
+				id2node.put(dataIncoming.getId(), subProcess);
+			}
+			Collection<BpmnId> dataOutgoins = ioSpecification.getDataOutputs();
+			for(BpmnId dataOutgoing : dataOutgoins) {
+				id2node.put(dataOutgoing.getId(), subProcess);
+			}
+		}
+
+		Map<String, BPMNNode> id2nodeSubProcess = new HashMap<String, BPMNNode>();
+
+		for (BpmnStartEvent startEvent : startEvents) {
+			startEvent.unmarshall(diagram, id2nodeSubProcess, subProcess);
+		}
+		for (BpmnTask task : tasks) {
+			task.unmarshall(diagram, id2nodeSubProcess, subProcess);
+		}
+        for (BpmnCallActivity callActivity : callActivities){
+        	callActivity.unmarshall(diagram, id2nodeSubProcess, subProcess);
+        }
+        for (BpmnEventBasedGateway eventBasedGateway : eventBasedGateways){
+        	eventBasedGateway.unmarshall(diagram, id2nodeSubProcess, subProcess);
+        }
+		for (BpmnSubProcess childSubProcess : subProcesses) {
+			childSubProcess.unmarshall(diagram, id2nodeSubProcess, id2lane, subProcess);
+		}
+		for (BpmnExclusiveGateway exclusiveGateway : exclusiveGateways) {
+			exclusiveGateway.unmarshall(diagram, id2nodeSubProcess, subProcess);
+		}
+		for (BpmnParallelGateway parallelGateway : parallelGateways) {
+			parallelGateway.unmarshall(diagram, id2nodeSubProcess, subProcess);
+		}
+		for (BpmnInclusiveGateway inclusiveGateway : inclusiveGateways) {
+			inclusiveGateway.unmarshall(diagram, id2nodeSubProcess, subProcess);
+		}
+		for (BpmnEndEvent endEvent : endEvents) {
+			endEvent.unmarshall(diagram, id2nodeSubProcess, subProcess);
+		}
+		for (BpmnIntermediateEvent intermediateEvent : intermediateEvents) {
+			intermediateEvent.unmarshall(diagram, id2nodeSubProcess, subProcess);
+		}
+		for (BpmnSequenceFlow sequenceFlow : sequenceFlows) {
+			sequenceFlow.unmarshall(diagram, id2nodeSubProcess);
+		}
+	
+		id2node.putAll(id2nodeSubProcess);
+		for (BpmnTask task : tasks) {
+			task.unmarshallDataAssociations(diagram, id2node);
+		}
+		for (BpmnTextAnnotation textAnnotation : textAnnotations) {
+			textAnnotation.unmarshall(diagram, id2node);
+		}
+		for (BpmnAssociation association : associations) {
+			association.unmarshall(diagram, id2node);
+		}
+		if(laneSet != null) {
+			laneSet.unmarshall(diagram, id2node, id2lane, subProcess);
+		}
+	}
+	
+	public void unmarshall(BPMNDiagram diagram, Collection<String> elements,
+			Map<String, BPMNNode> id2node, Map<String, Swimlane> id2lane, SubProcess parentSubProcess) {
+		SubProcess subProcess = null;
+		boolean triggerByEvent = false;
+		if ((triggeredByEvent != null) && (triggeredByEvent.equals("true"))) {
+			triggerByEvent = true;
+		}
+
+		if (elements.contains(id)) {
+			if (multiInstanceLoopCharacteristics != null) {
+				subProcess = diagram.addSubProcess(name, false, false, false, true, true, triggerByEvent, parentSubProcess);
+				subProcess.getAttributeMap().put("Original id", id);
+				id2node.put(id, subProcess);
+			} else {
+				subProcess = diagram.addSubProcess(name, false, false, false, false, false, triggerByEvent, parentSubProcess);
+				subProcess.getAttributeMap().put("Original id", id);
+				id2node.put(id, subProcess);
+			}
+			
+			if(ioSpecification != null) {
+				Collection<BpmnId> dataIncomings = ioSpecification.getDataInputs();
+				for(BpmnId dataIncoming : dataIncomings) {
+					id2node.put(dataIncoming.getId(), subProcess);
+				}
+				Collection<BpmnId> dataOutgoins = ioSpecification.getDataOutputs();
+				for(BpmnId dataOutgoing : dataOutgoins) {
+					id2node.put(dataOutgoing.getId(), subProcess);
+				}
+			}
+			Map<String, BPMNNode> id2nodeSubProcess = new HashMap<String, BPMNNode>();
+
+			for (BpmnStartEvent startEvent : startEvents) {
+				System.out.println(startEvent.id);
+				startEvent.unmarshall(diagram, elements, id2nodeSubProcess, subProcess);
+			}
+			for (BpmnTask task : tasks) {
+				task.unmarshall(diagram, elements, id2nodeSubProcess, subProcess);
+			}
+			for (BpmnSubProcess childSubProcess : subProcesses) {
+				childSubProcess.unmarshall(diagram, elements, id2nodeSubProcess, id2lane, subProcess);
+			}
+            for (BpmnCallActivity callActivity : callActivities) {
+                callActivity.unmarshall(diagram, elements, id2nodeSubProcess, subProcess);
+            }
+            for (BpmnEventBasedGateway eventBasedGateway : eventBasedGateways){
+                eventBasedGateway.unmarshall(diagram, elements, id2nodeSubProcess, subProcess);
+            }
+			for (BpmnExclusiveGateway exclusiveGateway : exclusiveGateways) {
+				exclusiveGateway.unmarshall(diagram, elements, id2nodeSubProcess, subProcess);
+			}
+			for (BpmnParallelGateway parallelGateway : parallelGateways) {
+				parallelGateway.unmarshall(diagram, elements, id2nodeSubProcess, subProcess);
+			}
+			for (BpmnInclusiveGateway inclusiveGateway : inclusiveGateways) {
+				inclusiveGateway.unmarshall(diagram, elements, id2nodeSubProcess, subProcess);
+			}
+			for (BpmnEndEvent endEvent : endEvents) {
+				endEvent.unmarshall(diagram, elements, id2nodeSubProcess, subProcess);
+			}
+			for (BpmnIntermediateEvent intermediateEvent : intermediateEvents) {
+				intermediateEvent.unmarshall(diagram, id2nodeSubProcess, subProcess);
+			}
+			for (BpmnSequenceFlow sequenceFlow : sequenceFlows) {
+				sequenceFlow.unmarshall(diagram, elements, id2nodeSubProcess);
+			}
+			id2node.putAll(id2nodeSubProcess);
+			for (BpmnTask task : tasks) {
+				task.unmarshallDataAssociations(diagram, id2node);
+			}
+            for (BpmnCallActivity callActivity : callActivities) {
+                callActivity.unmarshallDataAssociations(diagram, id2node);
+            }
+			for (BpmnTextAnnotation textAnnotation : textAnnotations) {
+				textAnnotation.unmarshall(diagram, elements, id2node);
+			}
+			for (BpmnAssociation association : associations) {
+				association.unmarshall(diagram, elements, id2node);
+			}
+			if(laneSet != null) {
+				laneSet.unmarshall(diagram, id2node,  id2lane, subProcess);
+			}
 		}
 	}
 
@@ -405,48 +563,37 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
 			Map<String, BPMNNode> id2nodeSubProcess = new HashMap<String, BPMNNode>();
 
 			for (BpmnStartEvent startEvent : startEvents) {
-				startEvent.unmarshall(diagram, elements, id2nodeSubProcess, lane);
+				startEvent.unmarshall(diagram, elements, id2nodeSubProcess, subProcess);
 			}
 			for (BpmnTask task : tasks) {
-				task.unmarshall(diagram, elements, id2nodeSubProcess, lane);
+				task.unmarshall(diagram, elements, id2nodeSubProcess, subProcess);
 			}
 			for (BpmnSubProcess childSubProcess : subProcesses) {
-				childSubProcess.unmarshall(diagram, elements, id2nodeSubProcess, id2lane, lane);
+				childSubProcess.unmarshall(diagram, elements, id2nodeSubProcess, id2lane, subProcess);
 			}
             for (BpmnCallActivity callActivity : callActivities) {
-                callActivity.unmarshall(diagram, elements, id2nodeSubProcess, lane);
+                callActivity.unmarshall(diagram, elements, id2nodeSubProcess, subProcess);
             }
             for (BpmnEventBasedGateway eventBasedGateway : eventBasedGateways){
-                eventBasedGateway.unmarshall(diagram, elements, id2nodeSubProcess, lane);
+                eventBasedGateway.unmarshall(diagram, elements, id2nodeSubProcess, subProcess);
             }
 			for (BpmnExclusiveGateway exclusiveGateway : exclusiveGateways) {
-				exclusiveGateway.unmarshall(diagram, elements, id2nodeSubProcess, lane);
+				exclusiveGateway.unmarshall(diagram, elements, id2nodeSubProcess, subProcess);
 			}
 			for (BpmnParallelGateway parallelGateway : parallelGateways) {
-				parallelGateway.unmarshall(diagram, elements, id2nodeSubProcess, lane);
+				parallelGateway.unmarshall(diagram, elements, id2nodeSubProcess, subProcess);
 			}
 			for (BpmnInclusiveGateway inclusiveGateway : inclusiveGateways) {
-				inclusiveGateway.unmarshall(diagram, elements, id2nodeSubProcess, lane);
+				inclusiveGateway.unmarshall(diagram, elements, id2nodeSubProcess, subProcess);
 			}
 			for (BpmnEndEvent endEvent : endEvents) {
-				endEvent.unmarshall(diagram, elements, id2nodeSubProcess, lane);
+				endEvent.unmarshall(diagram, elements, id2nodeSubProcess, subProcess);
 			}
 			for (BpmnIntermediateEvent intermediateEvent : intermediateEvents) {
-				intermediateEvent.unmarshall(diagram, id2nodeSubProcess, lane);
+				intermediateEvent.unmarshall(diagram, id2nodeSubProcess, subProcess);
 			}
 			for (BpmnSequenceFlow sequenceFlow : sequenceFlows) {
-				Flow flow = sequenceFlow.unmarshall(diagram, elements, id2nodeSubProcess, lane);
-				if (subProcess != null & flow != null) {
-					flow.setParent(subProcess);
-					subProcess.addChild(flow);
-				}
-			}
-			for (String idNode : id2nodeSubProcess.keySet()) {
-				BPMNNode node = id2nodeSubProcess.get(idNode);
-				if (subProcess != null) {
-					node.setParentSubprocess(subProcess);
-					subProcess.addChild(node);
-				}
+				sequenceFlow.unmarshall(diagram, elements, id2nodeSubProcess);
 			}
 			id2node.putAll(id2nodeSubProcess);
 			for (BpmnTask task : tasks) {

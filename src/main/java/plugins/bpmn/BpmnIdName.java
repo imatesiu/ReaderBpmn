@@ -6,7 +6,7 @@ import org.xmlpull.v1.XmlPullParser;
 
 public class BpmnIdName extends BpmnId {
 
-	protected String name;
+	public String name;
 	
 	public BpmnIdName(String tag) {
 		super(tag);

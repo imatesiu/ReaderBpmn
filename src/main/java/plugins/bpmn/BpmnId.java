@@ -7,7 +7,7 @@ public class BpmnId extends BpmnElement {
 	/*
 	 * Attributes
 	 */
-	protected String id;
+	public String id;
 
 	public BpmnId(String tag) {
 		super(tag);

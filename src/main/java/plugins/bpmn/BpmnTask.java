@@ -8,6 +8,7 @@ import models.graphbased.directed.bpmn.BPMNDiagram;
 import models.graphbased.directed.bpmn.BPMNNode;
 import models.graphbased.directed.bpmn.elements.Activity;
 import models.graphbased.directed.bpmn.elements.DataAssociation;
+import models.graphbased.directed.bpmn.elements.SubProcess;
 import models.graphbased.directed.bpmn.elements.Swimlane;
 import org.xmlpull.v1.XmlPullParser;
 
@@ -129,10 +130,8 @@ public class BpmnTask extends BpmnIncomingOutgoing {
 		Activity activity;
 		if (multiInstanceLoopCharacteristics != null) {
 			activity = diagram.addActivity(name, false, false, false, true, false, lane);
-			id2node.put(id, activity);
 		} else if(standardLoopCharacteristics != null) {
 			activity = diagram.addActivity(name, true, false, false, false, false, lane);
-			id2node.put(id, activity);
 		} else {
 			activity = diagram.addActivity(name, false, false, false, false, false, lane);
 			if(this.getTag()=="sendTask"){
@@ -142,7 +141,6 @@ public class BpmnTask extends BpmnIncomingOutgoing {
 			}else if(this.getTag()=="serviceTask"){
 				activity.setBService(true);
 			}
-			id2node.put(id, activity);
 		}
 		
 		if(ioSpecification != null) {
@@ -155,7 +153,36 @@ public class BpmnTask extends BpmnIncomingOutgoing {
 				id2node.put(dataOutgoing.getId(), activity);
 			}
 		}
+		id2node.put(id, activity);
+	}
+	
+	public void unmarshall(BPMNDiagram diagram, Map<String, BPMNNode> id2node, SubProcess subProcess) {
+		Activity activity;
+		if (multiInstanceLoopCharacteristics != null) {
+			activity = diagram.addActivity(name, false, false, false, true, false, subProcess);
+		} else if(standardLoopCharacteristics != null) {
+			activity = diagram.addActivity(name, true, false, false, false, false, subProcess);
+		} else {
+			activity = diagram.addActivity(name, false, false, false, false, false, subProcess);
+			if(this.getTag()=="sendTask"){
+				activity.setBSend(true);
+			}else if(this.getTag()=="receiveTask"){
+				activity.setBReceive(true);
+			}else if(this.getTag()=="serviceTask"){
+				activity.setBService(true);
+			}
+		}
 		
+		if(ioSpecification != null) {
+			Collection<BpmnId> dataIncomings = ioSpecification.getDataInputs();
+			for(BpmnId dataIncoming : dataIncomings) {
+				id2node.put(dataIncoming.getId(), activity);
+			}
+			Collection<BpmnId> dataOutgoins = ioSpecification.getDataOutputs();
+			for(BpmnId dataOutgoing : dataOutgoins) {
+				id2node.put(dataOutgoing.getId(), activity);
+			}
+		}
 		id2node.put(id, activity);
 	}
 
@@ -164,10 +191,8 @@ public class BpmnTask extends BpmnIncomingOutgoing {
 			Activity activity;
 			if (multiInstanceLoopCharacteristics != null) {
 				activity = diagram.addActivity(name, false, false, false, true, false, lane);
-				id2node.put(id, activity);
 			} else if(standardLoopCharacteristics != null) {
 				activity = diagram.addActivity(name, true, false, false, false, false, lane);
-				id2node.put(id, activity);
 			} else {
 				activity = diagram.addActivity(name, false, false, false, false, false, lane);
 				if(this.getTag()=="sendTask"){
@@ -177,7 +202,39 @@ public class BpmnTask extends BpmnIncomingOutgoing {
 				}else if(this.getTag()=="serviceTask"){
 					activity.setBService(true);
 				}
-				id2node.put(id, activity);
+			}
+			
+			if(ioSpecification != null) {
+				Collection<BpmnId> dataIncomings = ioSpecification.getDataInputs();
+				for(BpmnId dataIncoming : dataIncomings) {
+					id2node.put(dataIncoming.getId(), activity);
+				}
+				Collection<BpmnId> dataOutgoins = ioSpecification.getDataOutputs();
+				for(BpmnId dataOutgoing : dataOutgoins) {
+					id2node.put(dataOutgoing.getId(), activity);
+				}
+			}
+			activity.getAttributeMap().put("Original id", id);
+			id2node.put(id, activity);
+		}
+	}
+	
+	public void unmarshall(BPMNDiagram diagram, Collection<String> elements, Map<String, BPMNNode> id2node, SubProcess subProcess) {
+		if (elements.contains(id)) {
+			Activity activity;
+			if (multiInstanceLoopCharacteristics != null) {
+				activity = diagram.addActivity(name, false, false, false, true, false, subProcess);
+			} else if(standardLoopCharacteristics != null) {
+				activity = diagram.addActivity(name, true, false, false, false, false, subProcess);
+			} else {
+				activity = diagram.addActivity(name, false, false, false, false, false, subProcess);
+				if(this.getTag()=="sendTask"){
+					activity.setBSend(true);
+				}else if(this.getTag()=="receiveTask"){
+					activity.setBReceive(true);
+				}else if(this.getTag()=="serviceTask"){
+					activity.setBService(true);
+				}
 			}
 			
 			if(ioSpecification != null) {

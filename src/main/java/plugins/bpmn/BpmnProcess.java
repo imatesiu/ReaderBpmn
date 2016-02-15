@@ -281,7 +281,7 @@ public class BpmnProcess extends BpmnIdName {
 			intermediateEvent.unmarshall(diagram, id2node, retrieveParentSwimlane(intermediateEvent, id2lane));
 		}
 		for (BpmnSequenceFlow sequenceFlow : sequenceFlows) {
-			sequenceFlow.unmarshall(diagram, id2node, lane);
+			sequenceFlow.unmarshall(diagram, id2node);
 		}
 		for (BpmnTask task : tasks) {
 			task.unmarshallDataAssociations(diagram, id2node);
@@ -334,7 +334,7 @@ public class BpmnProcess extends BpmnIdName {
 			intEvent.unmarshall(diagram, id2node, retrieveParentSwimlane(intEvent, id2lane));
 		}
 		for (BpmnSequenceFlow sequenceFlow : sequenceFlows) {
-			sequenceFlow.unmarshall(diagram, elements, id2node, lane);
+			sequenceFlow.unmarshall(diagram, elements, id2node);
 		}
 		for (BpmnTask task : tasks) {
 			task.unmarshallDataAssociations(diagram, id2node);

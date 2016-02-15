@@ -7,7 +7,9 @@ import models.graphbased.directed.bpmn.BPMNDiagram;
 import models.graphbased.directed.bpmn.BPMNEdge;
 import models.graphbased.directed.bpmn.BPMNNode;
 import models.graphbased.directed.bpmn.elements.Gateway;
+import models.graphbased.directed.bpmn.elements.SubProcess;
 import models.graphbased.directed.bpmn.elements.Swimlane;
+
 import org.xmlpull.v1.XmlPullParser;
 
 public abstract class BpmnAbstractGateway extends BpmnIncomingOutgoing {
@@ -86,4 +88,8 @@ public abstract class BpmnAbstractGateway extends BpmnIncomingOutgoing {
 	public abstract void unmarshall(BPMNDiagram diagram, Map<String, BPMNNode> id2node, Swimlane lane);
 
 	public abstract void unmarshall(BPMNDiagram diagram, Collection<String> elements, Map<String, BPMNNode> id2node, Swimlane lane);
+	
+	public abstract void unmarshall(BPMNDiagram diagram, Map<String, BPMNNode> id2node, SubProcess subProcess);
+
+	public abstract void unmarshall(BPMNDiagram diagram, Collection<String> elements, Map<String, BPMNNode> id2node, SubProcess subProcess);
 }

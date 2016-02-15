@@ -10,6 +10,7 @@ import models.graphbased.directed.bpmn.elements.Event;
 import models.graphbased.directed.bpmn.elements.Event.EventTrigger;
 import models.graphbased.directed.bpmn.elements.Event.EventType;
 import models.graphbased.directed.bpmn.elements.Event.EventUse;
+import models.graphbased.directed.bpmn.elements.SubProcess;
 import models.graphbased.directed.bpmn.elements.Swimlane;
 import org.xmlpull.v1.XmlPullParser;
 
@@ -59,6 +60,10 @@ public class BpmnEvent extends BpmnIncomingOutgoing {
 		id2node.put(id, diagram.addEvent(name, eventType, eventTrigger, eventUse, lane, isInterrupting, null));
 	}
 	
+	public void unmarshall(BPMNDiagram diagram, Map<String, BPMNNode> id2node, SubProcess subProcess) {
+		id2node.put(id, diagram.addEvent(name, eventType, eventTrigger, eventUse, subProcess, isInterrupting, null));
+	}
+	
 	public void unmarshall(BPMNDiagram diagram, Map<String, BPMNNode> id2node, Swimlane lane, Activity boundaryNode) {
 		id2node.put(id, diagram.addEvent(name, eventType, eventTrigger, eventUse, lane, isInterrupting, boundaryNode));
 	}
@@ -71,11 +76,19 @@ public class BpmnEvent extends BpmnIncomingOutgoing {
 		}
 	}
 	
+	public void unmarshall(BPMNDiagram diagram, Collection<String> elements, Map<String, BPMNNode> id2node, SubProcess subProcess) {
+		if (elements.contains(id)) {
+			Event event = diagram.addEvent(name, eventType, eventTrigger, eventUse, subProcess, isInterrupting, null);
+			event.getAttributeMap().put("Original id", id);
+			id2node.put(id, event);
+		}
+	}
+	
 	public void unmarshall(BPMNDiagram diagram, Collection<String> elements, Map<String, BPMNNode> id2node, Swimlane lane, Activity boundaryNode) {
 		if (elements.contains(id)) {
-			Event startEvent = diagram.addEvent(name, eventType, eventTrigger, eventUse, lane, isInterrupting, boundaryNode);
-			startEvent.getAttributeMap().put("Original id", id);
-			id2node.put(id, startEvent);
+			Event event = diagram.addEvent(name, eventType, eventTrigger, eventUse, lane, isInterrupting, boundaryNode);
+			event.getAttributeMap().put("Original id", id);
+			id2node.put(id, event);
 		}
 	}
 	

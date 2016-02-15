@@ -8,6 +8,7 @@ import models.graphbased.directed.bpmn.BPMNDiagram;
 import models.graphbased.directed.bpmn.BPMNNode;
 import models.graphbased.directed.bpmn.elements.CallActivity;
 import models.graphbased.directed.bpmn.elements.DataAssociation;
+import models.graphbased.directed.bpmn.elements.SubProcess;
 import models.graphbased.directed.bpmn.elements.Swimlane;
 import org.xmlpull.v1.XmlPullParser;
 
@@ -120,10 +121,46 @@ public class BpmnCallActivity extends BpmnIncomingOutgoing{
 
         id2node.put(id, activity);
     }
+    
+    public void unmarshall(BPMNDiagram diagram, Map<String, BPMNNode> id2node, SubProcess subProcess) {
+        CallActivity activity = diagram.addCallActivity(name, false, false, false, false, false, subProcess);
+
+        if(ioSpecification != null) {
+            Collection<BpmnId> dataIncomings = ioSpecification.getDataInputs();
+            for(BpmnId dataIncoming : dataIncomings) {
+                id2node.put(dataIncoming.getId(), activity);
+            }
+            Collection<BpmnId> dataOutgoins = ioSpecification.getDataOutputs();
+            for(BpmnId dataOutgoing : dataOutgoins) {
+                id2node.put(dataOutgoing.getId(), activity);
+            }
+        }
+
+        id2node.put(id, activity);
+    }
 
     public void unmarshall(BPMNDiagram diagram, Collection<String> elements, Map<String, BPMNNode> id2node, Swimlane lane) {
         if (elements.contains(id)) {
             CallActivity activity = diagram.addCallActivity(name, false, false, false, false, false, lane);
+
+            if(ioSpecification != null) {
+                Collection<BpmnId> dataIncomings = ioSpecification.getDataInputs();
+                for(BpmnId dataIncoming : dataIncomings) {
+                    id2node.put(dataIncoming.getId(), activity);
+                }
+                Collection<BpmnId> dataOutgoins = ioSpecification.getDataOutputs();
+                for(BpmnId dataOutgoing : dataOutgoins) {
+                    id2node.put(dataOutgoing.getId(), activity);
+                }
+            }
+            activity.getAttributeMap().put("Original id", id);
+            id2node.put(id, activity);
+        }
+    }
+    
+    public void unmarshall(BPMNDiagram diagram, Collection<String> elements, Map<String, BPMNNode> id2node, SubProcess subProcess) {
+        if (elements.contains(id)) {
+            CallActivity activity = diagram.addCallActivity(name, false, false, false, false, false, subProcess);
 
             if(ioSpecification != null) {
                 Collection<BpmnId> dataIncomings = ioSpecification.getDataInputs();
