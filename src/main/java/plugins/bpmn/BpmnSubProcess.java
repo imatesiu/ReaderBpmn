@@ -21,6 +21,7 @@ import models.graphbased.directed.bpmn.elements.Gateway.GatewayType;
 import models.graphbased.directed.bpmn.elements.SubProcess;
 import models.graphbased.directed.bpmn.elements.Swimlane;
 import models.graphbased.directed.bpmn.elements.TextAnnotation;
+
 import org.xmlpull.v1.XmlPullParser;
 
 public class BpmnSubProcess extends BpmnIncomingOutgoing {
@@ -162,6 +163,7 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
 			intermediateEvents.add(intThrowEvent);
 			return true;
 		} else if (xpp.getName().equals("ioSpecification")) {
+			ioSpecification = new BpmnInputOutputSpecification("ioSpecification");
 			ioSpecification.importElement(xpp, bpmn);
 			return true;
 		} else if (xpp.getName().equals("dataInputAssociation")) {
@@ -184,6 +186,21 @@ public class BpmnSubProcess extends BpmnIncomingOutgoing {
 			association.importElement(xpp, bpmn);
 			associations.add(association);
 			return true;
+		}else if (xpp.getName().equals("serviceTask")) {
+            BpmnServiceTask task = new BpmnServiceTask("serviceTask");
+            task.importElement(xpp, bpmn);
+            tasks.add(task);
+            return true;
+        } else if (xpp.getName().equals("sendTask")) {
+            BpmnSendTask task = new BpmnSendTask("sendTask");
+            task.importElement(xpp, bpmn);
+            tasks.add(task);
+            return true;
+		}else if (xpp.getName().equals("receiveTask")) {
+			BpmnReceiveTask task = new BpmnReceiveTask("receiveTask");
+            task.importElement(xpp, bpmn);
+            tasks.add(task);
+            return true;
 		}
 		/*
 		 * Unknown tag.

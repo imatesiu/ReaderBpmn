@@ -180,6 +180,11 @@ public class BpmnProcess extends BpmnIdName {
             task.importElement(xpp, bpmn);
             tasks.add(task);
             return true;
+		}else if (xpp.getName().equals("receiveTask")) {
+			BpmnReceiveTask task = new BpmnReceiveTask("receiveTask");
+            task.importElement(xpp, bpmn);
+            tasks.add(task);
+            return true;
 		}
 		/*
 		 * Unknown tag.

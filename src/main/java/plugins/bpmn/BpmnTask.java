@@ -137,7 +137,13 @@ public class BpmnTask extends BpmnIncomingOutgoing {
 			activity = diagram.addActivity(name, false, false, false, false, false, lane);
 			id2node.put(id, activity);
 		}
-		
+		if(this.getTag()=="sendTask"){
+			activity.setBSend(true);
+		}else if(this.getTag()=="receiveTask"){
+			activity.setBReceive(true);
+		}else if(this.getTag()=="serviceTask"){
+			activity.setBService(true);
+		}
 		if(ioSpecification != null) {
 			Collection<BpmnId> dataIncomings = ioSpecification.getDataInputs();
 			for(BpmnId dataIncoming : dataIncomings) {
@@ -164,6 +170,13 @@ public class BpmnTask extends BpmnIncomingOutgoing {
 			} else {
 				activity = diagram.addActivity(name, false, false, false, false, false, lane);
 				id2node.put(id, activity);
+			}
+			if(this.getTag()=="sendTask"){
+				activity.setBSend(true);
+			}else if(this.getTag()=="receiveTask"){
+				activity.setBReceive(true);
+			}else if(this.getTag()=="serviceTask"){
+				activity.setBService(true);
 			}
 			
 			if(ioSpecification != null) {

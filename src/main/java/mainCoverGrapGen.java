@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.Collection;
 import java.util.Set;
 
 import javax.swing.JFileChooser;
@@ -44,7 +45,7 @@ public class mainCoverGrapGen {
 				if(file.getAbsolutePath().contains(".bpmn")){
 					Bpmn bpmn = new Bpmn(file);
 
-
+					Collection<BPMNDiagram> cb= bpmn.BpmnextractDiagram();
 					BPMNDiagram BPMNdiagram = 	bpmn.BpmnextractDiagram().iterator().next();
 					sp.view(BPMNdiagram);
 					 btpn = new BpmnToPetriNet(BPMNdiagram);
