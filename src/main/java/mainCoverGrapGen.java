@@ -22,6 +22,7 @@ import petrinet.pnml.importing.PnmlImportNet;
 import plugin.sim.DepthFirstSearchLearnPad;
 import plugins.bpmn.Bpmn;
 import plugins.bpmn.trasform.BpmnToPetriNet;
+import eclipse.bpmn.eBPMNReader;
 import framework.util.SimplePanel;
 import framework.util.Util;
 
@@ -45,10 +46,12 @@ public class mainCoverGrapGen {
 				Marking marking = null;
 				BpmnToPetriNet btpn = null;
 				if(file.getAbsolutePath().contains(".bpmn")){
-					Bpmn bpmn = new Bpmn(file);
+					/*Bpmn bpmn = new Bpmn(file);
 
 					Collection<BPMNDiagram> cb= bpmn.BpmnextractDiagram();
-					BPMNDiagram BPMNdiagram = 	bpmn.BpmnextractDiagram().iterator().next();
+					BPMNDiagram BPMNdiagram = 	bpmn.BpmnextractDiagram().iterator().next();*/
+					eBPMNReader bpmn = new eBPMNReader(file);
+					BPMNDiagram BPMNdiagram = bpmn.getBPMNDiagram();
 					sp.view(BPMNdiagram);
 					btpn = new BpmnToPetriNet(BPMNdiagram);
 					pn = (Petrinet) btpn.getPetriNet();
