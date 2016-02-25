@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import models.graphbased.directed.bpmn.BPMNDiagram;
 import models.graphbased.directed.petrinet.Petrinet;
 import models.graphbased.directed.petrinet.PetrinetGraph;
+import models.graphbased.directed.petrinet.PetrinetNode;
+import models.graphbased.directed.petrinet.elements.Place;
 import models.graphbased.directed.transitionsystem.CoverabilityGraph;
 import models.graphbased.directed.transitionsystem.Transition;
 import models.semantics.petrinet.Marking;
@@ -37,7 +39,7 @@ public class mainCoverGrapGen {
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 
 				SimplePanel sp = new SimplePanel();
-				
+
 				File file = fc.getSelectedFile();
 				Petrinet pn = null;
 				Marking marking = null;
@@ -48,42 +50,55 @@ public class mainCoverGrapGen {
 					Collection<BPMNDiagram> cb= bpmn.BpmnextractDiagram();
 					BPMNDiagram BPMNdiagram = 	bpmn.BpmnextractDiagram().iterator().next();
 					sp.view(BPMNdiagram);
-					 btpn = new BpmnToPetriNet(BPMNdiagram);
+					btpn = new BpmnToPetriNet(BPMNdiagram);
 					pn = (Petrinet) btpn.getPetriNet();
 					marking = btpn.getMarking();
 
-					
+
 
 				}else{
 					if(file.getAbsolutePath().contains(".pnml")){
 						PnmlImportNet ipnml = new PnmlImportNet();
-						 Pair<PetrinetGraph, Marking> resulti = ipnml.importFromStream(new FileInputStream(file), file.getName(), file.length());
-						
-						 pn = (Petrinet) resulti.getFirst();
-						 marking = resulti.getSecond();
-						 
-						
+						Pair<PetrinetGraph, Marking> resulti = ipnml.importFromStream(new FileInputStream(file), file.getName(), file.length());
+
+						pn = (Petrinet) resulti.getFirst();
+						marking = resulti.getSecond();
+						if(marking.isEmpty()){
+							Set<PetrinetNode> nodes = pn.getNodes();
+							for (PetrinetNode petrinetNode : nodes) {
+								int inedges =	petrinetNode.getGraph().getInEdges(petrinetNode).size();
+								if(inedges==0){
+									if(petrinetNode instanceof Place){
+										marking = new Marking();
+										marking.add((Place)petrinetNode,1);
+										btpn = new BpmnToPetriNet(null);
+									}
+								}
+							}
+						}
+
+
 					}
 
 
 				}
 
-				 sp.view(pn);
+				sp.view(pn);
 				CGGenerator cg = new CGGenerator();
 				Object[] result = cg.petriNetToCoverabilityGraph(pn,marking);
 				CoverabilityGraph covGraph = (CoverabilityGraph) result[0];
 				CoverabilitySet covSet = (CoverabilitySet) result[1];
 				System.out.println(result);
 
-				
-				
+
+
 				sp.view(covGraph);
 				Set<Transition> v = covGraph.getEdges();
-				
+
 				DepthFirstSearchLearnPad dpslp =new DepthFirstSearchLearnPad(covGraph, btpn.getMap());
-				
+
 				System.out.println(dpslp.toStringCT());
-						System.out.println(dpslp);
+				System.out.println(dpslp);
 
 			}
 		} catch (Exception e) {

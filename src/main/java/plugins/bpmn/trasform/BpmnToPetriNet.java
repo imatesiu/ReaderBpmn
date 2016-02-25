@@ -43,14 +43,16 @@ public class BpmnToPetriNet {
 	public BpmnToPetriNet(BPMNDiagram bpmn){
 		mapPNBP = new HashMap<PetrinetNode,BPMNNode>();
 		mapBPPN = new HashMap<BPMNNode,PetrinetNode>();
-		createPetriNet(bpmn);
+		if(bpmn!=null)
+			createPetriNet(bpmn);
 
 	}
 
 	public BpmnToPetriNet(BPMNDiagram bpmn, boolean exploresub){
 		mapPNBP = new HashMap<PetrinetNode,BPMNNode>();
 		mapBPPN = new HashMap<BPMNNode,PetrinetNode>();
-		createPetriNet(bpmn);
+		if(bpmn!=null)
+			createPetriNet(bpmn);
 		this.exploresub=exploresub;
 	}
 
@@ -89,14 +91,14 @@ public class BpmnToPetriNet {
 
 		translateGateway(bpmn, flowMap, net, parent);
 
-		
+
 
 		if(exploresub){
-				translateSubProcess(bpmn, flowMap, net, marking, parent);
+			translateSubProcess(bpmn, flowMap, net, marking, parent);
 		}else{
 			translateSubProcessNE(bpmn, flowMap, net, marking, parent);
 		}
-		
+
 		translateEvent(bpmn, flowMap, net, marking, parent);
 
 
@@ -262,10 +264,10 @@ public class BpmnToPetriNet {
 					this.subNet);
 			t.setInvisible(true);
 
-			
+
 			mapPNBP.put( t,sub);
 			mapBPPN.put( sub,t);
-			
+
 
 			for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : sub
 					.getGraph().getInEdges(sub)) {
@@ -727,8 +729,8 @@ public class BpmnToPetriNet {
 				}
 				if (e.getEventType().equals(EventType.INTERMEDIATE)
 						&& !e.getEventTrigger().equals(EventTrigger.NONE)) {
-					
-					
+
+
 					Transition t = net.addTransition(sanitizeorid(e.getLabel(),e.getId()), this.subNet);
 
 					if (e.getBoundingNode() == null) {
@@ -754,21 +756,21 @@ public class BpmnToPetriNet {
 								.getGraph().getOutEdges(a)) {
 							if (s instanceof Flow) {
 
-								 ps_pre = flowMap.get(s);
+								ps_pre = flowMap.get(s);
 
 								net.addArc(ps_pre, t, 1, this.subNet);
 							}
 						}
-						
-						
+
+
 						//  un evento di confine
 						BPMNEdge<? extends BPMNNode, ? extends BPMNNode> g = e.getGraph().getOutEdges(e).iterator().next();
 						if (g instanceof Flow && g != null ) {
 							Place ps_post = flowMap.get(g);
-							
-						
+
+
 							net.addArc(t, ps_post, 1, this.subNet);
-							
+
 						}
 
 					}
