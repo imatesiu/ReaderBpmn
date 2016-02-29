@@ -6,7 +6,7 @@ Status project [![Build Status](https://travis-ci.org/imatesiu/ReaderBpmn.svg?br
 
 Maven repo [![Maven Release](https://img.shields.io/github/tag/imatesiu/ReaderBpmn.svg?label=maven)](https://jitpack.io/#imatesiu/ReaderBpmn/v0.1)
 
-
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/imatesiu/readerbpmn/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 
 
