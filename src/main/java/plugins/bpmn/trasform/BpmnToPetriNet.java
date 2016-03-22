@@ -482,7 +482,7 @@ public class BpmnToPetriNet {
 		for (Gateway g : bpmn.getGateways()) {
 			if (parent == g.getParentSubProcess()) {
 				// gateway data-based
-				if (g.getGatewayType().equals(GatewayType.DATABASED)) {
+				if (g.getGatewayType().equals(GatewayType.DATABASED) || g.getGatewayType().equals(GatewayType.INCLUSIVE) || g.getGatewayType().equals(GatewayType.EVENTBASED)) {
 					int i = 0;
 					Map<String, Transition> tranMap = new HashMap<String, Transition>();
 
